@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003css百分比动画.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+		.box{
+			width: 600px;
+			height: 600px;
+			border: 1px solid black;
+			margin: 50px auto;
+			position: relative;
+		}
+		.box2{
+			width: 0;
+			height: 0;
+			border: 40px solid red;
+			border-radius: 40px;
+			position: absolute;
+			animation: sport 4s linear 1s infinite;
+		}
+		@keyframes sport{
+			0%{
+				left: 0;
+				top: 0;
+			}
+			25%{
+				left: 520px;
+				top: 0;
+			}
+			50%{
+				left: 520px;
+				top: 520px;
+			}
+			75%{
+				left: 0;
+				top: 520px;
+			}
+			100%{
+				left: 0;
+				top: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box2">
+			
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006css背景图片开始显示区域.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 600px;
+			margin: 50px auto;
+			list-style: none;
+		}
+		li{
+			width: 200px;
+			height: 200px;
+			border: 10px dashed black;
+			background-image: url("1.jpg");
+			background-repeat: no-repeat;
+			margin-top: 10px;
+			padding-top: 20px;
+			background-size: 100px 100px;
+		}
+		li:nth-child(2){
+			background-origin: border-box;
+		}
+		li:nth-child(3){
+			background-origin: content-box;
+		}
+		li:nth-child(4){
+			background-origin: padding-box;
+		}
+			/*默认内边距开始显示*/
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html lang="en">
+   <head>
+     <meta charset="UTF-8"/>
+     <title>004表格的基本属性.html</title>
+   </head>
+   <body>
+   		<table border="1" width="300px" height="300px" align="center" cellspacing="10px" cellpadding="10px" bgcolor="red"><!--边框大小;表格整体宽度高度；align表格水平方向整体left/right/center;外边距，单元格之间的边距;内边距，单元格边框与单元格内容之间的距离;添加背景色-->
+   			<tr align="center" valign="bottom"><!--整行单元格,align表格水平方向整体left/right/center;valign表格垂直方向top/center/bottom-->
+   				<td align="left" valign="top">A
+			   				<table  border="1" width="100px" height="100px" align="left" bgcolor="white">
+			   					<tr>
+			   						<td>1</td>
+			   						<td>1</td>
+			   						<td>1</td>
+			   					</tr>	
+			   					<tr>
+			   						<td>1</td>
+			   						<td>1</td>
+			   						<td>1</td>
+			   					</tr>
+			   					<tr>
+			   						<td>1</td>
+			   						<td>1</td>
+			   						<td>1</td>
+			   					</tr>   					
+			   				</table>
+			   			</td><!--单元格大小,数字和字母所占像素大小不同，平均分配不均匀。-->
+   				<!--在A单元格中内置表格-->
+   				<td>10</td>
+   				<td>P</td>
+   			</tr>
+   			<tr align="center">
+   				<td>B</td>
+   				<td width="100px" height="100px" align="left" valign="bottom">20</td>
+   				<!--单个单元格，tr和td中谁离元素近听谁的,特定单元格,align表格水平方向整体left/right/center;valign表格垂直方向top/center/bottom，align,valign同时存在时负责对角线方向对齐-->
+   				<td>l</td>
+   			</tr>
+   			<tr align="right" valign="top">
+   				<td>C</td>
+   				<td>30</td>
+   				<td>O</td>
+   			</tr>   			
+   		</table>
+   </body>
+ </html>

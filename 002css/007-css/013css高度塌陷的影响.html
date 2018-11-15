@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013css高度塌陷的影响.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+				background: blue;
+		}
+		.box1 p{
+				width: 100px;
+				background: purple;
+				border: 1px solid black;
+				float: left;
+		}
+		.box2{
+				background: pink;
+		}
+		.box2 p{
+				width: 100px;
+				background: red;
+				border: 1px solid black;
+				/*float: left;*/
+		}
+		.son1{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+			float: left;
+		}
+		.son2{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+		}
+/*<!-- 	由于浮动元素撑不起盒子的高度,会让后面盒子里浮动的元素找前面盒子里浮动的元素,因而会给布局带来混乱 -->*/
+		}
+	</style>
+</head>
+<body>
+
+		<div class="box1">
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+			<p>4</p>
+			<p>5</p>
+			<p>6</p>
+			<p>7</p>
+			<p>8</p>
+			<p>9</p>
+			<p>10</p>
+			<p>11</p>
+		</div>
+		<div class="box2">
+			<p>*1</p>
+			<p>*2</p>
+			<p>*3</p>			
+			<p>*4</p>			
+			<p>*5</p>			
+			<p>*6</p>			
+			<p>*7</p>			
+			<p>*8</p>			
+			<p>*9</p>			
+			<p>*10</p>			
+		</div>
+		<div class="son1"></div>
+		<div class="son2"></div>
+
+</body>
+</html>

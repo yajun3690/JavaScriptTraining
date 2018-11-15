@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007css特性重叠性.html</title>
+	<style type="text/css">
+		body{
+			color: red;
+		}
+		p{
+			color: blue;
+		}
+		.p1{
+			color: purple;
+		}
+		#p1{
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<p class=""p1 id="p1">我是段落</p>
+	<!-- 当多个选择器选中同一个元素,并且设置了相同的属性时,由优先级来决定CSS如何层叠,优先级根据就近原则,就是说谁离被选中的元素近听谁的. -->
+</body>
+</html>

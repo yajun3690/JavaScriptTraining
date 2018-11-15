@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010css扩展菜单练习.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+		.father{
+			width: 400px;
+			height: 600px;
+			border: 1px solid black;
+			margin: 50px auto;
+		}
+		.heard{
+			width: 100%;
+			height: 30px;
+			background: gray;
+		}
+		.content{
+			width: 100%;
+			height: 570px;
+			background: orange;
+		}
+		ul{
+			list-style: none;
+		}
+		.box>li{
+			float: left;
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			margin-left: 25px;
+			text-align: center;
+			background: yellow;
+		}
+		.box2 li{
+			background: pink;
+			opacity: 0;
+			transform: rotateY(180deg);
+			transition: all 1s;
+		}
+		.box>li:hover .box2>li{
+			opacity: 1;
+			transform: rotateY(0deg);
+		}
+		.box:hover .box2>li:nth-child(1){transition-delay: 0ms;}
+		.box:hover .box2>li:nth-child(2){transition-delay: 100ms;}
+		.box:hover .box2>li:nth-child(3){transition-delay: 200ms;}
+		.box:hover .box2>li:nth-child(4){transition-delay: 300ms;}
+		.box:hover .box2>li:nth-child(5){transition-delay: 400ms;}
+		.box:hover .box2>li:nth-child(6){transition-delay: 500ms;}
+		.box2>li:nth-child(6){transition-delay: 0ms;}
+		.box2>li:nth-child(5){transition-delay: 100ms;}
+		.box2>li:nth-child(4){transition-delay: 200ms;}
+		.box2>li:nth-child(3){transition-delay: 300ms;}
+		.box2>li:nth-child(2){transition-delay: 400ms;}
+		.box2>li:nth-child(1){transition-delay: 500ms;}
+
+
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="heard">
+			<ul class="box">
+				<li>一级菜单1
+					<ul class="box2">
+						<li>二级菜单1</li>
+						<li>二级菜单2</li>
+						<li>二级菜单3</li>
+						<li>二级菜单4</li>
+						<li>二级菜单5</li>
+						<li>二级菜单6</li>
+					</ul>
+				</li>
+				<li>一级菜单1
+					<ul class="box2">
+						<li>二级菜单1</li>
+						<li>二级菜单2</li>
+						<li>二级菜单3</li>
+						<li>二级菜单4</li>
+						<li>二级菜单5</li>
+						<li>二级菜单6</li>
+					</ul>
+				</li>
+				<li>一级菜单1
+					<ul class="box2">
+						<li>二级菜单1</li>
+						<li>二级菜单2</li>
+						<li>二级菜单3</li>
+						<li>二级菜单4</li>
+						<li>二级菜单5</li>
+						<li>二级菜单6</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="content">
+			我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+		</div>
+	</div>
+</body>
+</html>

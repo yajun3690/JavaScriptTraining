@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001css属性选择器.html</title>
+	<style type="text/css">
+/*		[title|="kuazhu"]{
+			color: red;
+		}*/
+/*		[title^="kuazhu"]{
+			color: red;
+		}*/
+/*		[title$="kuazhu"]{
+			color: red;*/
+/*		[title*="kuazhu"]{
+			color: red;*/
+		[title~="kuazhu"]{
+			color: red;
+</style>
+</head>
+<body>
+	<a href="#">none</a>
+	<a href="#" title="">title</a>
+	<a href="#" title="kuazhu">title="kuazhu"</a>
+	<a href="#" title="kuazhu-com">title="kuazhu2"</a>
+	<a href="#" title="kuazhu com">title="kuazhu3"</a>
+	<a href="#" title="kuazhu.com">title="kuazhu4"</a>
+	<a href="#" title="fsdfsdfkuazhu">title="kuazhu5"</a>
+	<!-- css2属性值
+	加竖杠|可以找到相同属性值和以属性值开头加-的标签，
+	加~波浪号可以找到包括空格分隔和独立的属性值的标签 
+		 css3属性值
+		加^次方号可以找到相同属性值和以属性值开头的标签,
+		加$钱符号可以找到相同属性值和以属性值结尾的标签，
+		加*星号可以找到所有包含该属性值的的标签
+	-->
+
+</body>
+</html>

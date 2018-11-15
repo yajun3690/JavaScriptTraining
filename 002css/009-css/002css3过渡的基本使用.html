@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002css3过渡的基本使用.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			transition-property: width;
+			transition-duration: 0.5s;
+			transition-delay:2ms;
+		}
+		.box:hover{
+			width: 600px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1 box"></div>
+	<div class="box2 box"></div>
+	<div class="box3 box"></div>
+	<div class="box4 box"></div>
+	<div class="box5 box"></div>
+<!-- 	让元素的状态逐渐的发生变化,过度条件：
+		指定属性，执行时间，触发事件。
+	1，添加transition-property属性来指定那个属性需要过渡,如果有多个属性同时变化,将多个属性用逗号隔开即可。2，给需要过渡的元素添加transition-duration属性来指定过渡的执行时间,如果有多个属性同时变化,将过渡的执行时间用逗号隔开即可。给需要过渡的元素添加一个触发事件(通常是hover),在事件中指定需要过渡的属性的变化值 -->
+</body>
+</html>

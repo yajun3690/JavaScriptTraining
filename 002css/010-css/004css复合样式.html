@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004css复合样式.html</title>
+	<style type="text/css">
+		div{
+			width: 500px;
+			height: 500px;
+			border: 1px solid black;
+			margin: 50px auto
+		}
+		li{
+			width: 100px;
+			height: 100px;
+			margin-top: 20px;
+			margin: 50px auto; 
+			list-style: none;
+		}
+		li:nth-child(1){
+			background: red;
+		}
+		li:nth-child(2){
+			background: yellow;
+			transform: rotate(45deg) translate(50px,50px) scale(2,2);
+		}
+		li:nth-child(3){
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<li></li>
+		<li></li>
+		<li></li>
+	</div>
+</body>
+</html>

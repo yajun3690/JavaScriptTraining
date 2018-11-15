@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007css-margin重叠.html</title>
+	<style type="text/css">
+		.box1{
+			  width: 200px;
+			  height:200px;
+			  background: red;
+			  margin-bottom:50px; 
+			 
+		}
+		.box2{
+			  width: 200px;
+			  height:200px;
+			  background: blue;
+			  margin-top: 50px;	
+		}
+          /*margin上下重叠取最大值*/
+        .father{
+				overflow: hidden;
+				width: 200px;
+				height: 250px;
+				background: #000;
+				margin-bottom: 50px;
+				overflow: hidden;
+        }
+	</style>
+</head>
+<body>
+	<div class="father">
+	<div class="box1"></div>
+	</div>
+	<div class="box2"></div>
+	<!-- 设置BFC包裹起来，不能形成兄弟关系。独立布局环境可以使margin相加。
+	触发BFC的方法：1，float的值不是none。2，position的值不是static或者relative。3，display的值是inline-block、table-cell、flex、table-caption或者inline-flex。4，overflow的值不是visible。-->
+	<!-- 父子元素外边距重叠，比较父子元素最大值，子元素margin消失。 -->
+</body>
+</html>

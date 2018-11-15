@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012css浮动元素高度塌陷.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			border: 1px solid #000;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			float: left;
+/*<!-- 	标准流中的块状元素的默认高度是由内容撑起来的,但是由于浮动元素脱离了标准流，所以浮动的元素是撑不起来父级块状元素的高度的 -->*/
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

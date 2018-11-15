@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015css案例1.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 430px;
+			height: 390px;
+			/*border: 1px solid black;*/
+			margin:50px auto;
+		}
+		.father1{
+			margin-bottom: 5px;
+			overflow: hidden;
+		}
+		.son1{
+			width: 45px;
+			height: 46px;
+			background:rgb(236,95,69);
+			float: left;
+		}
+		.son1:after{
+			display: block;
+			clear: both;
+		}
+		.son2{
+			width: 90px;
+			height: 25px;
+			background:rgb(128,128,128);
+			float: right;
+		}
+		.son2:after{
+			display: block;
+			clear: both;
+		}
+		.son3{
+			width: 360px;
+			height: 20px;
+			background:rgb(129,46,128);
+			float: right;
+		}
+		.son3:after{
+			display: block;
+			clear: both;
+		}
+		.father2{
+			margin-bottom: 5px;
+			overflow: hidden;
+		}
+		.son4{
+			width: 70px;
+			height: 315px;
+			background:rgb(135,206,236);
+			float: right;
+		}
+		.son4:after{
+			display: block;
+			clear: both;
+		}
+		.son5{
+			width: 70px;
+			height: 290px;
+			background:rgb(240,151,151);
+			margin-right: 10px;
+			margin-bottom: 5px;
+			float: right;
+		}
+		.son5:after{
+			display: block;
+			clear: both;
+		}
+		.son6{
+			width: 265px;
+			height: 155px;
+			background:rgb(255,250,152);
+			margin-bottom: 5px;
+			float: left;
+		}
+		.son6:after{
+			display: block;
+			clear: both;
+		}		
+		.son7{
+			width: 265px;
+			height: 125px;
+			background:rgb(255,250,152);
+			margin-top: 5px;
+			float: left;
+		}
+		.son7:after{
+			display: block;
+			clear: both;
+		}		
+		.son8{
+			width: 350px;
+			height: 20px;
+			background:rgb(234,65,44);
+			float: left;
+		}
+		.son8:after{
+			display: block;
+			clear: both;
+		}		
+		.son9{
+			width: 430px;
+			height: 20px;
+			background:rgb(32,69,247);
+		}
+		.son9:after{
+			display: block;
+			clear: both;
+			float: left;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="father1">
+		<div class="son1"></div>
+		<div class="son2"></div>
+		<div class="son3"></div>
+		</div>
+		<div class="father2">
+		<div class="son4"></div>
+		<div class="son5"></div>
+		<div class="son6"></div>
+		<div class="son7"></div>
+		<div class="son8"></div>
+		</div>
+		<div class="father3">
+		<div class="son9"></div>
+		</div>
+	</div>
+</body>
+</html>

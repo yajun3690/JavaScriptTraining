@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002css绝对定位.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			background: red;
+/*			position: relative;
+			left: 100px;
+			top: 100px;*/
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			/*right: 100px;*/
+			/*bottom: 100px;*/
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background: blue;
+/*			position: relative;
+			left: 100px;
+			top: 100px;*/
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			/*right: 100px;*/
+			/*bottom: 100px;*/
+		}
+		.box3{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+/*			position: relative;
+			left: 100px;
+			top: 100px;*/
+			position: absolute;
+			left: 200px;
+			top: 200px;
+			/*right: 100px;*/
+			/*bottom: 100px;*/
+		}		
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<span class="box3">box3</span>
+	<!--
+		移动位置参考父元素，脱离标准流前的位置。 
+		1,四条边的移动距可以写一个,也可以写两个,写两个的时候要注意在同一个方向的只能设置一个边.2,绝对定位元素是脱离标准流的,所以绝对定位元素在标准流中的空间会被释放出来.3,绝对定位元素是脱离标准流的,所以绝对定位元素不区分块状,行内,行内块状. -->
+</body>
+</html>

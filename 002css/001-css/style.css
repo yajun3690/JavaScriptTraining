@@ -1,0 +1,6 @@
+@import url(index.css);
+p{
+	color: tomato;
+	font-size:24px;
+	text-decoration:underline;
+}

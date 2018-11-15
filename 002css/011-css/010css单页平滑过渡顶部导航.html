@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010css单页平滑过渡顶部导航.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<style type="text/css">
+		.page>input,
+		.page>a{
+			position: fixed;
+			top: 0;
+			width: 20%;
+			height: 34px;
+			line-height: 34px;
+			text-align: center;
+		}
+		a{
+			background: red;
+			opacity: 0.8;
+		}
+		html,body{
+			height: 100%;
+		}
+		#ctr1,#ctr1+a{
+			left: 0;
+		}
+		#ctr2,#ctr2+a{
+			left: 20%;
+		}
+		#ctr3,#ctr3+a{
+			left: 40%;
+		}
+		#ctr4,#ctr4+a{
+			left: 60%;
+		}
+		#ctr5,#ctr5+a{
+			left: 80%;
+		}
+		.page>input{
+			z-index: 999;
+			opacity: 0;
+			cursor: pointer;
+			overflow: hidden;
+		}
+		.page>a{
+			z-index: 1;
+			background: black;
+			color: #fff;
+			text-decoration: none; 
+		}
+		.page>input:checked +a{
+			color: #ff4cff;
+		}
+		.page>input:hover +a{
+			background: #111;
+		}
+		.page{
+			height: 100%;
+		}
+		.content{
+			height: 100%;
+			z-index: 0;
+		}
+		.content>.box1{
+			width: 100%;
+			height: 34px;
+			/*border: 1px solid black;*/
+		}
+		.panel{
+			height: 100%;
+		}
+		#ctr1:checked ~ .content #home{
+			animation: sport 1s linear 0s;
+		}
+
+		@keyframes sport{
+			from{
+				opacity: 0;
+			}
+			to{
+				opacity: 1;
+			}
+		}
+		#ctr1:checked ~ .content {
+			transform: translateY(0%);
+		}
+		#ctr2:checked ~ .content {
+			transform: translateY(-100%);
+		}
+		#ctr3:checked ~ .content {
+			transform: translateY(-200%);
+		}
+		#ctr4:checked ~ .content {
+			transform: translateY(-300%);
+		}
+		#ctr5:checked ~ .content {
+			transform: translateY(-400%);
+		}
+		#home{
+			background-image: url(1.jpg);
+			background-size: cover;
+		}
+		#coffee{
+			background-image: url(2.jpg);
+			background-size: cover;
+		}
+		#building{
+			background-image: url(3.jpg);
+			background-size: cover;
+		}
+		#about{
+			background-image: url(4.jpg);
+			background-size: cover;
+		}
+		#contact{
+			background-image: url(5.jpeg);
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<input type="radio" name="raido-set" id="ctr1" ckecked>
+		<a href="#"><i class="fa fa-home" ></i>home</a>
+		<input type="radio" name="raido-set" id="ctr2">
+		<a href="#"><i class="fa fa-coffee"></i>service</a>
+		<input type="radio" name="raido-set" id="ctr3">
+		<a href="#"><i class="fa fa-building"></i>about</a>		
+		<input type="radio" name="raido-set" id="ctr4">
+		<a href="#"><i class="fa fa-users"></i>team</a>
+		<input type="radio" name="raido-set" id="ctr5">
+		<a href="#"><i class="fa fa-phone"></i>contact</a>
+		<div class="content">
+			<div class="panel" id="home"></div>
+			<div class="panel" id="coffee"></div>
+			<div class="panel" id="building"></div>
+			<div class="panel" id="about"></div>
+			<div class="panel" id="contact"></div>
+		</div>
+	</div>
+</body>
+</html>

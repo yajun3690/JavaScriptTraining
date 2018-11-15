@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006css盒模型内外边距.html</title>
+	<style>
+
+/*		div{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			border: solid;
+			/*内边距单一样式*/
+/*			padding-top: 10px;
+			padding-right: 20px;
+			padding-bottom: 30px;
+			padding-left: 40px;*/
+			/*复合样式*/
+			/*padding: 10px 20px 30px 40px;*/
+			/*可省略，用法和border一样*/
+			/*外边距单一样式*/
+/*			margin-top: 1px;
+			margin-right: 1px;
+			margin-bottom: 1px;
+			margin-left: 1px;*/
+			/*复合样式*/
+			/*margin: 30px 30px 30px 30px;*/
+			/*用法同上*/		
+		.father{
+			border: 1px solid #000;
+
+		}
+		.father div{
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			vertical-align:bottom;
+		}
+		.son1{
+				background: yellow;
+			/*外边距单一样式*/
+/*			margin-top: 1px;
+			margin-right: 1px;
+			margin-bottom: 1px;
+			margin-left: 1px;*/
+			/*复合样式*/
+			margin: 30px 30px 30px 30px;
+			/*用法同上	*/
+		}
+		.son2{
+				background: blue;
+				margin: 10px 10px;
+		}
+		.son3{
+				background: red;
+				margin: 10px 10px;
+		}
+		/*1，外边距不会影响元素的宽和高,但是会影响整个元素空间的宽和高。2，外边距没有背景色。3，margin可以取负值,表示相反的方向。4，padding主要是用来设置父元素和子元素之间的距离,margin主要是用来设置元素和元素之间的距离*/
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div>
+		<div class="son2"></div>
+		<div class="son3"></div>
+	</div>
+</body>
+</html>

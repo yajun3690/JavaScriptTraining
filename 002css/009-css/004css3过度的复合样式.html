@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004css3过度的复合样式.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			/*transition-property: width;*/
+			/*transition-duration: 1s;*/
+			/*transition-timing-function: linear;*/
+			transition: width 1s linear 1s; 
+		}
+		.box:hover{
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

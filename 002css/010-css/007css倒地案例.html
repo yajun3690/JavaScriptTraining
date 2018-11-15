@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007css倒地案例.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+		div{
+			width: 400px;
+			height: 400px;
+			margin: 50px auto; 
+			border: 1px solid black;
+			/*transition-duration:2s; */
+			/*transform-origin: center bottom;*/
+			perspective: 500px;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+			transition-duration:2s; 
+			transform-origin: center bottom;
+		}
+		img:hover{
+			transform: rotateX(80deg)
+		}
+	</style>
+</head>
+<body>
+	<div class="box"><img src="1.jpg" alt=""></div>
+</body>
+</html>

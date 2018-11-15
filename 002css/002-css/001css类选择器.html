@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001css类选择器.html</title>
+	<style type="text/css">
+		.teacher{
+			color: red;
+		}
+		.student{
+			color: yellow;
+		}
+		.person{
+			font-size: 24px;
+			text-decoration: underline;
+		}
+
+	</style>
+</head>
+<body>
+	<p class="teacher person">老师1</p>
+	<p class="teacher person">老师2</p>
+	<p class="student person">学生1</p>
+	<p class="student person">学生2</p>
+	<div>
+		<div>
+			<ul>
+				<li>
+					<p class="teacher person">老师3</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<span class=" teacher person">我是老师4</span>
+	<!-- 可以给不同标签添加同一个class,class命名可以英文+下划线+数字。不可以将数字放在最前面，不用html做class名称,删除重复代码，代码从上往下覆盖。 -->
+</body>
+</html>

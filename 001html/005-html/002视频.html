@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002视频.html</title>
+</head>
+<body>
+	<video src="../soruce/s1.ogg" 
+	autoplay
+	controls
+	poster="图片位置"
+	loop 
+    preload
+    muted 
+	>
+	autoplay: 是否需要自动播放视频与preload冲突
+ 	controls进度条
+	poster 给视频添加一个起始图片
+	loop 循环播放
+    preload 预缓存
+    muted 默认静音
+
+    <video autoplay controls>
+    	<source src="" type="video/webm">
+    	<source src="" type="video/mp4">
+    	<source src="../source/s1.ogg" type="video/ogg">
+    	格式2是为了解决浏览器适配问题,因为没有一种视频格式是所有浏览器都支持的<br>
+    	video支持三种视频格式, 我们可以把这三种格式都通过source标签指定给video标签, 那么以后当浏览器播放视频时它就会从这三种中选择一种自己支持的格式来播放<br>
+    	不管是格式1还是格式2都需要浏览器支持HTML5,如果不支持,需要引入相应的框架,如:https://html5media.info/
+    </video>
+    <audio autoplay src="../source/a1.mp3">
+    	
+    </audio>
+		
+	</video>
+</body>
+</html>

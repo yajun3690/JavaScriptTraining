@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006css3手风琴.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+		ul{
+			width: 1000px;
+			height: 500px;
+			border: 1px solid black;
+			margin:50px auto;
+			list-style: none;
+			overflow: hidden;
+		}
+		ul li{
+			width: 200px;
+			height: 500px;
+			float: left;
+			background: red;
+			transition: width 1s linear;
+		}
+		ul li img{
+			height: 100%;
+		}
+		ul:hover li{
+			width: 80px;
+		}
+		/*设置图片压缩宽度*/
+		ul li:hover{
+			width: 600px;
+		}
+		/*设置停留图片大小*/
+	</style>
+</head>
+<body>
+	<ul>
+		<li><img src="1.jpg" alt=""></li>
+		<li><img src="2.jpg" alt=""></li>
+		<li><img src="6.jpg" alt=""></li>
+		<li><img src="4.jpg" alt=""></li>
+		<li><img src="5.jpg" alt=""></li>
+	</ul>
+</body>
+</html>

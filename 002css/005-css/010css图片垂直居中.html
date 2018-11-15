@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010css图片垂直居中.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 600px;
+			height:600px;
+			border:1px solid #000;
+			margin: 50px auto;
+			/*向上50，左右自动*/
+			line-height: 600px;
+		}
+		img{
+			vertical-align: baseline;
+			/* baseline(默认),基线对齐,使元素的基线同父元素的基线对齐，对准基线*/
+			/*vertical-align: middle;*/
+			/*middle,中间对齐,使元素在垂直方向的中线与文本行的中线对齐*/
+			 /*vertical-align: top; */
+			 /*父元素顶部对齐*/
+			 /*vertical-align: text-top; */
+			 /*text-top,文本顶端对齐,使元素的顶部同父元素的文本的顶线对齐*/
+			/*vertical-align: bottom;*/
+			/*bottom,底部对齐,使元素的底部同父元素的底部对齐*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box">我是文字X
+		<img src="9.jpg">
+	</div>
+</body>
+</html>
+<!-- 文字加图片，文字行高和设置高度一致，此时父元素四条线分割，文字加空白等于此时行高。图片设置中线对齐。这时均对准盒子中间。 -->

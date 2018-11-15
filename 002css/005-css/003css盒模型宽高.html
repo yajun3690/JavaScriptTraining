@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003css盒模型宽高.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			border: 1px solid #000; 
+			width:300px;
+			height: 100px;
+		}
+		.father div{
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+		}
+		.son1{
+			background: red;
+		}
+		.father .son2{
+/*			background: blue;
+			width: 60px;
+			height: 60px;
+			margin: 10px;
+			padding: 10px;
+			box-sizing: content-box;*/
+			/*标准盒模型*/
+			background: blue;
+			width: 60px;
+			height: 60px;
+			margin: 20px;
+			box-sizing: border-box;
+			/*IE盒模型，默认分配内边距内容宽高*/
+
+		}
+		.son3{
+			background: purple;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div><div class="son2"></div><div class="son3"></div>
+	</div>
+</body>
+</html>

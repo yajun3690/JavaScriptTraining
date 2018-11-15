@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004css元素自身水平居中.html</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.father{
+			width: 200px;
+			height:200px;
+			background: gray;
+			/*margin-left: 583px;*/
+			/*margin-left: auto;
+			margin-right: auto;*/
+			margin: 0 auto;
+			overflow: hidden;
+			padding: 50px 50px;
+			box-sizing: border-box;
+		}
+		.son{
+			width: 100px;
+			height:100px;
+			background: red;
+			/*margin:50px;*/
+		}
+		/*1,设置父元素padding，加boxsizing,设置BFC，overflow.
+		2，设置子元素margin,注意,垂直居中不可以通过auto的方法*/
+
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

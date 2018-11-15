@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009css优先级直接选中.html</title>
+	<style type="text/css">
+/*	#s555{
+		color: 
+		black;
+	}*/
+	ul{
+		color: white;
+	}
+	li{
+		color: blue;
+	}
+	.h123{
+		color: red;
+	}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<p class="h123" id="s555">123</p>
+		</li>
+	</ul>
+	<!-- ID选择器>类选择器>标签选择器>通用选择器>继承间接选中>浏览器默认的样式  -->
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011css正方体轮播图.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+		body{
+			perspective: 500px;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			margin: 200px auto;
+			animation: sport 4s linear infinite;
+			transform-style: preserve-3d;
+			position: relative;
+			transform: rotateX(0deg) rotateY(0deg);
+		}
+		.father>div{
+			width: 200px;
+			height: 200px;
+			text-align: center;
+			line-height: 200px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		@keyframes sport{
+			from{
+				transform: rotateX(0deg); 
+			}
+			to{
+				transform: rotateX(360deg);				
+			}
+		}
+		.father>div:nth-child(1){
+			background: yellow;
+
+			transform: translateX(-100px) rotateY(90deg) ;
+		}
+		.father>div:nth-child(2){
+			background: blue;
+			transform: translateX(100px) rotateY(90deg) ;
+		}
+		.father>div:nth-child(3){
+			background: pink;
+			transform: translateY(100px) rotateX(90deg) ;
+		}
+		.father>div:nth-child(4){
+			background: red;
+			transform: translateY(-100px) rotateX(90deg) ;
+		}
+		.father>div:nth-child(5){
+			background: purple;
+			transform: translateZ(-100px);
+		}
+		.father>div:nth-child(6){
+			background: orange;
+			transform: translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+	</div>
+</body>
+</html>

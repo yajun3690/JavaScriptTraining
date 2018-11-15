@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007css行高和基线.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			border: 0px solid #000;
+			font-size: 20px;
+			line-height: 22px;
+		}
+	</style>
+
+</head>
+<body>
+	<div>
+		1,行高指的是每行内容的高度,可以通过设置line-height属性来改变行高,
+		2,没设置高度时，盒子高度由文字撑起来，单行时盒子高度等于行高
+		3,其实网页中的文字可以想象为显示在四线各种,而四线格中底部倒数第二条线就是基线(是英文字母“x”的下端沿)
+		4,顶线和底线之间的高度就是文字的高度,由font-size来设置,称为内容区
+		5,其实行高是由内容区与以内容区为基础对称拓展的空白区域组成,如果给元素设置了行高,四线格的高度还是文字的高度
+
+	</div>
+</body>
+</html>

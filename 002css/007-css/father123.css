@@ -1,0 +1,69 @@
+		.father1{
+			margin-bottom: 5px;
+			overflow: hidden;
+		}
+		.son1{
+			width: 45px;
+			height: 46px;
+			background:rgb(236,95,69);
+			float: left;
+		}
+		.son2{
+			width: 90px;
+			height: 25px;
+			background:rgb(128,128,128);
+			float: right;
+		}
+		.son3{
+			width: 360px;
+			height: 20px;
+			background:rgb(129,46,128);
+			float: right;
+		}
+		.father2{
+			margin-bottom: 5px;
+			overflow: hidden;
+		}
+		.son4{
+			width: 70px;
+			height: 315px;
+			background:rgb(135,206,236);
+			float: right;
+		}
+		.son5{
+			width: 70px;
+			height: 290px;
+			background:rgb(240,151,151);
+			margin-right: 10px;
+			margin-bottom: 5px;
+			float: right;
+		}
+		.son6{
+			width: 265px;
+			height: 155px;
+			background:rgb(255,250,152);
+			margin-bottom: 5px;
+			float: left;
+		}
+		.son7{
+			width: 265px;
+			height: 125px;
+			background:rgb(255,250,152);
+			margin-top: 5px;
+			float: left;
+		}
+		.son8{
+			width: 350px;
+			height: 20px;
+			background:rgb(234,65,44);
+			float: left;
+		}
+		.father3{
+			margin-bottom: 5px;
+			overflow: hidden;
+		}	
+		.son9{
+			width: 430px;
+			height: 20px;
+			background:rgb(32,69,247);
+		}

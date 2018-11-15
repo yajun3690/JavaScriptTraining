@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007css长单词换行处理.html</title>
+	<style type="text/css">
+		p{
+			width: 100px;
+			background: #ff00ff;
+			word-wrap: normal;
+			/*一个单词长度超出宽度不换行*/
+			/*word-wrap: break-word;*/
+			/*在单词尾部换行*/
+			/*word-break: normal;*/
+			/*浏览器默认换行，在单词尾部换行，下个单词。*/
+			word-break: break-all;
+			/*在超出宽度单词内部换行*/
+		}
+	</style>
+</head>
+<body>
+	<p>
+		gfhfghfsdfdfsdfdghf ghfghfghfghfg ghfghfgh
+	</p>
+</body>
+</html>

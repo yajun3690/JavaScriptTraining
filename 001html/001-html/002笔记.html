@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<!-- 版本标签，告诉浏览器用哪个版本编写，不写会以低版本浏览器标准渲染编-->
+<html lang="en">
+ <!--起始标签（加入文字类型）根标签,属性名，属性值  laguage的缩写（中文zh，简体中文zh-cn英语en...）-->
+  <head><!--（网站配置信息）-->
+     <meta charset="UTF-8"/>  
+     <!--元标签，描述页面数据；charset,字符集：翻译语言内容, GBK 体积小，只能翻译汉语和少量外文，翻译速度快，UTF-8，体积大，翻译世界所有语言,可以解决乱码问题） mata单标签-->
+     <meta http-equiv="refresh" content="999999;url=http://baidu.cn/">   <!--(页面跳转停留999999秒跳转百度)-->  
+     <meta http-equiv="X-UA-Compatuble" content="IE=edge,chrome=1"><!--(渲染引擎,版本内核)-->
+     <meta name="keyword" content=""/><!--keyword关键字 也可以写成keywords给搜索引擎看，搜索关键字可以搜索到网站-->
+     <meta name="description" content="描述"/>  <!--告诉搜索引擎当前网页的主要内容,在SEO中非常重要,当别人在搜索引擎中搜索到你的网站时会自动该描述信息展示给用户, 能够提高搜索命中率, 让别人更容易找到你。-->
+     <meta name="author" content="张三"/><!--告诉搜索引擎当前网页的作者-->
+     <meta name="renderer" content="webkit/trident/blink/gecko" />  <!--告诉浏览器，用什么内核进行解析，主要用来指定双内核浏览器的默认渲染方式,当然前提是浏览器有相应的内核才可以,一般需要参考浏览器的开发文档-->
+     <title>笔记</title>
+  </head>
+   <body><!--编写规则：一个页面只能有一个body-->
+    <p>五大主流浏览器，四种内核<br>IE(微软)内核:Trident（也称IE内核）<br>Firefox(火狐)内核：Gecko  (也称Firefox内核)<br>Google chrome(搜狗)内核：blink<br>Safari(苹果)内核：webkit<br>opera(opera)内核：blink
+    </p>
+    <h2>一.基础标签（单标签）</h2>
+      ①标题标签h1
+      <br>
+      ②段落标签p
+      <br>
+      ③换行标签br
+      <br>
+      ④水平标尺hr
+      <br>
+      标题标签是用来给文字添加标题语义的,而不是改变文字的样式的
+      <br>
+      语义化的意义:
+      <br>
+      用正确的标签做正确的事情,让页面的内容结构化，便于对浏览器、搜索引擎解析
+      <br>
+      搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重,利于 SEO
+      便于阅读维护理解
+      <br>
+      html不是用来显示样式的,默认样式是在没有CCS情况下也以一种文档格式显示，并且是容易阅读的
+      <hr>
+    <h2>二.格式标签（双标签）</h2>
+      <h3>1.旧格式标签</h3>
+        <u>①加粗的文字b</u>
+        <br>
+        <s>②给文字添加下划线u</s>
+        <br>
+        <b>③倾斜的文字i</b>
+        <br>
+        <i>④给文字添加删除线s</i>
+        <br>
+        以上标签没有任何语义,已经被HTML5废弃掉,如果一定要使用,   一般情况下都是用来作为CSS的钩子来使用
+        <hr>
+      <h3>2.新格式标签（双标签）</h3>
+        <strong>①定义重要性强调的文字strong代替b</strong>
+            <br>
+            <ins>②定义插入的文字ins代替u</ins>
+            <br>
+            <em>③定义强调的文字em代替i</em>
+        <br>
+        <del>④定义被删除的文字del代替s</del>
+        <br>
+        ⑤h<sub>2</sub>o给文字添加下标sub
+        <br>
+        ⑥h<sup>2</sup>0给文字添加上标sup 
+         <br>
+        以上是HTML5新增的标签,具有一定的语义,用来代替旧标签
+        <hr>
+    <h2>三.列表标签（双标签）</h2>
+      <h3>1.无序列标签ul</h3>
+        <ul>
+          <li>无序标题</li>
+         <li>无序标题</li>
+         <li>无序标题</li>
+         <li>无序标题</li>
+        </ul>
+       <br>
+       作用是给内容添加无序列表语义，主要用在导航条，商品列表，新闻列表等场景
+       <hr>
+   </body>
+ </html>

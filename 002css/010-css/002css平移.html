@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002css平移.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+		ul{
+			width: 500px;
+			height: 500px;
+			border: 1px solid black;
+			margin: 50px auto
+		}
+		li{
+			list-style: none;
+			width: 100px;
+			height:100px;
+			margin: 20px auto;
+		}
+		li:nth-child(1){
+			background: blue;
+			margin-top: 20px;
+		}
+		li:nth-child(2){
+			background: red;
+			margin-top: 20px;
+			transform: translate(100px,100px);
+		}
+		li:nth-child(3){
+			background: purple;
+			margin-top: 20px;
+			transform: translate(70%,70%);
+		}
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<!-- 格式: transform: translate(水平方向移动距离,垂直方向移动距离);移动距离可以是负数,负数代表向反反向移动, -->
+</body>
+</html>

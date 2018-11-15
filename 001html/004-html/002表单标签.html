@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>002表单标签.html</title>
+</head>
+<body>
+	<form action="https://baidu.com" method="">
+		<h1>用户注册</h1>
+		<p>
+			<label for="username">
+			账号：
+			</label>
+			<input type="text" name="username" placeholder="请输入账号" id="username"><!--指定文本框，for中填写锁定id-->
+		</p>
+		<p>
+			<label for="password">
+			密码：		
+			</label>
+			<input type="password" name="password" placeholder="请输入密码" id="password" >
+		</p>
+		<p>性别：
+			<input type="radio" name="sex" value="1" checked>男
+			<input type="radio" name="sex" value="2">女
+		</p>
+		<p>我选谁？
+			<input type="checkbox" name="select" value="1" checked>1,小红
+			<input type="checkbox" name="select" value="2">2，小绿
+			<input type="checkbox" name="select" value="3">3，小蓝
+		</p>
+		<p>
+			所在城市：
+			<select name="city">
+				<optgroup label="直辖市">
+					<option value="bj">北京</option>
+					<option value="sh" selected>上海</option>
+					<option value="sz">深圳</option>
+				</optgroup>
+				<optgroup label="省会">
+					<option value="bj">郑州</option>
+					<option value="sh">西安</option>
+					<option value="sz">大唐</option>
+				</optgroup>
+			</select>
+		</p>
+		<p>
+		<input type="button" value="按钮">
+		<input type="email" name="email">
+		<input type="image" src="9.jpg">
+		</p>
+		<p>
+			自我介绍：<br>
+			<textarea cols="20" rows="10"></textarea>
+		</p>
+		<p>
+		<input type="submit" value="提交">
+		<input type="reset" value="重置">
+		</p>
+		
+	</form>
+</body>
+</html>

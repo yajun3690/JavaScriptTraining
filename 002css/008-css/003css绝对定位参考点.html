@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003css绝对定位参考点.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father1{
+			width: 600px;
+			height: 600px;
+			border: 1px solid #000;
+			margin-left: 50%;
+			background: #456465;
+			position: absolute;
+			left: 0;
+			top: 0;	
+		}
+		.father2{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #456;
+			background: #510;
+			margin-left: 50%;
+			/*margin-top: 50%;*/
+			/*position: absolute;*/
+			/*left: 10px;*/
+			/*top: 10px;*/
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #851;
+			background: #681;
+			position: absolute;
+			left: 0;
+			top: 0;		
+		}
+	</style>
+</head>
+<body>
+	<div class="father1">
+		<div class="father2">
+			<div class="son"></div>
+		</div>
+	</div>
+	<!-- 1，找到父元素写position的元素为参考点，若都没有，则以body为参考点。2，从padding开始参考。3,父元素的margin/border的值对绝对定位的子元素的位置没有影响,绝对定位的子元素是从父元素的padding区域开始参考的,但如果相对于body,始终相当于相对于浏览器的首屏的可视区域 -->
+</body>
+</html>

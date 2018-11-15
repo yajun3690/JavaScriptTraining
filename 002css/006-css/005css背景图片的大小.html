@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005css背景图片的大小.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		ul{
+			width: 600px;
+			margin: 10px auto;
+		}
+		li{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			margin-top: 10px;
+			background-image:url("1.jpg");
+			background-repeat: no-repeat;
+		}
+		li:nth-child(2){
+			background-size: 100px 100px;
+		}
+		li:nth-child(3){
+			background-size: 100% 100%;
+		}
+		li:nth-child(4){
+			background-size: 150px auto;
+			/*等比例缩放,先写宽度，高度可以不写auto。*/
+		}
+		li:nth-child(5){
+			width: 300px;
+			height: 200px;
+			background-size: cover;
+			/*宽高均拉满*/
+		}
+		li:nth-child(6){
+			background-size: contain;
+			/*当一个方向填满时停止*/
+		}
+		li:nth-child(7){
+
+		}
+	</style>
+</head>
+<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+</body>
+</html>

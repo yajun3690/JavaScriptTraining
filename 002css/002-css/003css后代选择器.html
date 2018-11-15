@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003css后代选择器.html</title>
+	<style type="text/css">
+		.father .son p{
+			color: rgb(255,0,0);
+		}
+	</style>
+</head>
+<body>
+	   <div class="father">
+	   		<div class="son">
+	   		    我是文本
+	   		    <p>1</p>
+	   		    <div>
+	   		    	<p>文本</p>
+	   		    </div>	
+	   		    <p>2</p>	
+	   		</div>
+	   		<p>1</p>
+	   		<!-- 上述格式的意思就是先找到选择器1选中的元素,然后再找选择器1选中元素里面所有的选择器2选中的元素,选择器和选择器之间至少有一个空格,一般就打一个空格,除了标签之外,还可以写其他的选择器,比如类,ID,后代选择器可以一直写下去 -->
+	   	</div>	
+</body>
+</html>

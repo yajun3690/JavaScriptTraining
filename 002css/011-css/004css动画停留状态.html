@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004css动画停留状态.html</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin: 100px auto;
+			animation: sport 2s linear 1s;
+			animation-fill-mode: both;
+		}
+		@keyframes sport{
+			0%{
+				transform: rotate(10deg); 
+			}
+			25%{
+				transform: rotate(30deg);
+			}
+			70%{
+				transform: rotate(50deg);
+			}
+			100%{
+				transform: rotate(80deg);
+			}
+
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001css显示模式的转换.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			border: 1px solid black;
+			width: 200px;
+			height: 100px;
+			margin: 30px;
+		}
+		span.box1{
+			display: block;
+			/*转换块状*/
+			/*display: inline;*/
+			/*转换行内*/
+			/*display: inline-block;*/
+			/*转换行内块状*/
+			vertical-align: 
+/*			是用来设置元素的垂直对齐方式的
+			注意,只有行内块状元素设置vertical-align属性才w有效,图片默认就是行内块状元素*/
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box1">div1</div>
+	<div class="box1">div2</div>
+	<span class="box1">span1</span>
+	<span class="box1">span2</span>
+	<img class="box1" src="1.jpg" alt="">
+	<img class="box1" src="2.jpeg" alt="">
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010背景图片和图片标签的区别.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 600px;
+			height: 300px;
+			border: 1px solid #000;
+			margin-bottom: 20px;
+			background-image: url("9.jpg");
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div>
+		hello
+		<img src="1.jpg" alt="1">
+	</div>
+<!-- 	背景图片不占用盒子空间，没有语义，可以在上面写字
+	图片标签占空间，有语义。 -->
+</body>
+</html>

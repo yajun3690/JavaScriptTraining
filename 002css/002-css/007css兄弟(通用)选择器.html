@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007css兄弟(相邻&通用)选择器.html</title>
+	<style type="text/css">
+		.li2~li{
+			color: red;
+		}
+		.txt1+span+p{
+			color: red;
+		}	
+		.txt1+p{
+			color: red;
+		}	
+	</style>
+</head>
+<body>
+	<div class="txt">1</div>
+	<p class="txt1 txt2">2</p>
+	<span class="txt txt2">3</span>
+	<p>4</p>
+	<p class="txt ">5</p>
+	<div class="txt2">12</div>
+	<ul>
+		<li>li1</li>
+		<li class="li2">li2</li>
+		<p>132131</p>
+		<li>li3</li>
+		<li>li4</li>
+		<li>li5</li>
+<!-- 		1，兄弟选择器：+  多个选择器相加，落在最后一个。2，若选择器相加的中间有其他标签则不能选择。
+		3，通用选择器：~  当下面一个不是该选择器时跳过该选择器，选择下面所有该标签选择器。 -->
+	</ul>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001css相对定位.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*margin-left: 50px;*/
+			float: left;
+			position: relative;
+			left: 0px;
+			/*right: -100px;*/
+			top: 0px;
+			/*bottom: -100px;*/
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			float: left;
+			position: relative;
+			left: 100px;
+			top: 100px;
+		}
+		.box4{
+			width: 100px;
+			height: 100px;
+			background: purple;
+			float: left;
+			/*position: relative;*/
+			/*left: 100px;*/
+			/*top: 100px;*/
+		}
+		.box3{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+			/*margin-left: 50px;*/
+			/*float: left;*/
+			/*position: relative;*/
+			/*left: 200px;*/
+			/*top: 200px;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box4"></div>
+	<span class="box3">gdfgdfgdfg</span>
+	<!-- position: relative;left: 100px;top: 100px;单写position: relative;不会显示，必须加上定位，数值可以为负，移动值为上下左右边离网页左上点的距离,左上为正，右下为负，2，相对定位元素是不脱离标准流的,所以相对定位元素在标准流当中的空间不会释放出来3，相对定位元素是不脱离标准流的,所以相对定位元素区分块状，行内，行内块状4，如果元素有margin/border/padding值，相对定位是在margin/border/padding值生效后起作用相对定位元素主要用来对对元素进行微调和设置绝对定位的参考元素 -->
+</body>
+</html>

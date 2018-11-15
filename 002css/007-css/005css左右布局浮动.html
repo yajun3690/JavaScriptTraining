@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005css左右布局浮动.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+				width: 600px;
+				height: 600px;
+				margin: 50px auto;
+				border: 1px solid black;
+		}
+		.son1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				float: left;
+		}
+		.son2{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				float: right;
+				/*贴附在父元素右边*/
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div>
+		<div class="son2"></div>
+	</div>
+</body>
+</html>

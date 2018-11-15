@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001css唯品会案例.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+		li{
+			list-style: none;
+		}
+		header{
+			position: fixed;
+			left: 50%;
+			top: 50px;
+			width: 800px;
+			height: 50px;
+			margin-left: -400px;
+			background: gray;
+			z-index: 999;
+		}
+		header ul li{
+			float: left;
+			width: 160px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+		}
+		header ul li:nth-child(3){
+			background: red;
+		}
+		header ul li:nth-child(3) img{
+			position: absolute;
+			left: 380px;
+			top: -13px;
+
+		}
+		.course1{
+			position: relative;
+			left: -400px;
+			margin-left: 50%;
+			width: 800px;
+			height: 800px;
+			background: transparent;
+			margin-top: 150px;
+		}
+		.course1 img{
+			position: relative;
+			left: -380px;
+			margin-left: 50%;
+		}
+		.course1 .arrow{
+			display: inline-block;
+			width: 40px;
+			height: 80px;
+			line-height: 40px;
+			background: rgba(0,0,0,0.6);
+			font-size: 30px;
+			text-align: center;
+			line-height: 80px;
+		}
+		.course1 .left-area{
+			position: absolute;
+			top: 50%;
+			margin-top:-220px;
+			margin-left: 20px; 
+		}
+		.course1 .right-area{
+			position: absolute;
+			top: 50%;
+			left: 92.5%;
+			margin-top:-220px;
+		}
+		.course1 li{
+			float: left;
+			line-height: 0px;
+			text-align: center;
+			/*background: gray;*/
+			color: white;
+			width: 0px;
+			height:0px;
+			border: 10px solid gray;
+			margin: 0px 0px;
+			background: gray;
+			border-top-left-radius: 100%;
+			border-top-right-radius: 100%;
+			border-bottom-left-radius: 100%;
+			border-bottom-right-radius: 100%;
+		}
+
+		.content{
+			background: blue;
+			position: relative;
+			left: -400px;
+			margin-left: 50%;
+			width: 800px;
+			height: 100px;
+			margin-top: 50px;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<ul>
+			<li>天猫会员</li>
+			<li>品牌街</li>
+			<li><img src="0.jpg" alt="">电器城</li>
+			<li>营业厅</li>
+			<li>魅力惠</li>
+		</ul>
+	</header>
+	<section class="course1">
+	<img src="1.png">
+	<span class="left-area arrow"><</span>
+	<span class="right-area arrow">></span>
+	<ul class="btns">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+	</section>
+	<footer class="content">
+		<div></div>
+		<div></div>
+		<a href="#">返回顶部</a>
+	</footer>
+</body>
+</html>

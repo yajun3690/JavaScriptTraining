@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006css特性继承性.html</title>
+	<style type="text/css">
+		body{
+			font-size: 12px;
+		}
+		ul{
+			color: red;
+			/*font-size: 20px;*/
+			font-style: italic;
+			text-decoration: none; 
+			line-height: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p>我是段落</p>
+	<a href="#">点我吧</a>
+	<h1>标题</h1>
+	<div>
+		<ul>
+			<li>
+				<p>我是段落2</p>
+				<a href="#">点我吧</a>
+					<h1>标题</h1>
+			</li>
+		</ul>
+	</div>
+<!-- 	1,只有以color/font-/text-/line-开头的属性才可以继承,
+	2,a标签不能继承来自父元素的颜色和下划线属性,默认是下划线。
+	3,h标签不能继承来自父元素的的字体大小和加粗属性,但是字体的大小会随着父级元素大小的改变而改变（h标签默认2em,1em=16px,修改了默认像素大小）
+	4,一般情况下可以通过给body元素设置一些通用的样式来保持页面风格的统一 -->
+</body>
+</html>

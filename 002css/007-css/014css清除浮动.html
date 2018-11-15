@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014css清除浮动.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+				background: blue;
+				/*margin-bottom: 20px;*/
+				/*overflow: hidden;*/
+		}
+		.box1:after{
+			display: block;
+			clear: both;
+		}
+		.box1 p{
+				width: 100px;
+				background: purple;
+				border: 1px solid black;
+				float: left;
+		}
+		.box2{
+				background: pink;
+				/*clear: both;*/
+				/*margin-top: 20px;*/
+				/*overflow: hidden;*/
+		}
+		.box2:after{
+			display: block;
+			clear: both;
+		}
+		.box2 p{
+				width: 100px;
+				background: red;
+				border: 1px solid black;
+				float: left;
+		}
+		.son1{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+			float: left;
+			/*clear: both;*/
+			/*overflow: hidden;*/
+		}
+		.son1:after{
+			display: block;
+			clear: both;
+		}
+		.son2{
+			width: 200px;
+			height: 200px;
+			/*float: left;*/
+			background-color: orange;
+			/*clear: both;		*/
+			/*overflow: hidden;*/
+		}
+		.son2:after{
+			display: block;
+			clear: both;
+		}
+		.wall{
+			/*clear: both;*/
+			/*height: 100px;*/
+
+		}
+/*<!-- 	由于浮动元素撑不起盒子的高度,会让后面盒子里浮动的元素找前面盒子里浮动的元素,因而会给布局带来混乱 -->*/
+		}
+	</style>
+</head>
+<body>
+		<div class="box1">
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+			<p>4</p>
+		<!-- <div class="wall"></div> -->
+		</div>
+		<!-- <div class="wall"></div> -->
+		<div class="box2">
+			<p>*1</p>
+			<p>*2</p>
+			<p>*3</p>			
+			<p>*4</p>
+			<!-- <div class="wall"></div>						 -->
+		</div>
+		<div class="son1"></div>
+		<div class="son2"></div>
+<!-- 	方式一,给前面的盒子添加高度
+	方式二,通过给第二个盒子添加clear属性来清除前面元素浮动带来的影响
+	clear属性的取值有:left|right|both|none(默认)clear属性的意思是不让自己的子元素找前面浮动的元素
+	通过clear属性清除浮动会导致第一个盒子的margin-bottom和第二个盒子的margin-top失效,第二个盒子的margin-top失效是因为margin的值传递
+	方式三,外墙法,给第一个盒子和第二个盒子之间添加一个空盒子,并且给这个空盒子设置clear:both属性
+	第一个盒子的margin-bottom依然不可以用,但是第二个盒子的margin-top可以用
+	可以通过设置空盒子的高度来达到设置margin-bottom/top的效果
+	方式四,内墙法,给第一个盒子所有元素的后面添加一个空盒子,并且给这个空盒子设置clear:both属性
+	第一个盒子的margin-bottom可以用,第二个盒子的margin-top也可以用
+	也可以通过设置空盒子的高度来达到设置margin-bottom/top的效果
+	内墙法可以撑起盒子的高度,而外墙法不可以
+	方法五,通过伪元素选择器(:after)实现内墙法
+	作用和内墙法一样，但是不用额外添加空元素，可以实现结构和样式分离，在实际项目开发中推荐使用
+	    .clearfix:after{
+        content: "";
+        clear: both;
+        display: block;
+        height: 0px;
+        visibility: hidden;
+    }
+    .clearfix{
+        *zoom:1;
+    }
+    方式六,通过给第一个盒子添加overflow: hidden来清除浮动,其原理是触发第一个盒子的BFC -->
+</body>
+</html>

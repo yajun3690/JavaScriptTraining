@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009css浮动元素的排列规则.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width:120px;height:120px;background: rgb(11,22,33);
+			/*float: left;*/
+		}
+		.box2{
+			width:230px;height:230px;background:rgb(122,232,323);
+			float: left;
+		}
+		.box3{
+			width:340px;height:340px;background:red;
+			/*float:right;*/
+		}
+		.box4{
+			width:450px;height:450px;background:blue;
+			/*float: right;*/
+		}
+		/*若上方标签未浮动，则自身浮动时的位置和在标准分布时同行*/
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+	<!-- 标准分布，浮动分布，脱离标准进入浮动，下一条标准会顶上去，若向左浮动时前面已有标签左浮，则目前标签贴紧上一标签-->
+</body>
+</html>
