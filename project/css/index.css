@@ -1,0 +1,243 @@
+
+.channel1{
+	float: left;
+	width: 234px;
+	height: 170px;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+.channel2{
+	float: right;
+	width: 978px;
+	height: 170px;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+
+/* 首页通用样式 */
+
+
+
+.top{
+	height: 40px;
+	background: red;
+	background: #333333;}
+.top .top-nav{
+
+	float: left;}
+.top .top-nav .left-ul{
+	width: 380px;
+	height: 100%;}
+.top .top-nav .left-ul .left-ul-li{
+	float: left;
+	font-size: 12px;
+	line-height: 40px;}
+.top .top-nav .left-ul .left-ul-li>span{
+	color: #383938;
+	text-align: center;}
+.top .top-car{
+	float: right;
+	width: 120px;
+	background: #424242;}
+.top .top-car .car-a{
+	display: inline-block;
+	width: 100%;
+	height: 40px;	
+ 	line-height: 40px; 
+    text-align: center;}
+.top .top-car .car-a:hover{
+  	color: #ff6700;
+  	background: #fff;}
+.top .top-car .car-a .car-a-i{
+	font-size: 22px;
+	vertical-align: -4px;}
+/*.top .top-car .car-a .cai-a-box{
+	float: right;
+	height: 300px;
+	border: 1px solid black;
+}*/
+.top .top-user{
+	float: right;
+	width: 176px;
+	height: 100%;}
+.top .top-user .right-ul{
+
+	margin-left: 25px;}
+.top .top-user .right-ul .right-ul-li{
+	float: left;
+	font-size: 12px;
+	line-height: 40px; }
+.top .top-user .right-ul .right-ul-li>span{
+	color: #383938;
+	text-align: center;}
+.header{
+
+	height: 100px;}
+.header .header-logo{
+	float: left;
+	margin-top: 25px;
+	width: 50px;
+	height: 50px;
+	box-sizing: border-box;
+	background:  #ff6700;
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat; 
+	background-size: cover;
+	text-indent: -999999px;}
+.header .header-nav{
+	width: 875px;
+	height: 100%;
+	float: left;
+	line-height: 100px;
+	box-sizing: border-box;}
+.header .header-nav .header-nav-ul{
+	width: 595px;
+	margin: 0px auto;}
+.header .header-nav .header-nav-ul .header-nav-ul-li{
+	float: left;
+	margin-left: 15px;}
+.header .header-nav .header-nav-ul .header-nav-ul-li .header-nav-ul-li-a{
+	font-size: 16px;
+	color: #333843;}
+.header .header-nav .header-nav-ul .header-nav-ul-li .header-nav-ul-li-a:hover{
+
+  	color: #ff6700;}
+.header .header-sec{
+	float: right;
+	width: 295px;
+	height: 50px;
+	border: 1px solid black;
+	box-sizing: border-box;
+	margin-top: 25px;}
+.header .header-sec .sec-text{
+	float: left;
+	box-sizing: border-box;
+	border: 1px solid black
+	width: 250px;
+	height: 100%;}
+.header .header-sec .sec-i{
+	float: right;
+	box-sizing: border-box;
+	border:1px solid black;	
+	width: 50px;
+	height: 100%;}
+
+
+.home{
+	height: 1272px;
+	background: #fff;}
+.home .home-am{
+	width: 100%;
+	height: 460px;
+	box-sizing: border-box;
+	border: 1px solid black;
+	position: relative;
+	margin-bottom: 14px;}
+.home .home-am .am-list{
+	width: 235px;
+	height: 100%;
+	background: black;
+	opacity: 0.7;
+	/*text-align: center;*/
+	border: 1px solid black;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 888;}
+.home .home-am .am-list .list-ul{
+	width: 100%;
+	height: 390px;
+	margin-top: 35px;
+	margin-bottom: 35px;}
+.home .home-am .am-list .list-ul .list-ul-li{
+	/*text-align: center;*/
+	box-sizing: border-box;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;}
+.home .home-am .am-list .list-ul .list-ul-li :hover{
+	background: #ff6700;
+	color: red；}
+.home .home-am .am-list .list-ul .list-ul-li .list-ul-li-a{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 100%;
+	font-size: 13px;
+	padding-left: 20px;
+	padding-right: 20px;}
+.home .home-am .am-list .list-ul .list-ul-li i{
+
+	float: right;}
+.home .home-am .am-lb{
+	width: 100%;
+	height: 100%;
+	background: pink;
+	border: 1px solid black;
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	top: 0;}
+.home .home-am .am-lb img{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;}
+.home .home-am .am-lb .lb-1{
+
+	z-index: 1;}
+.home .home-am .am-lb .lb-2{
+
+	z-index: 2;}
+.home .home-am .am-lb .lb-3{
+
+	z-index: 3;}
+.home .home-am .arow{
+
+	width: 20px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	z-index: 888;
+	background: gray;}
+.home .home-am .left-arow{
+	position: absolute;
+	left: 234px;
+	top: 50%;	}
+
+
+
+
+
+.home .home-mi{
+	width: 100%;
+	height: 170px;
+	background: yellow;
+	margin-bottom: 14px;
+}
+.home .home-sg{
+	height: 400px;
+   	background: pink;
+}
+.home .home-sg .hd{
+	height: 60px;
+	background: purple;
+}
+
+.home .home-ad{
+
+}
+.main{
+	height: 2176px;
+	background: purple;
+}
+.flotter{
+	height: 277px;
+	background: black;
+}
+.bottom{
+	height: 163px;
+	background: pink;
+}
