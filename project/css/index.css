@@ -526,6 +526,7 @@
 	height: 26px;
 	text-align: center;}
 .main .sj .hd .main-sg-box1 .box1-a{
+
 	font-size: 12px;
 }
 .main .sj .hd .main-sg-box i{
@@ -536,12 +537,15 @@
 	background: gray;
 }
 .main .sj .hd .main-sg-box1 a:hover {
+
 	color: red;
 }
 .main .sj .hd .main-sg-box1 a:hover i{
+
 	background: red;
 }
 .main .sj .channel1 img{
+
 	transition: box-shadow 0.2s linear;
 }
 
@@ -613,13 +617,13 @@
 	width: 49px;
 	color: #bbb9ba;}
 .main .sj .channel2 .product .product-ul li:nth-child(1){
+
 	margin-left: 0px;
 }
 .main .sj .channel2 .product .product-ul li:nth-child(5){
+
 	margin-left: 0px;
 }
-
-
 
 .main .jd{margin-bottom: 40px;}
 .main .jd .hd .main-sg-box{
@@ -629,6 +633,7 @@
 	height: 26px;
 	text-align: center;}
 .main .jd .hd .main-sg-box1 .box1-a{
+
 	font-size: 12px;
 }
 .main .jd .hd .main-sg-box i{
@@ -639,12 +644,15 @@
 	background: gray;
 }
 .main .jd .hd .main-sg-box1 a:hover {
+
 	color: red;
 }
 .main .jd .hd .main-sg-box1 a:hover i{
+
 	background: red;
 }
 .main .jd .channel1 img{
+
 	transition: box-shadow 0.2s linear;
 }
 
@@ -672,6 +680,7 @@
 	transition: box-shadow 0.3s linear;
 	border: 1px solid white;}
 .main .jd .channel2 .product .product-ul-li:hover{
+
 	transform: translateY(-2px);
 	box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.3);
 }
@@ -716,9 +725,11 @@
 	width: 49px;
 	color: #bbb9ba;}
 .main .jd .channel2 .product .product-ul li:nth-child(1){
+
 	margin-left: 0px;
 }
 .main .jd .channel2 .product .product-ul li:nth-child(5){
+
 	margin-left: 0px;
 }
 .main .jd .channel2 .product .product-ul li:nth-child(8){
@@ -799,6 +810,7 @@
 	height: 26px;
 	text-align: center;}
 .main .sp .hd .main-sg-box1 .box1-a{
+
 	font-size: 12px;
 }
 .main .sp .hd .main-sg-box i{
@@ -809,9 +821,11 @@
 	background: gray;
 }
 .main .sp .hd .main-sg-box1 a:hover {
+
 	color: red;
 }
 .main .sp .hd .main-sg-box1 a:hover i{
+
 	background: red;
 }
 .main .sp .view{
@@ -834,6 +848,7 @@
 	box-sizing: border-box;
 }
 .main .sp .view .view-ul .view-ul-li:nth-child(1){
+
 	margin-left: 0px;
 }
 .main .sp .view .view-ul .view-ul-li .view-ul-li-a{
@@ -870,20 +885,156 @@
 	margin-bottom: 10px;
 }
 .main .sp .view .view-ul .view-ul-li h3:hover{
+
 	color: #ff6700;
 }
 .main .sp .view .view-ul .view-ul-li span{
+
 	color: #bebfc0;
 }
 .main .sp .view .view-ul .view-ul-li：hover{
 	transform: translateY(-2px);
 	box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.3);	
 }
+
+
+
 .flotter{
 	height: 277px;
 	/*background: black;*/
 }
+.flotter .fw{
+	width: 100%;
+	height: 80px;
+	border-style: solid;
+	border-top-width: 1px;
+	border-bottom-width:1px; 
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-color:#d8d6d6;
+	box-sizing: border-box;
+}
+.flotter .fw .fw-d{
+	float: left;
+	width: 20%;
+	height: 25px;
+	padding-top: 27.5px;
+	text-align: center;
 
+}
+.flotter .fw .fw-d a{
+	display: inline-block;
+	width: 100%;
+	line-height: 25px;
+	border-style: solid;
+	border-top-width: 0px;
+	border-bottom-width:0px; 
+	border-left-width: 0px;
+	border-right-width: 1px;
+	border-color:#d8d6d6;	
+	box-sizing: border-box;
+	color: #7c7a87;
+}
+.flotter .fw .fw-d a:hover{
+	color: #ff6700;
+}
+.flotter .fw .fw-d:nth-child(5) a{
+	border-right-width: 0px;	
+}
+.flotter .dy{
+	width: 100%;
+	height: 197px;
+	padding: 42px 0px 42px 0px;
+	box-sizing: border-box;
+}
+.flotter .dy dl{
+	float: left;
+	width: 162.5px;
+	height: 100%;
+	box-sizing: border-box;
+}
+.flotterx .dy dt{
+	width: 100%;
+	height: 14px;
+	font-size: 14px;
+	color: black;	
+	margin-bottom: 32px;
+}
+
+.flotter .dy dd{
+	width: 50px;
+	height: 13px;
+	margin-bottom: 18px;
+}
+.flotter .dy dd a:hover{
+	color: #ff6700;
+}
+.flotter .dy .phone{
+	float: right;
+	width: 250px;
+	height: 100%;
+	border-style: solid;
+	border-top-width: 0px;
+	border-bottom-width:0px; 
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-color:#d8d6d6;
+
+	box-sizing: border-box;
+	text-align: center;
+}
+.flotter .dy .phone .phone-num{
+	color: #ff6700;
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+.flotter .dy .phone p{
+	font-size: 13px;
+	color: #7c7a87;
+}
+.flotter .dy .phone .phone-p1{
+	margin-bottom: 3px;
+}
+.flotter .dy .phone .phone-p2{
+	margin-bottom: 15px;
+}
+.flotter .dy .phone  a{
+	display: inline-block;
+	width: 120px;
+	height: 30px;
+	color: #ff6700;
+	line-height: 30px;
+	border: 1px solid #ff6700;
+	box-sizing: border-box;
+	transition: background 0.2s linear;
+}
+.flotter .dy .phone a:hover{
+	background: #ff6700;
+	color: white;
+	border-color: white;
+}
 .bottom{
 	height: 163px;
-	background: pink;}
+	padding-top: 27px;}
+.bottom .end-log{
+	float: left;
+	width: 55px;
+	height: 55px;
+	background: #ff6700;
+}
+.bottom .end-log .end-middle{
+	
+}
+.bottom .end-log .end-middle .end-middle-box .end-nav{
+	position: relative;
+}
+.bottom .end-log .end-middle .end-middle-box .right-s-line:after{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: block;
+	content: "";
+	width: 1px;
+	height: 9px;
+	background: ##d8d6d6;
+}
