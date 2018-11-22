@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-js内部.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}	
+		div{
+			width: 200px;
+			height: 200px;
+			background: blue;
+			margin: 100px auto;
+		}
+	</style>
+	<script type="text/javascript">
+		function tobig(){
+			var abc=document.getElementById('box1')
+			abc.style.width='400px';
+			abc.style.height='400px';
+			abc.style.background='red';
+		}
+		function tosmall(){
+			var abc=document.getElementById('box1')
+			abc.style.width='200px';
+			abc.style.height='200px';
+			abc.style.background='blue';
+		}
+		function sayHELLOW(){
+			alert('HELLOW')
+		}
+			sayHELLOW();
+	</script>
+</head>
+<body>
+	<div id="box1" onmouseover="tobig()" onmouseout="tosmall()"></div>
+</body>
+</html>
