@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+  <style>
+   *{margin:0;padding:0}
+   ul{list-style:none}
+   .detail{width:400px;height:360px;border:1px solid #ddd;text-align:center;margin:50px auto}
+   .title{width:400px;height:40px;background-color:#D6C3A7;border-bottom:1px solid #ddd;}
+   .title li{float:left;height:40px;line-height:40px;width:80px;}
+   .title li+li{width:160px}
+   .box{width:400px;height:300px;overflow:hidden}
+   .content{width:360px;float:left;}
+   .content li{height:50px;line-height:50px;font-size:18px;}
+   .content li div{display:inline-block;width:80px}
+   .content li div+div{width:130px}
+   .bar{float:left;width:10px;height:300px;background-color:#ddd;position:relative;}
+   .btn{position:absolute;right:-8px;top:0px;width:25px;height:25px;background-color:lightblue;
+    border:1px solid #ddd;border-radius:50%;cursor:pointer;}
+   .active{background-color:red}
+  </style>
+ </head>
+ <body>
+  <div class="detail">
+   <div class="title">
+    <ul>
+     <li>序号</li><li>用户</li><li>人气</li>
+    </ul>
+   </div>
+   <div class="box">
+    <ul class="content">
+     <li><div>1</div><div>137****1234</div><div>10,000</div></li>
+     <li><div>2</div><div>137****1234</div><div>9,000</div></li>
+     <li><div>3</div><div>137****1234</div><div>8,000</div></li>
+     <li><div>4</div><div>137****1234</div><div>7,000</div></li>
+     <li><div>5</div><div>137****1234</div><div>6,000</div></li>
+     <li><div>6</div><div>137****1234</div><div>5,000</div></li>
+     <li><div>7</div><div>137****1234</div><div>4,000</div></li>
+     <li><div>8</div><div>137****1234</div><div>3,000</div></li>
+     <li><div>9</div><div>137****1234</div><div>2,000</div></li>
+     <li><div>10</div><div>137****1234</div><div>1,000</div></li>
+    </ul>
+    <div class="bar">
+     <div class="btn"></div>
+    </div>
+   </div>
+  </div>
+  <script src="scroll.js"></script>
+ </body>
+</html>
