@@ -235,7 +235,7 @@
 
 .main{
 	width: 100%;
-	height: 1000px;
+	/*height: 1000px;*/
 	/*background: blue;*/
 }
 /*.main .left-image{
@@ -248,15 +248,16 @@
 .main .left-image{
 	float: left;
 	position: fixed;
-	width: 650px;
+	width: 600px;
 	height: 520px;
+	/*border: 1px solid black;*/
 	box-sizing: border-box;
 }
 .main .left-image .image-la{
 	float: left;
 	display: block;
 	position: relative;
-	width: 450px;
+	width: 600px;
 	height: 500px;
 	transform-style: preserve-3d;
 	transform: rotateY(0deg);
@@ -268,7 +269,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 450px;
+	width: 600px;
 	height: 500px;
 }
 
@@ -287,16 +288,16 @@
 	}
 }
 .main .left-image div img:nth-child(1){
-	transform: translateZ(225px);
+	transform: translateZ(300px);
 }
 .main .left-image div img:nth-child(4){
-	transform: translateX(225px) rotateY(90deg);
+	transform: translateX(300px) rotateY(90deg);
 }
 .main .left-image div img:nth-child(3){
-	transform: translateZ(-225px) rotateX(180deg) rotateZ(180deg);
+	transform: translateZ(-300px) rotateX(180deg) rotateZ(180deg);
 }
 .main .left-image div img:nth-child(2){
-	transform: translateX(-225px) rotateZ(180deg) rotateX(180deg) rotateY(90deg);
+	transform: translateX(-300px) rotateZ(180deg) rotateX(180deg) rotateY(90deg);
 }
 
 .main .left-image .arow{
@@ -312,26 +313,29 @@
 	background: gray;	}
 .main .left-image .left-arow{
 	position: absolute;
-	left: -10px;
+	left: 0px;
 	top: 40%;	}
 .main .left-image .right-arow{
 	position: absolute;
-	right: 180px;
+	right: 0px;
 	top: 40%;	}
+.main .left-image .arow i{
+	font-size: 20px;
+}
 .main .left-image .bottom-button{
 	display: block;
-	width: 240px;
+	width: 300px;
 	height: 20px;
 	/*background: blue;*/
 	position: absolute;
 	left: 30%;
 	bottom: 0;
-	margin-left: -80px;
+	margin-left: -40px;
 }
 .main .left-image .bottom-button input{
 	width: 50px;
 	height: 1.5px;
-	margin-left: 5px;
+	margin-left: 20px;
 }
 .main .left-image .bottom-button a:hover input{
 	border-color: rgb(163,163,163);
@@ -342,18 +346,169 @@
 .main .right-content{
 	float: right;
 	display: block;
-	width: 550px;
-	height: 1000px;
-	background: yellow;
+	width: 620px;
+	margin-left: 450px;
 	box-sizing: border-box;
 
 }
+.main .right-content .right-header{
+	width: 100%;
+	height: 170px;
+	border: 1px solid #e0e0e0;
+	border-top-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	margin-bottom: 40px;
+}
+.main .right-content .right-header h2{
+	font-size: 26px;
+	margin-bottom: 10px;
+}
+.main .right-content .right-header p{
+	font-size: 14px;
+	color: #acacac;
+	margin-bottom: 20px;
+}
+.main .right-content .right-header .s1{
+	display: block;
+	font-size: 14px;
+	color: #ff6700;
+	margin-bottom: 20px;
+}
+.main .right-content .right-header .s2{
+	font-size: 20px;
+	color: #ff6700;
+}
+.main .right-content .right-sec{
+	width: 100%;
+	/*height: 1270px;*/
+	border: 1px solid #e0e0e0;
+	margin-bottom: 10px;
+}
 
 
+.main .right-content .right-sec .sec-address{
+	width: 100%;
+	height: 105px;
+	margin-bottom: 40px;
+	border: 1px solid #e0e0e0;
+}
+.main .right-content .right-sec .sec-address p{
+	margin-top: 40px;
+	margin: 20px 0px 0px 20px;
+	font-size: 14px;
+}
+.main .right-content .right-sec .sec-address p i {
+	font-size: 20px;
+	vertical-align: -3px;
+}
+.main .right-content .right-sec .sec-address p a{
+	font-size: 14px;
+	color: #ff6700;
+	margin-left: 20px;
+}
+.main .right-content .right-sec .sec-address strong{
+	margin-left: 40px;
+	font-size: 14px;
+	color: #ff6700;
+}
+.main .right-content .right-sec .sec-Edition{
+	width: 100%;
+	height: 170px;
+	margin-bottom: 40px;
+	/*border: 1px solid #e0e0e0;*/
+}
+.main .right-content .right-sec .sec-Edition h3{
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+.main .right-content .right-sec .sec-Edition a{
+	float: left;
+	display: block;
+	width: 300px;
+	height: 45px;
+	color: black;
+	box-sizing: border-box;
+	border: 1px solid #e0e0e0;
+	margin-bottom: 20px;
+	line-height: 45px;
+	padding: 0px 40px 0px 40px;
+}
+.main .right-content .right-sec .sec-Edition a span{
+	float: right;
+	color: #acacac;
+}
+.main .right-content .right-sec .sec-Edition a:nth-child(3){
+	margin-left: 20px;
+}
+.main .right-content .right-sec .sec-Edition a:nth-child(5){
+	margin-left: 20px;
+}
+.main .right-content .right-sec .sec-color{
+	width: 100%;
+	height: 180px;
+	margin-bottom: 0px;
+	/*border: 1px solid #e0e0e0;*/
+}
+.main .right-content .right-sec .sec-color h3{
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+.main .right-content .right-sec .sec-color a{
+	float: left;
+	display: block;
+	width: 300px;
+	height: 45px;
+	color: black;
+	box-sizing: border-box;
+	border: 1px solid #e0e0e0;
+	margin-bottom: 20px;
+	line-height: 45px;
+	padding: 0px 40px 0px 40px;
+}
+.main .right-content .right-sec .sec-color a img{
+	width: 14px;
+	height: 18px;
+}
+.main .right-content .right-sec .sec-protect{
+	width: 100%;
+	height: 320px;
+	margin-bottom: 40px;
+	border: 1px solid #e0e0e0;
+}
+.main .right-content .right-sec .sec-protect .header h3{
+	font-size: 18px;
+}
+.main .right-content .right-sec .sec-protect .header a{
+	float: right;
+	color: #ff6700;
+	font-size: 14px;
+	margin-top: -20px;
+}
+.main .right-content .right-sec .sec-protect a{
+/*	width: 605px;
+	height: 150px;*/
+	/*border: 1px solid #ff6700;*/
+}
+.main .right-content .right-sec .sec-Guarantee{
+	width: 100%;
+	height: 180px;
+	margin-bottom: 40px;
+	border: 1px solid #e0e0e0;
+}
+.main .right-content .right-sec .sec-Total{
+	width: 100%;
+	height: 120px;
+	margin-bottom: 40px;
+	border: 1px solid #e0e0e0;
+}
 
-
-
-
+.main .right-content .evaluate{
+	width: 100%;
+	height: 160px;
+	border: 1px solid #e0e0e0;
+	border: 1px solid #e0e0e0;
+}
 
 
 
