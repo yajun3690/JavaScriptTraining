@@ -381,7 +381,7 @@
 }
 .main .right-content .right-sec{
 	width: 100%;
-	/*height: 1270px;*/
+	height: 1270px;
 	border: 1px solid #e0e0e0;
 	margin-bottom: 10px;
 }
@@ -470,45 +470,94 @@
 	width: 14px;
 	height: 18px;
 }
-.main .right-content .right-sec .sec-protect{
+.main .right-content .right-sec .sec-yiwai{
 	width: 100%;
-	height: 320px;
-	margin-bottom: 40px;
-	border: 1px solid #e0e0e0;
+	height: 175px;
+	margin-bottom: 0px;
+	border: 1px solid black;
+	box-sizing: border-box;
 }
-.main .right-content .right-sec .sec-protect .header h3{
+.main .right-content .right-sec .sec-yiwai .yiwai-header{
+	width: 100%;
+	height: 18px;
+	line-height: 18px;
+	margin-bottom: 17px;
+	border: 1px solid black;
+}
+.main .right-content .right-sec .sec-yiwai .yiwai-header h3{
+	float: left;
+	width: 200px;
+	height: 18px;
 	font-size: 18px;
+	border: 1px solid black;
 }
-.main .right-content .right-sec .sec-protect .header a{
+.main .right-content .right-sec .sec-yiwai .yiwai-header .yiwai-header-a{
 	float: right;
-	color: #ff6700;
-	font-size: 14px;
-	margin-top: -20px;
+	width: 100px;
+	height: 18px;
+	border: 1px solid black;
 }
-.main .right-content .right-sec .sec-protect a{
-/*	width: 605px;
-	height: 150px;*/
-	/*border: 1px solid #ff6700;*/
-}
-.main .right-content .right-sec .sec-Guarantee{
+.main .right-content .right-sec .sec-yiwai .yiwai-body{
 	width: 100%;
-	height: 180px;
-	margin-bottom: 40px;
+	height: 140px;
 	border: 1px solid #e0e0e0;
 }
-.main .right-content .right-sec .sec-Total{
+.main .right-content .right-sec .sec-yiwai .yiwai-body .body-left{
+	float: left;
+	width: 135px;
+	height: 137px;
+	text-align: center;
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+.main .right-content .right-sec .sec-yiwai .yiwai-body .body-right{
+	float: right;
+	width: 450px;
+	height: 137px;
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+.main .right-content .right-sec .sec-yiwai .yiwai-body .body-right ul .li-1{
+	font-size: 18px;
+	color: #424448;
+}
+.main .right-content .right-sec .sec-yiwai .yiwai-body .body-right ul .li-2{
+	color: #a0a0a0;
+}
+.main .right-content .right-sec .sec-yiwai .yiwai-body .body-right ul .li-3 div input{
+	width: 5px;
+	height: 5px;
+}
+.main .right-content .right-sec .sec-yiwai .yiwai-body .body-right ul .li-3 div a{
+	color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.main .right-content .right-sec .sec-Total{
 	width: 100%;
 	height: 120px;
 	margin-bottom: 40px;
 	border: 1px solid #e0e0e0;
-}
+}*/
 
-.main .right-content .evaluate{
+/*.main .right-content .evaluate{
 	width: 100%;
 	height: 160px;
 	border: 1px solid #e0e0e0;
 	border: 1px solid #e0e0e0;
-}
+}*/
 
 
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-js计算器.html</title>
+	<script type="text/javascript">
+			var oBox1=document.getElementById('text1');
+			var oBox2=document.getElementById('text2');
+			var oBtn=document.getElementById('add');
+			oBtn.onclick = function(){
+				var val1= parseInt(oBox1.value);
+				var val2= parseInt(oBox2.value);
+				alert(val1);
+			}
+	</script>
+</head>
+<body>
+	<input type="text" name="" id="text1" value="">
+	<input type="text" name="" id="text2" value="">
+	<input type="button" name="" value="合计" id="add">
+</body>
+<script type="text/javascript">
+		var oBox1=document.getElementById('text1');
+		var oBox2=document.getElementById('text2');
+		var oBtn=document.getElementById('add');
+		oBtn.onclick = function(){
+			var val1= parseInt(oBox1.value);
+			var val2= parseInt(oBox2.value);
+			if (isNaN(val1)) {
+				alert('第一个输入不是数字')
+			}
+			else if (isNaN(val2)) {
+				alert('第二个输入不是数字')
+			}else{
+				
+			alert(val1+val2);
+			}
+		}
+	</script>
+</html>

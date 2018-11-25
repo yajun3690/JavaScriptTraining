@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-js模运算%应用秒变时间.html</title>
+	<script type="text/javascript">
+		var isecond=36000;
+		var hour=parseInt(isecond/3600);
+		var mintue=parseInt((isecond%3600)/60);
+		var second=isecond%3600%60;
+		if (hour<10) {
+			hour='0'+hour;
+		}
+		if (mintue<10) {
+			mintue='0'+mintue;
+		}
+		if (second<10) {
+			second='0'+second;
+		}
+		alert(hour +':'+ mintue + ':' +second)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
