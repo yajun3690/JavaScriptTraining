@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009通过ID,标签，类名获取被控对象.html</title>
+</head>
+<body>
+	<ul id="box">
+		<li class="bb1">1</li>
+		<li class="bb1">2</li>
+		<li class="bb1">3</li>
+		<li class="bb1">4</li>
+		<li class="bb1">5</li>
+		<li class="bb1">6</li>
+		<li class="bb1">7</li>
+		<li class="bb1">8</li>
+		<li class="bb1">9</li>
+		<li class="bb1">10</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	var oLi1 = document.getElementsByClassName('bb1');
+
+	var oLi2 = document.getElementsByTagName('li');
+
+	var oUl = document.getElementById('box')
+	var oLi3 = oUl.getElementsByTagName('li')
+
+	var oLi4= document.querySelectorAll('#box li');
+	
+	console.log(oLi1);
+	console.log(oLi2);
+	console.log(oLi3);
+	console.log(oLi4);
+
+</script>
+</html>

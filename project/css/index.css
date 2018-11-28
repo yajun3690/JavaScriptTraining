@@ -153,6 +153,9 @@
 	position: absolute;
 	display: block;
 	z-index: 999;}
+.header .header-sec .sec-text:focus ~.sec-box{
+	display: none;
+}
 .header .header-sec .sec-a{
 	float: right;
 	display: inline-block;

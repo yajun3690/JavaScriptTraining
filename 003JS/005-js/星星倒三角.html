@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.span1{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+		}
+		.span2{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	for(var i=1;i<=5;i++){
+		for(var q=1;q<=5-i;q++){
+			document.write("<span class='span1'></span>")
+		}
+		for(var j=1;j<=i;j++){
+			document.write("<span class='span2'>*</span>")
+		}
+		document.write('<br>')
+	}
+</script>
+</html>
