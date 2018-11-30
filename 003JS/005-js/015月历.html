@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>月历</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 380px;
+			height: 600px;
+			background: gray;
+			margin: 100px auto;
+		}
+		ul{
+			list-style: none;
+		}
+		.box:after{
+		    content: "";
+		    clear: both;
+		    display: block;
+		    height: 0px;
+		    visibility: hidden;
+		}
+		.box{
+		    *zoom:1;
+		}
+		li{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background: black;
+			color: #fff;
+			text-align: center;
+			line-height: 100px;
+			font-size: 30px;
+			cursor: pointer;
+			margin: 20px 0px 0px 20px;
+		}
+		.box1 div{
+			width: 100%;
+			padding-top: 20px;
+			margin-left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<ul class="box">
+			<li style="color: black;background: white">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+		<div class="plan">
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var oBtn1=document.getElementsByTagName('li');
+	var oPlan=document.querySelector('.plan');
+	var oBtn2=["睡觉","吃饭","写程序","上课","吃饭","睡觉","写程序","上课","吃饭","睡觉","写程序","上课"];
+	oPlan.innerHTML="<h2>1月</h2><p>"+oBtn2[0]+"</p>"
+		for(var i=0;i<oBtn1.length;i++){
+			oBtn1[i].index = i;
+			oBtn1[i].onmouseover = function(){
+				for(var j=0;j<oBtn1.length;j++){
+					oBtn1[j].style.background = ''; 
+					oBtn1[j].style.color = ''; 
+				}
+				this.style.background = '#fff';
+				this.style.color = 'black';
+	 			oPlan.innerHTML="<h2>"+(this.index+1)+"月</h2><p>"+oBtn2[this.index]+"</p>"
+
+
+			}
+		}
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>不定参数.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var a=5;
+	var b=5;
+	var c=5;
+	var d=5;
+	function sum(){
+		console.log(arguments)
+		var result=0;
+		for(var i=0;i<arguments.length;i++){
+			result+=arguments[i];
+		}
+			console.log(result)
+			return result;
+	}
+	sum(a,b,c,d);
+	alert(sum(a,b,c,d));
+
+</script>
+</html>
