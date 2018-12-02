@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var abc=[11,11,55,86,158,33,11,66,55];
+	function que(obj)
+	{
+			var ccc=[];
+		for(var i=0;i<obj.length;i++)
+		{
+			var qqq=0;
+			for(var j=0;j<ccc.length;j++)
+			{
+				if(abc[i]==ccc[j])
+				{
+					 qqq=1;
+					 break;
+				}
+			}
+			if(!qqq)
+			{
+				ccc.push(abc[i]);
+			}
+		}
+		return ccc;
+	}
+	que(abc);
+	var attr2=que(abc);
+	console.log(attr2);
+</script>
+</html>
