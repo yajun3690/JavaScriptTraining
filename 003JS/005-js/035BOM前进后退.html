@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="https:/www.baidu.com">百度</a>
+	<button id="btn1">前进go</button>
+	<button id="btn2">前进forward</button>
+	<button id="btn3">后退go</button>
+	<button id="btn4">back</button>
+</body>
+<script type="text/javascript">
+	var oBtn1=document.getElementById('btn1');
+	var oBtn2=document.getElementById('btn2');
+	var oBtn3=document.getElementById('btn3');
+	var oBtn4=document.getElementById('btn4');
+	oBtn1.onclick=function(){
+
+	history.go(1);
+	}
+	oBtn2.onclick=function(){
+
+	history.forward();
+	}
+	oBtn3.onclick=function(){
+
+	history.go(-1);
+	}
+	oBtn4.onclick=function(){
+
+	history.back();
+	}
+</script>
+</html>

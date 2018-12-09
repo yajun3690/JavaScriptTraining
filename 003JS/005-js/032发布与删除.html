@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>032发布与删除.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 600px;
+			height: 600px;
+			margin: 100px auto;
+		}
+		li{
+			list-style: none;
+			width: 100%;
+			height: 40px;
+			color: pink;
+		}
+		a{
+			float: right;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+	<textarea name="" id="text1" cols="60" rows="10"></textarea>
+	<input type="button" value="发布" id="ibtn">
+	<ul id="ul1">
+	</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	var oText=document.getElementById('text1');
+	var oBtn=document.getElementById('ibtn');
+	var oUl=document.getElementById('ul1');
+	oBtn.onclick=function(){
+		var val=oText.value;
+		var oLi=document.createElement('li');
+		var oA=document.createElement('a');
+		oA.href="javascript:;"
+		oA.innerHTML = "删除";
+		oLi.innerHTML=val;
+		oLi.appendChild(oA);
+		oUl.insertBefore(oLi,oUl.firstChild);
+		oA.onclick=function(){
+			oUl.removeChild(this.parentNode)
+		}
+		oText.value='';
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

@@ -150,13 +150,13 @@
 						<li class="list-ul-li"><a href="#" class="list-ul-li-a">小米 手机<i class="iconfont">&#xe623</i></a></li>
 						<li class="list-ul-li"><a href="#" class="list-ul-li-a">小米 手机<i class="iconfont">&#xe623</i></a></li></ul></div>
 				<div class="am-lb">
-					<a href="#"><img src="images/b1.jpg" alt="" class="lb-1"></a>
-					<a href="#"><img src="images/b2.jpg" alt="" class="lb-2"></a>
-					<a href="#"><img src="images/b3.jpg" alt="" class="lb-3"></a>
+					<a href="#"><img class="am-lb-i" src="images/b1.jpg" alt="" class="lb-1"></a>
+					<a href="#"><img class="am-lb-i" src="images/b2.jpg" alt="" class="lb-2"></a>
+					<a href="#"><img class="am-lb-i" src="images/b3.jpg" alt="" class="lb-3"></a>
 				</div>
 				<div>
-					<a href="#"><span class="left-arow arow"><i class="iconfont">&#xe627;</i></span></a>
-					<a href="#"><span class="right-arow arow"><i class="iconfont">&#xe622;</i></span></a>
+					<a href="javascript:;"><span class="left-arow arow"><i class="iconfont">&#xe627;</i></span></a>
+					<a href="javascript:;"><span class="right-arow arow"><i class="iconfont">&#xe622;</i></span></a>
 				</div>
 				<div class="button">
 					<ul>
@@ -646,4 +646,35 @@
 		</div>
 	</section>
 </body>
+<script type="text/javascript">
+	var oImg = document.querySelectorAll('.am-lb-i')
+	var oLrow = document.querySelector('.left-arow')
+	var oRrow = document.querySelector('.right-arow')
+	console.log(oImg);
+	console.log(oLrow);
+	console.log(oRrow);
+	var neww=0;
+	var timer=0;
+	function aaa(){
+		for(var i=0;i<oImg.length;i++){
+			oImg[i].style.zIndex='0';
+		}
+		oImg[neww].style.zIndex='99'
+	}
+	oLrow.onclick =function(){
+		neww--;
+		if(neww<0){
+			neww=oImg.length-1;
+		}
+		aaa()
+	}
+	oRrow.onclick =function(){
+		neww++;
+		if(neww>=3){
+			neww=0;
+		}
+		aaa()
+	}
+	timer=setInterval()
+</script>
 </html>

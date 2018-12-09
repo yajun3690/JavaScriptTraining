@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="点击">
+</body>
+<script type="text/javascript">
+	var oBtn=document.querySelector('input');
+	var i=0;
+	oBtn.onclick=function add(){
+		i++;
+		console.log(i);
+	}
+	setInterval(function() {
+		console.log(i)
+	}, 2000);
+	i++;
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>042时间.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			background: #000;
+		}
+		div{
+			margin: 100px auto;
+			color: white;
+			text-align: center;
+			font-size: 60px;
+		}
+	</style>
+</head>
+<body>
+	<div id="ttime">
+		<img src="0.png" alt="">
+		<img src="0.png" alt="">
+		:
+		<img src="0.png" alt="">
+		<img src="0.png" alt="">
+		:
+		<img src="0.png" alt="">
+		<img src="0.png" alt="">
+	</div>
+</body>
+<script type="text/javascript">
+	var oTime = document.getElementById('ttime');
+	var oBb =oTime.children;
+	function a2str(num){
+		return num<10?'0'+num:''+num;
+	}
+	function sss(){
+		var today = new Date();
+		var iHour = today.getHours();
+		var iMinute = today.getMinutes();
+		var iSecond = today.getSeconds();
+		var iHtime =a2str(iHour)+a2str(iMinute)+a2str(iSecond);
+		for(var i=0;i<oBb.length;i++){
+			oBb[i].src=iHtime.charAt(i)+".png ";
+		}
+	}
+	setInterval(sss,1000);
+	sss();
+</script>
+</html>

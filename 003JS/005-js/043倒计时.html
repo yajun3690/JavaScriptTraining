@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			background: #000;
+		}
+		#ttttim{
+			margin: 200px auto;
+			color: white;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="ttttim"></div>
+</body>
+<script type="text/javascript">
+var oTime = document.getElementById('ttttim')
+var aaa=0;
+	function inTime(){
+		var newwww=new Date();
+		var endTim=new Date('2018-12-8 15:14:00')
+		var endAltime=endTim-newwww;
+		var iAsecond=endAltime/1000;
+		var iHours=parseInt(iAsecond/3600),iMinute=parseInt(iAsecond%3600/60),iSecond=parseInt(iAsecond%3600%60);
+		function sole(num){
+			return num<10?'0'+num:''+num;
+		}
+		oTime.innerHTML="距离活动结束还有"+sole(iHours)+"小时"+sole(iMinute)+"分钟"+sole(iSecond)+"秒";
+		if(endAltime<=0){
+			endAltime=0;
+			clearInterval(aaa);
+		}
+	}
+aaa = setInterval(inTime,500);
+inTime();
+
+
+
+
+
+</script>
+</html>

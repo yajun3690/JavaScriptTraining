@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046js动画.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 50px;
+			left: 0px;
+		}
+		#box2{
+			width: 1px;
+			height: 600px;
+			border: 1px solid #000;
+			background: #000;
+			position: absolute;
+			top: 50px;
+			left: 400px;
+		}
+
+	</style>
+</head>
+<body>
+	<input type="button" value="点击" id="btn">
+	<div id="box"></div>
+	<div id="box2"></div>
+</body>
+<script type="text/javascript">
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var oBox2 = document.getElementById('box2');
+	var timer=0;
+	oBtn.onclick=function(){
+		clearInterval(timer);
+		var iSpeed = 0;
+		timer =	setInterval(function(){
+			if (oBox.offsetLeft<400) {
+				iSpeed = 10;
+			}else {
+				iSpeed= -10;
+			}
+			if(Math.abs(400-oBox.offsetLeft)<Math.abs(iSpeed)){
+				oBox.style.left='400px';
+				clearInterval(timer);
+			}else{
+
+			oBox.style.left=oBox.offsetLeft+iSpeed+'px';
+			}
+			},30)
+	}
+</script>
+</html>

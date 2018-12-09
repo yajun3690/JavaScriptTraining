@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="box">
+		<li>1<a href="javascript:;">删除</a></li>
+		<li>2<a href="javascript:;">删除</a></li>
+		<li>3<a href="javascript:;">删除</a></li>
+		<li>4<a href="javascript:;">删除</a></li>
+		<li>5<a href="javascript:;">删除</a></li>
+		<li>6<a href="javascript:;">删除</a></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	var oBox=document.getElementsByTagName('a')
+		for(var i=0;i<oBox.length;i++){
+		oBox[i].onclick=function(){
+			// oBox[0].parentNode.parentNode.removeChild(oBox[0].parentNode);
+			this.parentNode.parentNode.removeChild(this.parentNode);
+		}   
+	}
+</script>
+</html>

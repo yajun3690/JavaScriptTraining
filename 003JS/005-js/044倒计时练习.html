@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044倒计时练习.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			background: #000;
+		}
+		#ttttm{
+			text-align: center;
+			font-size: 30px;
+			color: white;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="ttttm"></div>
+</body>
+<script type="text/javascript">
+	var oTime = document.getElementById('ttttm');
+	var bbb=0;
+	function cccc(){
+		var nowTime = new Date();
+		var endTime = new Date('2018-12-7 16:38:00');
+		var dddTime = endTime-nowTime;
+		var iASecond = parseInt(dddTime/1000);
+		var iHour = parseInt(iASecond/3600);
+		var iMinute = parseInt(iASecond%3600/60);
+		var iSecond = iASecond%3600%60;
+		oTime.innerHTML='距离活动结束还有'+sss(iHour)+'小时'+sss(iMinute)+'分钟'+sss(iSecond)+'秒'
+		function sss(num){
+			return num<10?'0'+num:''+num;
+		}
+		if(iASecond<=0){
+			iASecond=0;
+			clearInterval(bbb);
+		}
+	}
+	cccc();
+	var bbb = setInterval(cccc,500);
+
+</script>
+</html>

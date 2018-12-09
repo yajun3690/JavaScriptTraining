@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="li1">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li class="li1">4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+	<div id="div1">
+		<div>1</div>
+		<div class="dd1">2</div>
+		<div>3</div>
+		<div>4</div>
+		<div class="dd1">5</div>
+		<div>6</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var oUl=document.getElementById('ul1')
+	var oDv=document.getElementById('div1')
+	function getElementByClass(oPraent,sClass){
+		var aEle =oPraent.children;
+		var result=[];
+		for(var i=0;i<aEle.length;i++){
+			if(aEle[i].className==sClass){
+				result.push(aEle[i]);
+			}
+
+		}
+		return result;
+	}
+	var oul1=getElementByClass(oUl,'li1');
+	var oDv1=getElementByClass(oDv,'dd1');
+	console.log(oul1);
+	console.log(oDv1);
+</script>
+</html>

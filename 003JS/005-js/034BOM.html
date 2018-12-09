@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<textarea name="" id="txt" cols="30" rows="10"></textarea>
+	<input type="button" value="打开" id="ibtn">
+	<input type="button" value="关闭" id="ibtn2">
+</body>
+<script type="text/javascript">
+	console.log('window.screentop',window.screenTop);
+	console.log('window.screenLeft',window.screenLeft);
+	console.log('window.screenX',window.screenX);
+	console.log('window.screenY',window.screenY);
+	var oBtn=document.getElementById('ibtn')
+	var oBtn2=document.getElementById('ibtn2')
+	var oText=document.getElementById('txt')
+	oBtn.onclick=function(){
+		var val = oText.value;
+		var newWin = window.open('about:blank');
+		newWin.document.write(val);
+	}
+	oBtn2.onclick=function(){
+		window.close();
+	}
+
+</script>
+</html>

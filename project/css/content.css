@@ -13,6 +13,9 @@
 	float: left;
 	font-size: 12px;
 	line-height: 40px;}
+.top .top-nav .left-ul .left-ul-li .left-ul-li-a:hover{
+	color: #fff;
+}
 .top .top-nav .left-ul .left-ul-li>span{
 	color: #383938;
 	text-align: center;}
@@ -63,6 +66,9 @@
 	float: left;
 	font-size: 12px;
 	line-height: 40px; }
+.top .top-user .right-ul .right-ul-li .right-ul-li-a:hover{
+	color: #fff;
+}
 .top .top-user .right-ul .right-ul-li>span{
 	color: #383938;
 	text-align: center;}
@@ -149,7 +155,7 @@
 .header .header-nav .header-nav-ul-3 {
 	display: none;
 	position: absolute;
-	left: 0;
+	left: -0px;
 	top: 140px;
 	z-index: 999;
 	background-color: #fff;
@@ -373,17 +379,20 @@
 
 .main{
 	width: 100%;
+	position: relative;
 	/*height: 1000px;*/
 	/*background: blue;*/
 }
-/*.main .left-image{
+.main .left-image-a{
+	display: none;
 	float: left;
-	position: relative;
+	position: absolute;
 	width: 650px;
 	height: 520px;
 	box-sizing: border-box;
-}*/
-.main .left-image{
+}
+.main .left-image-b{
+	display: none;
 	float: left;
 	position: fixed;
 	width: 560px;

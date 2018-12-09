@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="box">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	var oBox=document.getElementById('box');
+	var oBox1=oBox.children;
+	console.log(oBox1);
+	var origin= '';
+		for(var i=0;i<oBox1.length;i++){
+			if(i%2){
+				oBox1[i].style.background='pink';
+			}
+			else{
+				oBox1[i].style.background='blue';
+			}
+			oBox1[i].onmouseover=function(){
+				origin=this.style.background;
+				this.style.background='red';
+			}
+			oBox1[i].onmouseout=function(){
+				this.style.background=origin;
+			}
+		}
+</script>
+</html>

@@ -364,7 +364,25 @@
 		</div></section>
 	<section class="main clearfix">
 		<div class="continer clearfix">
-			<div class="left-image">
+			<div class="left-image left-image-b">
+				<div class="image-la clearfix">
+					<img src="images/q1.jpg" alt="">
+					<img src="images/q2.jpg" alt="">
+					<img src="images/q3.jpg" alt="">
+					<img src="images/q4.jpg" alt="">
+				</div>
+				<div class="image-arrow clearfix">
+					<a href="#"><span class="left-arow arow"><i class="iconfont">&#xe627;</i></span></a>
+					<a href="#"><span class="right-arow arow"><i class="iconfont">&#xe622;</i></span></a>
+				</div>
+				<div class="bottom-button clearfix">
+					<a href="#"><input type="button" name=""></a>
+					<a href="#"><input type="button" name=""></a>
+					<a href="#"><input type="button" name=""></a>
+					<a href="#"><input type="button" name=""></a>
+				</div>
+			</div>
+			<div class="left-image left-image-a">
 				<div class="image-la clearfix">
 					<img src="images/q1.jpg" alt="">
 					<img src="images/q2.jpg" alt="">
@@ -659,87 +677,158 @@
 	var oAtn16= document.querySelector('#header-nav-ul-9')
 	var oAtn17= document.querySelector('#header-nav-ul-li-a9')
 	var oAtn18= document.querySelector('#header-nav-ul-10')
+	var oHomeb= document.querySelector('.homeb')
+	var oMinb= document.querySelector('.left-image-b')
+	setInterval(function(){
+		if(document.documentElement.scrollTop>=140){
+			oHomeb.style.display='block';
+		}else{
+			oHomeb.style.display='none';
+		}
+	},4)
+	setInterval(function(){
+		if(document.documentElement.scrollTop>=840){
+			oMinb.style.display='none';
+		}else{
+			oMinb.style.display='block';
+		}
+	},4)
 
-		oAtn1.onmouseover=function(){
+		var tt1=0;
+		oAtn1.onmouseover=oAtn2.onmouseover=function(){
+			clearTimeout(tt1);
 			oAtn2.style.display='block';
+			oAtn4.style.display='none';
+			oAtn6.style.display='none';
+			oAtn8.style.display='none';
+			oAtn10.style.display='none';
+			oAtn12.style.display='none';
+			oAtn14.style.display='none';
+			oAtn16.style.display='none';
+			oAtn18.style.display='none';
 		}
-		oAtn2.onmouseover=function(){
-			oAtn2.style.display='block';
+		oAtn1.onmouseout=oAtn2.onmouseout=function(){
+			tt1=setTimeout(function(){oAtn2.style.display='none'},100)
 		}
-		oAtn2.onmouseout=function(){
+		oAtn3.onmouseover=oAtn4.onmouseover=function(){
+			clearTimeout(tt1);
+			oAtn4.style.display='block';
+			oAtn2.style.display='none';
+			oAtn6.style.display='none';
+			oAtn8.style.display='none';
+			oAtn10.style.display='none';
+			oAtn12.style.display='none';
+			oAtn14.style.display='none';
+			oAtn16.style.display='none';
+			oAtn18.style.display='none';
+		}
+		oAtn3.onmouseout=oAtn4.onmouseout=function(){
+			tt1=setTimeout(function(){oAtn4.style.display='none'},100)
+		}
+		oAtn5.onmouseover=oAtn6.onmouseover=function(){
+			clearTimeout(tt1);
+			oAtn6.style.display='block';
+			oAtn4.style.display='none';
+			oAtn2.style.display='none';
+			oAtn8.style.display='none';
+			oAtn10.style.display='none';
+			oAtn12.style.display='none';
+			oAtn14.style.display='none';
+			oAtn16.style.display='none';
+			oAtn18.style.display='none';
+		}
+		oAtn5.onmouseout=oAtn6.onmouseout=function(){
+			tt1=setTimeout(function(){oAtn6.style.display='none'},100)
+		}
+		oAtn7.onmouseover=oAtn8.onmouseover=function(){
+			clearTimeout(tt1);
+			oAtn8.style.display='block';
+			oAtn4.style.display='none';
+			oAtn6.style.display='none';
+			oAtn2.style.display='none';
+			oAtn10.style.display='none';
+			oAtn12.style.display='none';
+			oAtn14.style.display='none';
+			oAtn16.style.display='none';
+			oAtn18.style.display='none';
+		}
+		oAtn7.onmouseout=oAtn8.onmouseout=function(){
+			tt1=setTimeout(function(){oAtn8.style.display='none'},100)
+		}
+		oAtn9.onmouseover=oAtn10.onmouseover=function(){
+			clearTimeout(tt1);
+			oAtn10.style.display='block';
+			oAtn4.style.display='none';
+			oAtn6.style.display='none';
+			oAtn8.style.display='none';
+			oAtn2.style.display='none';
+			oAtn12.style.display='none';
+			oAtn14.style.display='none';
+			oAtn16.style.display='none';
+			oAtn18.style.display='none';
+		}
+		oAtn9.onmouseout=oAtn10.onmouseout=function(){
+			tt1=setTimeout(function(){oAtn10.style.display='none'},100)
+		}
+		oAtn11.onmouseover=oAtn12.onmouseover=function(){
+			clearTimeout(tt1);
+			oAtn12.style.display='block';
+			oAtn4.style.display='none';
+			oAtn6.style.display='none';
+			oAtn8.style.display='none';
+			oAtn10.style.display='none';
+			oAtn2.style.display='none';
+			oAtn14.style.display='none';
+			oAtn16.style.display='none';
+			oAtn18.style.display='none';
+		}
+		oAtn11.onmouseout=oAtn12.onmouseout=function(){
+			tt1=setTimeout(function(){oAtn12.style.display='none'},100)
+		}
+		oAtn13.onmouseover=oAtn14.onmouseover=function(){
+			clearTimeout(tt1);
+			oAtn14.style.display='block';
+			oAtn4.style.display='none';
+			oAtn6.style.display='none';
+			oAtn8.style.display='none';
+			oAtn10.style.display='none';
+			oAtn12.style.display='none';
+			oAtn2.style.display='none';
+			oAtn16.style.display='none';
+			oAtn18.style.display='none';
+		}
+		oAtn13.onmouseout=oAtn14.onmouseout=function(){
+			tt1=setTimeout(function(){oAtn14.style.display='none'},100)
+		}
+		oAtn15.onmouseover=oAtn16.onmouseover=function(){
+			clearTimeout(tt1);
+			oAtn16.style.display='block';
+			oAtn4.style.display='none';
+			oAtn6.style.display='none';
+			oAtn8.style.display='none';
+			oAtn10.style.display='none';
+			oAtn12.style.display='none';
+			oAtn14.style.display='none';
+			oAtn2.style.display='none';
+			oAtn18.style.display='none';
+		}
+		oAtn15.onmouseout=oAtn16.onmouseout=function(){
+			tt1=setTimeout(function(){oAtn16.style.display='none'},100)
+		}
+		oAtn17.onmouseover=oAtn18.onmouseover=function(){
+			clearTimeout(tt1);
+			oAtn18.style.display='block';
+			oAtn4.style.display='none';
+			oAtn6.style.display='none';
+			oAtn8.style.display='none';
+			oAtn10.style.display='none';
+			oAtn12.style.display='none';
+			oAtn14.style.display='none';
+			oAtn16.style.display='none';
 			oAtn2.style.display='none';
 		}
-		oAtn3.onmouseover=function(){
-			oAtn4.style.display='block';
-		}
-		oAtn4.onmouseover=function(){
-			oAtn4.style.display='block';
-		}
-		oAtn4.onmouseout=function(){
-			oAtn4.style.display='none';
-		}
-		oAtn5.onmouseover=function(){
-			oAtn6.style.display='block';
-		}
-		oAtn6.onmouseover=function(){
-			oAtn6.style.display='block';
-		}
-		oAtn6.onmouseout=function(){
-			oAtn6.style.display='none';
-		}
-		oAtn7.onmouseover=function(){
-			oAtn8.style.display='block';
-		}
-		oAtn8.onmouseover=function(){
-			oAtn8.style.display='block';
-		}
-		oAtn8.onmouseout=function(){
-			oAtn8.style.display='none';
-		}
-		oAtn9.onmouseover=function(){
-			oAtn10.style.display='block';
-		}
-		oAtn10.onmouseover=function(){
-			oAtn10.style.display='block';
-		}
-		oAtn10.onmouseout=function(){
-			oAtn10.style.display='none';
-		}
-		oAtn11.onmouseover=function(){
-			oAtn12.style.display='block';
-		}
-		oAtn12.onmouseover=function(){
-			oAtn12.style.display='block';
-		}
-		oAtn12.onmouseout=function(){
-			oAtn12.style.display='none';
-		}
-		oAtn13.onmouseover=function(){
-			oAtn14.style.display='block';
-		}
-		oAtn14.onmouseover=function(){
-			oAtn14.style.display='block';
-		}
-		oAtn14.onmouseout=function(){
-			oAtn14.style.display='none';
-		}
-		oAtn15.onmouseover=function(){
-			oAtn16.style.display='block';
-		}
-		oAtn16.onmouseover=function(){
-			oAtn16.style.display='block';
-		}
-		oAtn16.onmouseout=function(){
-			oAtn16.style.display='none';
-		}
-		oAtn17.onmouseover=function(){
-			oAtn18.style.display='block';
-		}
-		oAtn18.onmouseover=function(){
-			oAtn18.style.display='block';
-		}
-		oAtn18.onmouseout=function(){
-			oAtn18.style.display='none';
+		oAtn17.onmouseout=oAtn18.onmouseout=function(){
+			tt1=setTimeout(function(){oAtn18.style.display='none'},100)
 		}
 </script>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>048js修改透明度.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.continer{
+			width: 400px;
+			margin:100px auto;
+		}
+		div>div{
+			width: 200px;
+			height: 200px;
+			margin-top: 50px;
+			background: red;
+			opacity: 0.3;
+		}
+	</style>
+</head>
+<body>
+	<div class="continer">
+		<div id="box1"></div>	
+		<div id="box2"></div>	
+		<div id="box3"></div>	
+	</div>
+</body>
+<script type="text/javascript">
+	var oBox1 = document.getElementById('box1');
+	var oBox2 = document.getElementById('box2');
+	var oBox3 = document.getElementById('box3');
+	var timer=0;
+	function css(obj,attr,target){
+		clearInterval(timer);
+		var iSpeed = 0;
+		timer =	setInterval(function(){
+		var courent = parseFloat(getComputedStyle(oBox,false)['opacity']);
+		courent=Math.round(courent*100);
+			if (courent<100) {
+				iSpeed = 10;
+			}else {
+				iSpeed= -10;
+			}
+			if(100-courent<iSpeed){
+				oBox.style.opacity='1';
+				clearInterval(timer);
+			}else{
+
+			oBox.style.opacity=(courent+iSpeed)/100;
+			}
+			},30)
+	}
+	oBox1.onmouseover=function(){}
+	oBox1.onmouseout=function(){}
+	oBox2.onmouseover=function(){}
+	oBox2.onmouseout=function(){}
+	oBox3.onmouseover=function(){}
+	oBox3.onmouseout=function(){}
+</script>
+</html>

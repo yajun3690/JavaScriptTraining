@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+	<input id="ibt" type="button" name="" value="移除">
+	<ul id="ul2"></ul>
+</body>
+<script type="text/javascript">
+	var oUl1=document.getElementById('ul1')
+	var oBt=document.getElementById('ibt')
+	var oUl2=document.getElementById('ul2')
+	var aLi =oUl1.children;
+	oBt.onclick=function(){
+		for(var i=0;i<aLi.length;i++){
+			oUl2.appendChild(aLi[i]);
+		}
+	}
+</script>
+</html>
