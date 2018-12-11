@@ -35,23 +35,29 @@
 	var oBox = document.getElementById('father');
 	var oBox2 = document.getElementById('son');
 	var timer=0;
-	oBox.onmouseover=function(){
+	function css(target){
 		clearInterval(timer);
 		var iSpeed = 0;
 		timer =	setInterval(function(){
-			if (oBox.offsetLeft<400) {
+			if (oBox.offsetLeft<target) {
 				iSpeed = 10;
 			}else {
 				iSpeed= -10;
 			}
-			if(Math.abs(400-oBox.offsetLeft)<Math.abs(iSpeed)){
-				oBox.style.left='400px';
+			if(Math.abs(target-oBox.offsetLeft)<Math.abs(iSpeed)){
+				oBox.style.left=target+'px';
 				clearInterval(timer);
 			}else{
 
 			oBox.style.left=oBox.offsetLeft+iSpeed+'px';
 			}
-			},30)
+			},30)		
+	}
+	oBox.onmouseover=function(){
+			css(0)
+	}
+	oBox.onmouseout=function(){
+			css(-400)
 	}
 </script>
 </html>
