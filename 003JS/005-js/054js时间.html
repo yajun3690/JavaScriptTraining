@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>054js事件.html</title>
+</head>
+<body>
+	<button id="but1">事件</button>
+	<button id="but2">移除事件</button>
+</body>
+<script type="text/javascript">
+	var oBut1 = document.getElementById('but1');
+	var oBut2 = document.getElementById('but2');
+	function show(){
+		alert('hihi')
+	}
+	function show2(){
+		alert('hihiaaaaa')
+	}
+	oBut1.addEventListener('click',show,false);
+	oBut1.addEventListener('click',show2,false);
+	oBut1.addEventListener('click',function(){
+		alert('aaaaa')
+	},false);
+	oBut2.addEventListener('click',function(){
+		oBut1.removeEventListener('click',show2,false);
+		oBut1.removeEventListener('click',show,false);
+
+	},false);
+</script>
+</html>

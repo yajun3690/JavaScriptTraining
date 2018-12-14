@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>056跟随鼠标移动.html</title>
+	<style type="text/css">
+		body{
+			width: 3000px;
+			height: 3000px;
+			background: #000;
+		}
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 10px;
+			height: 10px;
+			background: white;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script src="051jsTBfz.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var oBox = document.getElementsByTagName('div');
+	document.onmousemove=function(ev){
+		oBox[0].style.left= getScrollLeft()+ ev.clientX+'px';
+		oBox[0].style.top= getScrollTop()+ev.clientY+'px';
+		for(var i=oBox.length-1;i>0;i--){
+			oBox[i].style.left= oBox[i-1].offsetLeft+10+'px';
+			oBox[i].style.top= oBox[i-1].offsetTop+10+'px';
+		}
+	}
+</script>
+</html>

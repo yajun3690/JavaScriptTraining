@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>062淘宝放大镜.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: relative;
+			width: 800px;
+			height: 500px;
+			margin: 100px auto;
+		}
+		#bigbox{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 302px;
+			height: 300px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		#bigbox img{
+			width: 300px;
+			height: 300px;
+		}
+		#bigbox span{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 150px;
+			height: 150px;
+			background: rgba(255,255,0,0.5);
+		}
+		#select{
+			position: absolute;
+			left: 0;
+			top: 300px;
+			width: 302px;
+			height: 100px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			list-style: none;
+		}
+		#select li{
+			float: left;
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		#select li img{
+			width: 100px;
+			height: 100px;
+		}
+		#lagebox{
+			position: absolute;
+			left: 302px;
+			top: 0;
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+			overflow: hidden;
+			display: none;
+		}
+		#lagebox img{
+		}
+
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="bigbox">
+			<img src="b1.jpg" alt="">
+			<span></span>
+		</div>
+		<ul id="select">
+			<li><img src="s1.jpg" alt=""></li>
+			<li><img src="s2.jpg" alt=""></li>
+			<li><img src="s3.jpg" alt=""></li>
+		</ul>
+		<div id="lagebox">
+			<img src="l1.jpg" alt="">
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var oBbox = document.querySelectorAll('#bigbox img')
+	var oSelect = document.querySelectorAll('#select li')
+	var oLbox = document.querySelectorAll('#bigbox img')
+	for(var i=0;i<oSelect.length;i++){
+		
+	}
+
+</script>
+</html>

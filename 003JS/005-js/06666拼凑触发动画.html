@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06666拼凑触发动画.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.bb{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+		#box{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 200px auto;
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box1" class="bb"></div>
+	<div id="box2" class="bb"></div>
+	<div id="box3" class="bb"></div>
+	<div id="box4" class="bb"></div>
+	<div id="box5" class="bb"></div>
+	<div id="box6" class="bb"></div>
+	<div id="box7" class="bb"></div>
+	<div id="box8" class="bb"></div>
+	<div id="box9" class="bb"></div>
+</body>
+<script src="052jstd.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var oBox1 = document.getElementById('box1')
+	var oBox2 = document.getElementById('box2')
+	var oBox3 = document.getElementById('box3')
+	var oBox4 = document.getElementById('box4')
+	var oBox5 = document.getElementById('box5')
+	var oBox6 = document.getElementById('box6')
+	var oBox7 = document.getElementById('box7')
+	var oBox8 = document.getElementById('box8')
+	var oBox9 = document.getElementById('box9')
+
+	oBox1.onmousedown = function(){
+		yd(oBox1);
+	}
+	oBox2.onmousedown = function(){
+		yd(oBox2);
+	}
+	oBox3.onmousedown = function(){
+		yd(oBox3);
+	}
+	oBox4.onmousedown = function(){
+		yd(oBox4);
+	}
+	oBox5.onmousedown = function(){
+		yd(oBox5);
+	}
+	oBox6.onmousedown = function(){
+		yd(oBox6);
+	}
+	oBox7.onmousedown = function(){
+		yd(oBox7);
+	}
+	oBox8.onmousedown = function(){
+		yd(oBox8);
+	}
+	oBox9.onmousedown = function(){
+		yd(oBox9);
+	}
+</script>
+</html>

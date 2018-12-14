@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>057鼠标点击物体跟随在父元素移动.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 50px;
+			height: 50px;
+			background: red;
+		}
+		#father{
+			position: relative;
+			width: 500px;
+			height: 50px;
+			background: gray;
+			margin: 100px auto;			
+		}
+		#box3{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-top: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="box"></div>
+	</div>
+	<div id="box3"></div>
+</body>
+<script type="text/javascript">
+	var oBox = document.getElementById('box')
+	var oBox2 = document.getElementById('father')
+	var oBox3 = document.getElementById('box3')
+	oBox.onmousedown = function(ev){
+		var disX = ev.clientX-oBox.offsetLeft;
+		document.onmousemove = function(ev){
+			var l = ev.clientX - disX;
+			if(l<10){
+				l=0;
+			}
+			else if(l+10>oBox2.offsetWidth-oBox.offsetWidth){
+				l=oBox2.offsetWidth-oBox.offsetWidth;
+			}
+			var scale = l/(oBox2.offsetWidth-oBox.offsetWidth)
+			console.log(scale)
+			oBox.style.left =l + 'px';
+			oBox3.style.width =100 +500*scale+ 'px';
+			oBox3.style.height =100 +500*scale+'px';
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmousedown = null;
+		}
+	}
+</script>
+</html>

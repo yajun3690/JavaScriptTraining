@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>063键盘移动.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			background: red;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script type="text/javascript">
+	var oBox = document.getElementById('box')
+	document.onkeydown=function(ev){
+		console.log(ev.keyCode);
+		if(ev.keyCode ==37){
+			oBox.style.left = oBox.offsetLeft-5+'px';
+		}else if(ev.keyCode ==39){
+			oBox.style.left = oBox.offsetLeft+5+'px';
+		}
+	}
+</script>
+</html>
