@@ -14,6 +14,10 @@
 			height: 500px;
 			margin: 100px auto;
 		}
+		#abox{
+			width: 302px;
+			height: 400px;
+		}
 		#bigbox{
 			position: absolute;
 			left: 0;
@@ -22,6 +26,7 @@
 			height: 300px;
 			border: 1px solid #000;
 			box-sizing: border-box;
+			cursor: move;
 		}
 		#bigbox img{
 			width: 300px;
@@ -29,11 +34,12 @@
 		}
 		#bigbox span{
 			position: absolute;
-			left: 0;
+			left: 0px;
 			top: 0;
 			width: 150px;
 			height: 150px;
 			background: rgba(255,255,0,0.5);
+			display: none;
 		}
 		#select{
 			position: absolute;
@@ -63,38 +69,85 @@
 			left: 302px;
 			top: 0;
 			width: 500px;
-			height: 500px;
+			height: 400px;
 			border: 1px solid #000;
 			overflow: hidden;
 			display: none;
 		}
 		#lagebox img{
+			position: absolute;
+			left: 0;
+			top: 0;
 		}
 
 	</style>
 </head>
 <body>
 	<div id="father">
-		<div id="bigbox">
-			<img src="b1.jpg" alt="">
-			<span></span>
+		<div id="abox">
+			<div id="bigbox">
+				<img src="b1.jpg" alt="">
+				<span></span>
+			</div>
+			<ul id="select">
+				<li><img src="a1.jpg" alt=""></li>
+				<li><img src="a2.jpg" alt=""></li>
+				<li><img src="a3.jpg" alt=""></li>
+			</ul>
 		</div>
-		<ul id="select">
-			<li><img src="s1.jpg" alt=""></li>
-			<li><img src="s2.jpg" alt=""></li>
-			<li><img src="s3.jpg" alt=""></li>
-		</ul>
 		<div id="lagebox">
-			<img src="l1.jpg" alt="">
+			<img src="c1.jpg" alt="">
 		</div>
 	</div>
 </body>
 <script type="text/javascript">
-	var oBbox = document.querySelectorAll('#bigbox img')
+	var oBboximg = document.querySelector('#bigbox img')
+	var oBboxspan = document.querySelector('#bigbox span')
 	var oSelect = document.querySelectorAll('#select li')
-	var oLbox = document.querySelectorAll('#bigbox img')
+	var oLboximg = document.querySelector('#lagebox img')
+	var oLbox = document.querySelector('#lagebox')
+	var oBbox = document.getElementById('bigbox')
+	var oFather = document.getElementById('father')
 	for(var i=0;i<oSelect.length;i++){
-		
+			oSelect[i].index = i;
+			oSelect[i].style.opacity = 0.5;
+		oSelect[i].onmouseover  = function(){
+			for(var j=0; j<oSelect.length;j++){
+				oSelect[j].style.opacity = 0.5;	
+			}
+			this.style.opacity = 1;
+			oBboximg.src = "b"+(this.index+1)+".jpg";
+			oLboximg.src = "c"+(this.index+1)+".jpg";
+
+		}
+	}
+	oBbox.onmouseover = function(){
+		oBboxspan.style.display = 'block';
+		oLbox.style.display = "block";
+		oBbox.onmousemove = function(ev){
+			var l = ev.clientX-oFather.offsetLeft-oBboxspan.offsetWidth*0.5;
+			var t = ev.clientY-oFather.offsetTop-oBboxspan.offsetHeight*0.5;
+			if(l<0){
+				l=0;
+			}else if(l>300-oBboxspan.offsetWidth){
+				l=300-oBboxspan.offsetWidth;
+			}
+			if(t<0){
+				t=0;
+			}else if(t>300-oBboxspan.offsetHeight){
+				t=300-oBboxspan.offsetHeight;
+			}
+			scaleL = l/ (300-oBboxspan.offsetWidth);
+			scaleT = t/ (300-oBboxspan.offsetHeight);
+			oBboxspan.style.left = l+'px';
+			oBboxspan.style.top = t+'px';
+			oLboximg.style.left = -scaleL*(oLboximg.offsetWidth-500)+'px'; 
+			oLboximg.style.top = -scaleT*(oLboximg.offsetHeight-400)+'px';
+		}	
+	}
+	oBbox.onmouseout = function(ev){
+		oBboxspan.style.display = 'none';
+		oLbox.style.display = "none";			
 	}
 
 </script>

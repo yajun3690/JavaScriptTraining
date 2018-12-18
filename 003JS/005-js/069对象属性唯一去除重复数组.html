@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>069对象属性唯一去除重复数组.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var attr=[11,0,'00','0',22,33,11,99,15,22,88,33];
+	function qc(attr){
+		var result = [];
+		var obj = {};
+		for(var i=0;i<attr.length;i++ ){
+			 obj[attr[i]] = '';
+			 console.log(obj);
+		}
+		for(var arr in obj){
+			result.push(arr)
+		}
+		return result;
+	}
+	console.log(qc(attr))
+//3种方法
+</script>
+</html>

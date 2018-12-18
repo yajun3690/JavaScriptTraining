@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>065表单综合.html</title>
+	<style type="text/css">
+		form{
+			width: 300px;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<form action="https://www.baidu.com">
+		<input type="text" name="" id="txt">
+		<input type="submit" name="提交" id="sub">
+		<input type="reset" name="重置" id="res">
+		<p id="msg"></p>
+		
+	</form>
+</body>
+<script type="text/javascript">
+	var oTXT = document.getElementById('txt')
+	var oSub = document.getElementById('sub')
+	var oRes = document.getElementById('res')
+	var oMsg = document.getElementById('msg')
+	oTXT.onfocus = function(){
+		oMsg.style.color = 'green';
+		oMsg.innerHTML = "请输入三位到六位字符";
+	}
+	oTXT.onblur = function(){
+		oMsg.innerHTML = "";		
+	}
+</script>
+</html>

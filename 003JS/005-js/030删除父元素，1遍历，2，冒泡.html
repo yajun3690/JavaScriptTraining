@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030删除父元素，1遍历，2，冒泡.html</title>
+</head>
+<body>
+	<input type="button" name="" value="生成" id="but">
+	<ul id="box">
+		<li>1<a href="javascript:;" class="del">删除</a></li>
+		<li>2<a href="javascript:;" class="del">删除</a></li>
+		<li>3<a href="javascript:;" class="del">删除</a></li>
+		<li>4<a href="javascript:;" class="del">删除</a></li>
+		<li>5<a href="javascript:;" class="del">删除</a></li>
+		<li>6<a href="javascript:;" class="del">删除</a></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	var oBox=document.getElementsByTagName('a')
+	var oBbox=document.getElementById('box')
+	var oBut=document.getElementById('but')
+		// for(var i=0;i<oBox.length;i++){
+		// 	oBox[i].onclick=function(){
+		// 		// oBox[0].parentNode.parentNode.removeChild(oBox[0].parentNode);
+		// 		this.parentNode.parentNode.removeChild(this.parentNode);
+		// 	}   
+		// }
+		//冒泡删除；
+		oBut.onclick =function(){
+			var oLi=document.createElement('li');
+			var oA=document.createElement('a');
+			oA.href="javascript:;"
+			oA.innerHTML = "删除";
+			oA.className = "del";
+			oLi.appendChild(oA);
+			oBbox.appendChild(oLi);
+		}
+		oBbox.addEventListener('click',function(ev){
+			if(ev.target.className == 'del'){
+				oBbox.removeChild(ev.target.parentNode)
+			}
+		},false)
+		//添加class判断。不添加时点击li也会进行冒泡，此时会执行删除自身操作报错。
+</script>
+</html>

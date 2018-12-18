@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>070JSON与JS的转换.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var jSon = '{"name":"tome","age":18}'
+	var jSon2 = JSON.parse(jSon);
+	var obj ={
+		name:'Tom',
+		age:18
+	} 
+	var jsObj = JSON.stringify(obj)
+	console.log(jSon)
+	console.log(jSon2)
+	console.log(typeof jSon2.name)
+	console.log(obj)
+	console.log(jsObj)
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>068ev.type属性.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script type="text/javascript">
+	var oBox = document.getElementById('box')
+	 function  ccc(ev){
+	 	if(ev.type == 'mouseover'){
+	 		oBox.style.background = 'red';
+	 	}else if(ev.type == 'click'){
+	 		oBox.style.background = 'blue';
+	 	}
+	 }
+	oBox.addEventListener('mouseover',ccc,false)
+	oBox.addEventListener('click',ccc,false)
+	oBox.addEventListener('mouseover',function(ev){
+		console.log(ev.currentTarget)
+		console.log(ev.target)
+	},false)
+</script>
+</html>

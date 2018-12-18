@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>066右键菜单.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#meu{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 50px;
+			height: 200px;
+			background: gray;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="meu"></div>
+</body>
+<script type="text/javascript">
+	var oMeu = document.getElementById('meu')
+	document.oncontextmenu = function(ev){
+		oMeu.style.display = 'block';
+		oMeu.style.left = ev.clientX + 'px';
+		oMeu.style.top = ev.clientY + 'px';
+		ev.preventDefault();
+	}
+	oMeu.onclick = function(ev){
+		ev.stopPropagation();
+	}
+	document.onclick = function(){
+		oMeu.style.display = 'none';		
+	}
+</script>
+</html>

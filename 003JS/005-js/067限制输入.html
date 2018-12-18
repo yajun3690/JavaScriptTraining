@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>067限制输入.html</title>
+</head>
+<body>
+	请输入账号：
+	<input type="text" name="" id="txt">
+</body>
+<script type="text/javascript">
+	var oTxt = document.getElementById('txt')
+
+		oTxt.onkeydown = function(ev){
+			if((ev.keyCode<96||ev.keyCode>105)&&(ev.keyCode<48||ev.keyCode>57)&& ev.keyCode!=8 && ev.keyCode!=37 && ev.keyCode!=39){
+				return false
+			}
+		}
+</script>
+</html>

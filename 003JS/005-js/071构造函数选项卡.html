@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>071构造函数选项卡.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#box1{
+			width: 200px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			margin-bottom: 10px;
+		}
+		#box1 li{
+			float: left;
+			margin-left: 10px;
+			cursor: pointer;
+		}
+		.col{
+			color: #ff6700;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+			border-bottom-color: #ff6700;
+		}
+		#box2{
+			text-align: center;
+			line-height: 200px;
+		}
+		#box2 li{
+			display: none;
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+		}
+		#box2 li:nth-child(1){
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<ul id="box1">
+		<li class="col">美女</li>
+		<li>游戏</li>
+		<li>生活</li>
+		<li>手机</li>
+	</ul>
+	<ul id="box2">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script type="text/javascript">
+
+	// var oUl = document.getElementById('box1')
+	// var oBtn1 = oUl.getElementsByTagName('li')
+	// var oUl = document.getElementById('box2')
+	// var oBtn2 = oUl.getElementsByTagName('li')
+
+	// var oBtn1= document.querySelectorAll('#box1 li');
+	// var oBtn2= document.querySelectorAll('#box2 li');	
+	// 	for(var i=0;i<oBtn1.length;i++){
+	// 		oBtn1[i].index = i;
+	// 		oBtn1[i].onclick=function(){
+	// 		 for(var j=0;j<oBtn1.length;j++){
+	// 			oBtn1[j].className = '';
+	// 			oBtn2[j].style.display = 'none';			 	
+	// 		 }
+	// 			this.className = 'col';
+	// 			oBtn2[this.index].style.display='block';
+	// 		}
+	// 	}
+
+	function Tab(){
+		this.oBtn1= document.querySelectorAll('#box1 li');
+		this.oBtn2= document.querySelectorAll('#box2 li');
+		this.bindEvent();
+	}
+	Tab.prototype.bindEvent = function(){
+		var _this = this;
+		for(var i=0;i<this.oBtn1.length;i++){
+			this.oBtn1[i].index = i
+			this.oBtn1[i].onclick=function(){
+				_this.fnClick(this);
+			}
+		}
+	}
+	Tab.prototype.fnClick=function(obtn){
+		for(var i=0;i<this.oBtn1.length;i++){
+			this.oBtn1[i].className = '';
+			this.oBtn2[i].style.display = 'none';
+
+		}
+		obtn.className = 'col';
+		this.oBtn2[obtn.index].style.display = 'block';
+	}
+
+	new Tab();
+</script>
+</html>

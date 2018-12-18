@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>072构造函数轮播图.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#box{
+
+		}
+		ul{
+			position: relative;
+		}
+		li{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+
+	</div>
+</body>
+<script type="text/javascript">
+	function Lbpicture(options){
+		//罗列需要的属性
+		this.oBox = document.getElementById(options.id);
+		this.Img = options.img;
+		console.log(this)
+		console.log(options.img)
+
+		//绑定事件
+		this.addSelect();
+	}
+	Lbpicture.prototype.addSelect = function(){
+		//创建DOM节点
+		var oUl = document.createElement('ul')
+		for(var i=0;i<this.Img.length;i++){
+			var oli = document.createElement('li')
+			var oimg = document.createElement('img')
+			oimg.src = this.Img[i];
+			oli.appendChild(oimg)
+			oUl.appendChild(oli)
+		}
+		//添加DOM节点到BOX
+		this.oBox.appendChild(oUl)
+		
+	}
+
+
+
+	new Lbpicture({
+		id:'box',
+		img:["c1.jpg","c2.jpg","c3.jpg"]
+	});
+</script>
+</html>
