@@ -10,17 +10,53 @@
 			list-style: none;
 		}
 		#box{
-
-		}
-		ul{
 			position: relative;
 		}
-		li{
+		ul{
+		}
+		.ccc{
 			position: absolute;
 			left: 0;
 			top: 0;
 		}
+		.row{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 40px;
+			height: 60px;
+			color: white;
+			background: #067;
+			z-index: 55;
+			text-align: center;
+			line-height: 60px;
+		}
+		.leftrow{
+			left: 0;
+			top: 50%;
+			cursor: pointer;
+			user-select: none;			
+		}
+		.rightrow{
+			left: 390px;
+			top: 50%;
+			cursor: pointer;			
+			user-select: none;			
+		}
+		.bottomrow{
 
+		}
+		.active{
+			position: absolute;
+			width: 60px;
+			height: 20px;
+			left: 0;
+			bottom: 0;
+		}
+		.active li{
+			border: 10px solid white;
+			border-radius: 50%;
+		}
 	</style>
 </head>
 <body>
@@ -33,32 +69,91 @@
 		//罗列需要的属性
 		this.oBox = document.getElementById(options.id);
 		this.Img = options.img;
-		console.log(this)
-		console.log(options.img)
-
+		this.width = options.width;
+		this.height = options.height;
+		this.now = 0;
+		this.oBox.style.width = this.width+'px';
+		this.oBox.style.height = this.height+'px';
 		//绑定事件
 		this.addSelect();
+		this.bindevent();
 	}
 	Lbpicture.prototype.addSelect = function(){
 		//创建DOM节点
-		var oUl = document.createElement('ul')
+		//生成图片容器
+		this.oUl = document.createElement('ul')
+		//生成底部按钮容器
+		var oUl2 = document.createElement('ul');
 		for(var i=0;i<this.Img.length;i++){
 			var oli = document.createElement('li')
 			var oimg = document.createElement('img')
+			var oli2 = document.createElement('li');
+
 			oimg.src = this.Img[i];
-			oli.appendChild(oimg)
-			oUl.appendChild(oli)
+			oli.appendChild(oimg);
+			oli.className = 'ccc'
+			this.oUl.appendChild(oli);
+			oUl2.appendChild(oli2);
 		}
+		//生成左右按钮
+		this.oRightRow = document.createElement('span')
+		this.oLeftRow = document.createElement('span')
+		//给按钮绑定classNAME
+		this.oRightRow.className = 'row rightrow'
+		this.oLeftRow.className = 'row leftrow'
+		this.oRightRow.innerHTML = '&gt;';
+		this.oLeftRow.innerHTML = '&lt;';
+		// oUl2.className = 'active';
+		// oUl2.style.left = '50%';
+		// oli2.style.float = 'left';
 		//添加DOM节点到BOX
-		this.oBox.appendChild(oUl)
+		this.oBox.appendChild(this.oUl);
+		this.oBox.appendChild(oUl2);
+		this.oBox.appendChild(this.oRightRow);
+		this.oBox.appendChild(this.oLeftRow);
 		
 	}
+	Lbpicture.prototype.bindevent = function(){
+		var _this = this
+		//共同事件
+		function show(){
+			for(var i =0;i<_this.Img.length;i++){
+				_this.oUl.children[i].style.zIndex = 0;
+				_this.oUl.children[i].style.dispaly = 'none';
+				_this.oUl.children[i].style.opacity = 0.5;
+			}
+				_this.oUl.children[_this.now].style.zIndex = 50;
+				_this.oUl.children[_this.now].style.dispaly = 'block';
+				_this.oUl.children[_this.now].style.opacity = 1;			
+		}
+		//绑定右按钮
+		this.oRightRow.onclick = function(){
+			show();
+			//显示下一张
+			_this.now++;
+			if(_this.now>2){
+				_this.now = 0;
+			}
+		}
+		//绑定左按钮
+		this.oLeftRow.onclick = function(){
+			show();
+			_this.now--;
+			if(_this.now<0){
+				_this.now = 2;
+			}			
+		}
 
+
+
+	}
 
 
 	new Lbpicture({
 		id:'box',
-		img:["c1.jpg","c2.jpg","c3.jpg"]
+		img:["b1.jpg","b2.jpg","b3.jpg"],
+		width:430,
+		height:434
 	});
 </script>
 </html>

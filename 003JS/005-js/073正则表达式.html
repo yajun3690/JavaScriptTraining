@@ -5,10 +5,34 @@
 	<title>073正则表达式.html</title>
 </head>
 <body>
-	
+	<input type="text" name="" id="txt">
+	<button id="btn">添加</button>
 </body>
 <script type="text/javascript">
+	var oText = document.getElementById('txt')
+	var oBtn = document.getElementById('btn')
+	function add(){
+		var oText2 = document.createElement('p')
+		// var reg = /关键字|王志强|\$/g;
+		var reg = new RegExp('关键字|王志强|\$','g')
+		oText2.innerHTML = oText.value.replace(reg,'*');
+
+		document.body.appendChild(oText2);
+
+	}
+	oBtn.onclick = function(){
+		add();
+		oText.value = '';
+	}
+
+
+
+
+
+
+
 	var arr = "aacc 11 33a  456 b33"
 	console.log(arr.match(/\d+/g))
+
 </script>
 </html>
