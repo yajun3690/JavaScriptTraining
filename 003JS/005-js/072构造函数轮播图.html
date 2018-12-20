@@ -48,12 +48,14 @@
 		}
 		.active{
 			position: absolute;
-			width: 60px;
+			margin-left: -30px;
+			width: 75px;
 			height: 20px;
 			left: 0;
-			bottom: 0;
+			bottom: 10px;
 		}
-		.active li{
+		.activeli{
+			margin-left: 5px;
 			border: 10px solid white;
 			border-radius: 50%;
 		}
@@ -64,6 +66,7 @@
 
 	</div>
 </body>
+<script src="051jsTBfz.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function Lbpicture(options){
 		//罗列需要的属性
@@ -71,19 +74,25 @@
 		this.Img = options.img;
 		this.width = options.width;
 		this.height = options.height;
+		this.playAuto = options.playAuto;
 		this.now = 0;
 		this.oBox.style.width = this.width+'px';
 		this.oBox.style.height = this.height+'px';
 		//绑定事件
 		this.addSelect();
 		this.bindevent();
+		//自动播放
+		if(this.playAuto){
+			this.auto();
+		}
+
 	}
 	Lbpicture.prototype.addSelect = function(){
 		//创建DOM节点
 		//生成图片容器
 		this.oUl = document.createElement('ul')
 		//生成底部按钮容器
-		var oUl2 = document.createElement('ul');
+		this.oUl2 = document.createElement('ul');
 		for(var i=0;i<this.Img.length;i++){
 			var oli = document.createElement('li')
 			var oimg = document.createElement('img')
@@ -92,8 +101,10 @@
 			oimg.src = this.Img[i];
 			oli.appendChild(oimg);
 			oli.className = 'ccc'
+			oli2.className = 'activeli';
+			oli2.style.float = 'left';
 			this.oUl.appendChild(oli);
-			oUl2.appendChild(oli2);
+			this.oUl2.appendChild(oli2);
 		}
 		//生成左右按钮
 		this.oRightRow = document.createElement('span')
@@ -103,57 +114,81 @@
 		this.oLeftRow.className = 'row leftrow'
 		this.oRightRow.innerHTML = '&gt;';
 		this.oLeftRow.innerHTML = '&lt;';
-		// oUl2.className = 'active';
-		// oUl2.style.left = '50%';
-		// oli2.style.float = 'left';
+		this.oUl2.className = 'active';
+		this.oUl2.style.zIndex = '55';
+		this.oUl2.style.left = '50%';
 		//添加DOM节点到BOX
 		this.oBox.appendChild(this.oUl);
-		this.oBox.appendChild(oUl2);
+		this.oBox.appendChild(this.oUl2);
 		this.oBox.appendChild(this.oRightRow);
 		this.oBox.appendChild(this.oLeftRow);
 		
 	}
 	Lbpicture.prototype.bindevent = function(){
 		var _this = this
-		//共同事件
-		function show(){
-			for(var i =0;i<_this.Img.length;i++){
-				_this.oUl.children[i].style.zIndex = 0;
-				_this.oUl.children[i].style.dispaly = 'none';
-				_this.oUl.children[i].style.opacity = 0.5;
-			}
-				_this.oUl.children[_this.now].style.zIndex = 50;
-				_this.oUl.children[_this.now].style.dispaly = 'block';
-				_this.oUl.children[_this.now].style.opacity = 1;			
-		}
 		//绑定右按钮
+		
+		this.oUl2.children[0].style.borderColor = '#000';		
 		this.oRightRow.onclick = function(){
-			show();
 			//显示下一张
 			_this.now++;
 			if(_this.now>2){
 				_this.now = 0;
 			}
+			_this.tab();
 		}
 		//绑定左按钮
 		this.oLeftRow.onclick = function(){
-			show();
 			_this.now--;
 			if(_this.now<0){
 				_this.now = 2;
-			}			
+			}
+			_this.tab();			
+		}
+		//绑定底部按钮
+		for(var i = 0;i<this.oUl2.children.length;i++){
+				this.oUl2.children[i].index = i;
+			this.oUl2.children[i].onclick = function(){
+				_this.now = this.index;
+				_this.tab();
+			}
 		}
 
 
 
 	}
+	Lbpicture.prototype.tab = function(){
+			for(var i =0;i<this.Img.length;i++){
+				this.oUl.children[i].style.zIndex = 0;
+				this.oUl.children[i].style.dispaly = 'none';
+				this.oUl.children[i].style.opacity = 0.5;
+				this.oUl2.children[i].style.borderColor = '#fff';
+			}
+				this.oUl.children[this.now].style.zIndex = 50;
+				this.oUl.children[this.now].style.dispaly = 'block';
+				// this.oUl.children[this.now].style.opacity = 1;	
+				sssss(this.oUl.children[this.now],{opacity:100})
+				this.oUl2.children[this.now].style.borderColor = '#000';
 
+	}
+	Lbpicture.prototype.auto = function(){
+		var _this = this;
+		var timer = 0;
+		timer = setInterval(this.oRightRow.onclick,this.playAuto);
+		this.oBox.onmouseover = function(){
+			clearInterval(timer);
+		}
+		this.oBox.onmouseout = function(){
+			timer = setInterval(_this.oRightRow.onclick,_this.playAuto);
+		}
+	}
 
 	new Lbpicture({
 		id:'box',
 		img:["b1.jpg","b2.jpg","b3.jpg"],
 		width:430,
-		height:434
+		height:434,
+		playAuto:2000
 	});
 </script>
 </html>

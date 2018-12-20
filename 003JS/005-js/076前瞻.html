@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>076前瞻.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var str = 's1g2g1h5fg&h*g#'
+	var reg1 = /[a-z](?=\d)/g;
+	var reg2 = /[a-z](?!\d)/g;
+	//正向前瞻，替换前面为数字的字母
+	console.log('str:',str);
+	console.log('reg1:',str.replace(reg1,'$'))
+	//正向前瞻，替换前面为不为数字的字母
+	console.log(reg1.test(str));
+	console.log(reg1.lastIndex)
+	console.log(reg1.test(str));
+	console.log(reg1.test(str));
+	console.log('reg2:',str.replace(reg2,'$'))
+
+</script>
+</html>
