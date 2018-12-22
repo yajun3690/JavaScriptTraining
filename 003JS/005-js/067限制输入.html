@@ -12,8 +12,9 @@
 	var oTxt = document.getElementById('txt')
 
 		oTxt.onkeydown = function(ev){
+				console.log(ev.keyCode)
 			if((ev.keyCode<96||ev.keyCode>105)&&(ev.keyCode<48||ev.keyCode>57)&& ev.keyCode!=8 && ev.keyCode!=37 && ev.keyCode!=39){
-				return false
+				return false;
 			}
 		}
 </script>
