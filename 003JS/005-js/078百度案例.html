@@ -251,7 +251,7 @@
                     <span class="msg"></span>
                     <div id="pwdChecklist" class="pwd-checklist" style="display:none;">
                         <ul>
-                            <li class="pwd-checklist-item">长度为6~14个字符</li>
+                            <li class="pwd-checklist-item ">长度为6~14个字符</li>
                             <li class="pwd-checklist-item">支持数字,大小写字母和标点符号</li>
                             <li class="pwd-checklist-item ">不允许有空格</li>
                         </ul>
@@ -333,6 +333,8 @@
     var oPassward = oForm.password;
     var oMsg = document.querySelectorAll('.msg')
     var oCancel = document.querySelectorAll('.cancel')
+    var oChecklist = document.getElementById('pwdChecklist')
+    var oLi = oChecklist.getElementsByTagName('li')
     //初始化
     init();
     //处理显示隐藏按钮 
@@ -340,6 +342,7 @@
     checkUsername();
     checkPhone();
     checkPassward();
+    checkVreify();
 
     //2，初始化。
     function init(){
@@ -404,7 +407,7 @@
         oUsername.onblur = function(){
             var val = oUsername.value;
             //什么都不输入,后面提示清空
-            if(val==''){
+            if(val==''){ 
                 oMsg[0].className = 'msg';
                 oCancel[0].previousElementSibling.className= "";
             }
@@ -434,7 +437,7 @@
     function checkPhone(){
         oPhone.onkeydown = function(ev){
                 console.log(ev.keyCode)
-            if((ev.keyCode<96||ev.keyCode>105)&&(ev.keyCode<48||ev.keyCode>57)&& ev.keyCode!=8 && ev.keyCode!=37 && ev.keyCode!=39){
+            if((ev.keyCode<96||ev.keyCode>105||oPhone.value.length>10)&&(ev.keyCode<48||ev.keyCode>57||oPhone.value.length>10)&& ev.keyCode!=8 && ev.keyCode!=37 && ev.keyCode!=39){
                 return false;
             }
         }
@@ -467,20 +470,49 @@
     }
     //6验证密码
    function checkPassward(){
+        oPassward.oninput = function(){
+            var val = oPassward.value;
+            // //长度为6~14个字符
+            var li0 = /^[0-9a-z\.]{6,14}$/;
+             //支持数字,大小写字母和标点符号
+            var li1 = /[^0-9a-z!\.\,\?] /i;
+            //不允许有空格
+            var li2 = /\s/;
+            //长度为6~14个字符
+            if(li0.test(val)){
+                oLi[0].className = 'pwd-checklist-item pwd-checklist-item-success';
+            }else{
+                oLi[0].className = 'pwd-checklist-item pwd-checklist-item-error';
+            }
+            // //支持数字,大小写字母和标点符号
+
+            if(!li1.test(val)){
+                oLi[1].className = 'pwd-checklist-item pwd-checklist-item-success';
+            }else{
+                oLi[1].className = 'pwd-checklist-item pwd-checklist-item-error';
+            }
+            //不允许有空格
+            if(!li2.test(val)){
+                oLi[2].className = 'pwd-checklist-item pwd-checklist-item-success';
+            }else{
+                oLi[2].className = 'pwd-checklist-item pwd-checklist-item-error';
+            }
+        }   
         oPassward.onblur = function(){
             var val = oPassward.value;
-            //什么都不输入,后面提示清空
+            //kong
             if(val==''){
                 oMsg[2].className = 'msg';
                 oPassward.className= "";
             }
-            //空字符清除
+            //支持数字,大小写字母和标点符号
+
             else if(kify(val)){
                oMsg[2].className = 'msg';
                oPassward.value = '';
                oPassward.className= "";            
             }
-            //不合法字符验证
+            //不允许有空格
             else if(!lify2(val)){
                 setError(oMsg[2],'手机号码格式不正确',oPassward);
             }
@@ -490,9 +522,12 @@
             }
         }
         oPassward.onfocus = function(){
-            oMsg[2].className = 'tiptext';
-            oMsg[2].innerHTML = '请输入中国大陆手机号,其他人不可见';
+            oChecklist.style.display = 'block';
         } 
+    }
+    //8.验证码
+    function checkVreify(){
+        
     }
 </script>
 </html>
