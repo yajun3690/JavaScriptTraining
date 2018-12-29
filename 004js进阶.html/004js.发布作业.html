@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004js.发布作业.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function teacher(name){
+		this.name = name;
+	}
+	teacher.prototype = function(){
+			console.log(this.name)
+	}
+	function student(name){
+		this.name = name;
+	}
+	student.prototype = function(){
+			console.log(this.name)
+		}
+	var t1 = new teacher();
+	console.log(teacher);
+	console.log(t1);
+</script>
+</html>

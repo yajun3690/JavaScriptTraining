@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003</title>
+</head>
+<body>
+	<input type="text" name="" id="txt">
+	<button id="cs">测试</button>
+</body>
+<script type="text/javascript">
+	var oTxt = document.getElementById('txt') 
+	var oBut = document.getElementById('cs') 
+	function add(num){
+		try{
+			if(isNaN(parseInt(num))){
+				throw new Error('not a number');
+			}
+			// debugger
+			var result =0;
+			for(var i =0;i<=num;i++){
+				result +=i; 
+			}
+			return result;
+		}
+		catch(e){
+			console.log(e);
+		}
+		finally{
+			console.log('finally....');
+		}
+	}
+	function handle(val){
+		console.log(val*10)
+	}
+	oBut.onclick = function(){
+		var val = add(oTxt.value);
+		handle(val);
+
+	}
+	function aaa(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	aaa.prototype.showName=function(){
+		console.log('I am' + this.name);
+	}
+	aaa.prototype.showAge = function(){
+		console.log('I am' + this.age +'years old');
+	}
+	var p1 = new aaa('tom',17)
+	Object.defineProperty(p1,'eyes',{
+		value:2,
+		enumerable:true,
+		writable:true,
+		configurable:true
+	});
+	console.log(p1.eyes);
+	for(var attr in p1){
+		console.log(attr,p1[attr])
+	}
+	console.log(Object.getOwnPropertyDescriptor(p1,'eyes'))
+</script>
+</html>

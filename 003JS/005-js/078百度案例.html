@@ -587,18 +587,16 @@
             oMsg[3].className = 'msg';
             oVerify.className= "";            
         }
-        if(!oVerify.value ==''){
-             Vreifycheck = true;  
-        }        
+        oVerify.oninput = function(){
+            if(!oVerify.value ==''){
+                 Vreifycheck = true;  
+            }        
+        }
     }
     //9.阅读并接受
     function checkIsAgree(){
-         isAgreecheck = false;
         oIsAgree.onfocus = function(){
             oAgreeErr.style.display = 'none';             
-        }
-        if(!oIsAgree.value ==''){
-           isAgreecheck = true; 
         }
     }
     //10.提交判断
@@ -618,7 +616,7 @@
         if(!oIsAgree.checked){
             oAgreeErr.style.display = 'inline-block';
         }
-        if(usercheck&&phonecheck&&passwordcheck&&Vreifycheck&&isAgreecheck){
+        if(usercheck&&phonecheck&&passwordcheck&&Vreifycheck&&oIsAgree.checked){
             oForm.submit();
         }
 
