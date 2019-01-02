@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单例封装.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			display: none;
+			width: 200px;
+			height: 200px;
+			background: red;
+			margin: 200px auto;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">生成</button>
+</body>
+<script type="text/javascript">
+	var oButn = document.getElementById('btn')
+
+	function getSector(fn){
+		var obj = null;
+		if(!obj){
+			return obj = fn();
+		}
+		return obj
+	}
+	//创造节点
+	function create(){
+		var aDiv = document.createElement('div');
+		aDiv.className = 'box1';
+		document.body.appendChild(aDiv);
+	}
+	function createSectorElement(){
+		getSector(create());
+
+	} 
+
+
+
+	oButn.onclick = function(){
+
+		createSectorElement();
+
+	}
+
+
+
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001继承.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+		(function(w){
+			function teacher(name){
+				this.name =name;
+				this.students = [];
+			} 
+			teacher.prototype = {
+				constructor:teacher,
+				//注册方法
+				register:function(student){
+					this.students.push(student);
+				},
+				//发布
+				publish:function(task){
+					for(var i = 0;i<this.students.length;i++){
+						this.students[i].listen(task);
+					}
+				}
+				
+			}
+
+			w.teacher = teacher;
+		})(window);
+
+		(function(w){
+			function student(name,teacher){
+				this.name= name;
+				//注册
+				teacher.register(this)
+			}
+			student.prototype = {
+				constructor:student,
+				//接受
+				listen:function(task){
+					console.log(this.name+'got task'+task);
+				}
+			}
+
+			w.student = student;
+		})(window);
+		var t1 = new teacher('tom');
+
+		var s1 = new student('ryj',t1);
+		var s2 = new student('xsax',t1);
+		t1.publish('coding...')
+
+		console.log(t1);
+		console.log(s1);
+		console.log(s2);
+
+
+
+</script>
+</html>
