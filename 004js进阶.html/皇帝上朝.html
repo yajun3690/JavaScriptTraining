@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>005js.单例模式.html</title>
+	<title>皇帝上朝.html</title>
 </head>
 <body>
 	
 </body>
 <script type="text/javascript">
 	(function(w){
-			var obj =null;
+		var obj =null
 		function King(name){
 			if(!obj){
 				this.name = name;
@@ -21,13 +21,17 @@
 		King.prototype = {
 			constructor:King,
 			work:function(){
-				console.log(this.name+this.val+'有事启奏,无事退朝')
+				console.log(this.name+this.val+'说：有事早奏，无事退朝')
 			}
 		}
+
+
 		w.King = King;
-	})(window);
-	for(var i= 0;i<=5;i++){
+	})(window)
+  	for(var i=0;i<=5;i++){
 		new King('康熙').work();
-	}
+  		
+  	}
+
 </script>
 </html>

@@ -9,7 +9,6 @@
 			padding: 0;
 		}
 		.box1{
-			display: none;
 			width: 200px;
 			height: 200px;
 			background: red;
@@ -21,35 +20,30 @@
 	<button id="btn">生成</button>
 </body>
 <script type="text/javascript">
+//闭包
 	var oButn = document.getElementById('btn')
-
+//单例
 	function getSector(fn){
 		var obj = null;
-		if(!obj){
-			return obj = fn();
+		return function(){
+			if(!obj){
+			 obj = fn();
+			}
+			return obj;
 		}
-		return obj
 	}
 	//创造节点
 	function create(){
 		var aDiv = document.createElement('div');
 		aDiv.className = 'box1';
 		document.body.appendChild(aDiv);
+		return aDiv;
 	}
-	function createSectorElement(){
-		getSector(create());
-
-	} 
-
-
-
+	//添加单例
+	var createSectorElement = getSector(create);
+	//点击事件
 	oButn.onclick = function(){
-
 		createSectorElement();
-
 	}
-
-
-
 </script>
 </html>

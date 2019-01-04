@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax数据交互.html</title>
+	<link rel="stylesheet" type="text/css" href="0.css">
+	<style type="text/css">
+	</style>
+<!--  -->
+</head>
+<body>
+	<button id="btn">提交</button>
+</body>
+<script type="text/javascript">
+	var oBtn = document.getElementById('btn')
+	oBtn.onclick = function(){
+		alert('aaaa')
+	}
+	//
+	 var oAjax = new XMLHttpRequest();
+	 //
+	 oAjax.open('get','http://10.196.14.57:3000/03.json',true);
+	 oAjax.send();
+	 oAjax.onreadystatechange = function(){
+		if(oAjax.readyState ==4){
+			if(oAjax.status ==200){
+				try{
+					var obj = JSON.parse(oAjax.responseText)
+				}
+				catch(e){
+
+				}
+			}else{
+
+			}
+		}	 	
+	 }
+</script>
+
+</html>
