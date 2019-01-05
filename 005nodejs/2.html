@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>ajax数据交互1.html</title>
+	<title>ajax数据交互2.html</title>
 	<link rel="stylesheet" type="text/css" href="0.css">
 	<style type="text/css">
 	</style>
@@ -18,7 +18,7 @@
 		 var oAjax = new XMLHttpRequest();
 		 //建链
 		 //异步程序不会阻塞页面
-		 oAjax.open('get','http://10.196.14.57:3000/03.json',true);
+		 oAjax.open('get','http://10.196.14.57:3001/03.json',true);
 		 oAjax.send();
 		 oAjax.onreadystatechange = function(){
 			if(oAjax.readyState ==4){
