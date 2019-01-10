@@ -124,16 +124,13 @@
 			oMinb.style.position='fixed';
 			oMinb.style.top='100px';
 			oMinb.style.left='180px';
-			console.log(document.documentElement.scrollTop)
 		}else if(document.documentElement.scrollTop>1000){
 			oMinb.style.position='relative';
 			oMinb.style.top='950px';
 			oMinb.style.left='0';	
-			console.log(document.documentElement.scrollTop)
 		}
 	}
 	
-
 //生成轮播图
 	function Lbpicture(options){
 		//罗列需要的属性
@@ -257,4 +254,122 @@
 		height:560,
 		playAuto:2000
 	});	
-	
+
+
+//右部选择框
+	//版本选择
+	var oEdition = document.querySelector('.sec-Edition')
+	var oAselecter = oEdition.querySelectorAll('a')
+	var oSpan = oEdition.querySelectorAll('span')
+	for(var i=0;i<oAselecter.length;i++){
+			 oAselecter[i].index = i;
+		oAselecter[i].onclick = function(){
+			for(var j=0;j<oAselecter.length;j++){
+				oAselecter[j].style.borderColor = '#e0e0e0';
+				oAselecter[j].style.color = 'black';
+				oSpan[j].style.color = '#acacac';
+			}
+			this.style.borderColor = '#ff6700';
+			this.style.color = '#ff6700';
+			oSpan[this.index].style.color = '#6c6c6c';
+		}
+	}
+	//颜色选择
+	var oSecolor = document.querySelector('.sec-color')
+	var oAsecolor = oSecolor.querySelectorAll('a')
+	for(var i=0;i<oAsecolor.length;i++){
+		oAsecolor[i].onclick = function(){
+			for(var j=0;j<oAsecolor.length;j++){
+				oAsecolor[j].style.borderColor = '#e0e0e0';
+				oAsecolor[j].style.color = 'black';
+			}
+			this.style.borderColor = '#ff6700';
+			this.style.color = '#ff6700';
+		}
+	}
+	//定义onclick算法全局变量
+	var a = 1;
+	var b = 1;
+	var c = 1;
+	//意外
+	var oYiwai = document.querySelector('.yiwai-body')
+	var ol1 = document.querySelector('.li-1')
+	var oRadius = document.querySelector('.radius')
+	var oRightradius = document.querySelector('.right-radius')
+	var oLI = oRadius.querySelector('i')
+	var oRI = oRightradius.querySelector('i')
+
+	oYiwai.onclick = function(){
+		a++
+		if(a%2){
+			this.style.borderColor = '#e0e0e0';
+			ol1.style.color = '#424448';
+			oRightradius.style.borderWidth = '1px';
+			oRadius.style.borderWidth = '1px';
+			oRI.style.display = 'none';
+			oLI.style.display = 'none';
+		}else{
+			this.style.borderColor = '#ff6700';
+			ol1.style.color = '#ff6700';
+			oRightradius.style.borderWidth = '0px';
+			oRadius.style.borderWidth = '0px';
+			oRI.style.display = 'block';
+			oLI.style.display = 'block';
+		}
+	}
+	//碎屏
+
+	var oSuiPing = document.querySelector('.yiwai-body2')
+	var ol2 = document.querySelector('.li-12')
+	var oRadius2 = document.querySelector('.radius2')
+	var oRightradius2 = document.querySelector('.right-radius2')
+	var oLI2 = oRadius2.querySelector('i')
+	var oRI2 = oRightradius2.querySelector('i')
+	oSuiPing.onclick = function(){
+		b++
+		if(b%2){
+			this.style.borderColor = '#e0e0e0';
+			ol2.style.color = '#424448';
+			oRightradius2.style.borderWidth = '1px';
+			oRadius2.style.borderWidth = '1px';
+			oRI2.style.display = 'none';
+			oLI2.style.display = 'none';
+		}else{
+			this.style.borderColor = '#ff6700';
+			ol2.style.color = '#ff6700';
+			oRightradius2.style.borderWidth = '0px';
+			oRadius2.style.borderWidth = '0px';
+			oRI2.style.display = 'block';
+			oLI2.style.display = 'block';
+		}
+	}
+	//保修
+
+	var oBaoXiu = document.querySelector('.yiwai-body3')
+	var ol3 = document.querySelector('.li-13')
+	var oRadius3 = document.querySelector('.radius3')
+	var oRightradius3 = document.querySelector('.right-radius3')
+	var oLI3 = oRadius3.querySelector('i')
+	var oRI3 = oRightradius3.querySelector('i')
+
+	oBaoXiu.onclick = function(){
+		c++
+		if(c%2){
+			this.style.borderColor = '#e0e0e0';
+			ol3.style.color = '#424448';
+			oRightradius3.style.borderWidth = '1px';
+			oRadius3.style.borderWidth = '1px';
+			oRI3.style.display = 'none';
+			oLI3.style.display = 'none';
+		}else{
+			this.style.borderColor = '#ff6700';
+			ol3.style.color = '#ff6700';
+			oRightradius3.style.borderWidth = '0px';
+			oRadius3.style.borderWidth = '0px';
+			oRI3.style.display = 'block';
+			oLI3.style.display = 'block';
+		}
+	}
+
+
+

@@ -495,16 +495,10 @@
 		width: 100%;
 		position: relative;
 		height: 1655px;
-		/*height: 1000px;*/
-		/*background: blue;*/
 	}
 	#box{
 		position: relative;
 		top: 30px;
-		/*top: 950px;*/
-/*		position: fixed;
-		top: 100px;
-		left: 180px;*/
 	}
 	.ccc{
 		position: absolute;
@@ -655,17 +649,19 @@
 		border: 1px solid #e0e0e0;
 		margin-bottom: 20px;
 		line-height: 45px;
+		font-size: 15px;
 		padding: 0px 40px 0px 40px;
 	}
 	.main .right-content .right-sec .sec-Edition a span{
 		float: right;
 		color: #acacac;
 	}
-	.main .right-content .right-sec .sec-Edition a:hover{
-		border-color: #ff6700;
-	}
 	.main .right-content .right-sec .sec-Edition a:nth-child(2){
 		border-color: #ff6700;
+		color: #ff6700;
+	}
+	.main .right-content .right-sec .sec-Edition a:nth-child(2) span{
+		color: #6c6c6c;
 	}
 	.main .right-content .right-sec .sec-Edition a:nth-child(3){
 		margin-left: 20px;
@@ -693,10 +689,13 @@
 		border: 1px solid #e0e0e0;
 		margin-bottom: 20px;
 		line-height: 45px;
+		font-size: 15px;
 		padding: 0px 40px 0px 40px;
 	}
-	.main .right-content .right-sec .sec-color a:hover{
-		border-color: #ff6700;
+	.main .right-content .right-sec .sec-color a img{
+		margin-right: 20px;
+		margin-left: 65px;
+		vertical-align: -5px;
 	}
 	.main .right-content .right-sec .sec-color a:nth-child(2){
 		border-color: #ff6700;
@@ -745,10 +744,10 @@
 		margin-bottom: 17px;
 		border: 1px solid #e0e0e0;
 	}
-	.main .right-content .right-sec .sec-yiwai .yiwai-body:hover{
+/*	.main .right-content .right-sec .sec-yiwai .yiwai-body:hover{
 		border-color: #ff6700;	
-	}
-	.main .right-content .right-sec .sec-yiwai .yiwai-body:hover .body-right ul .li-1{
+	}*/
+/*	.main .right-content .right-sec .sec-yiwai .yiwai-body:hover .body-right ul .li-1{
 		color: #ff6700;
 	}
 	.main .right-content .right-sec .sec-yiwai .yiwai-body:hover .body-right ul .li-3 div .right-radius i{
@@ -762,7 +761,7 @@
 	}
 	.main .right-content .right-sec .sec-yiwai .yiwai-body:hover .body-left>.radius>i{
 		display: block;
-	}
+	}*/
 	.main .right-content .right-sec .sec-yiwai .yiwai-body .body-left{
 		float: left;
 		width: 135px;
@@ -922,6 +921,10 @@
 		background: #b0b0b0;
 		color: white;
 		width: 144px;
+	}
+	.main .right-content .right-sec .evaluate .evaluate-head a:last-child i{
+		font-size: 22px;
+		vertical-align: -3px;
 	}
 	.main .right-content .right-sec .evaluate .evaluate-head a:last-child:hover{
 		background: gray;
