@@ -24,9 +24,9 @@
 					if(isLinear){
 					//匀速动画变化方向判断。
 						if (courent>opject[attr]) {
-							iSpeed = -5;
+							iSpeed = -8;
 						}else {
-							iSpeed= 5;
+							iSpeed= 8;
 						}
 					//匀速动画与目标距离判断。
 						if(Math.abs(opject[attr]-courent)<Math.abs(iSpeed)){

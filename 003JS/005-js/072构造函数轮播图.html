@@ -12,8 +12,6 @@
 		#box{
 			position: relative;
 		}
-		ul{
-		}
 		.ccc{
 			position: absolute;
 			left: 0;
@@ -38,26 +36,24 @@
 			user-select: none;			
 		}
 		.rightrow{
-			left: 390px;
+			left: 520px;
 			top: 50%;
 			cursor: pointer;			
 			user-select: none;			
 		}
-		.bottomrow{
-
-		}
 		.active{
 			position: absolute;
-			margin-left: -30px;
-			width: 75px;
+			margin-left: -100px;
+			width: 200px;
 			height: 20px;
 			left: 0;
-			bottom: 10px;
+			bottom: 0px;
 		}
 		.activeli{
 			margin-left: 5px;
-			border: 10px solid white;
-			border-radius: 50%;
+			width: 40px;
+			height: 1px;
+			border: 1px solid gray;
 		}
 	</style>
 </head>
@@ -132,7 +128,7 @@
 		this.oRightRow.onclick = function(){
 			//显示下一张
 			_this.now++;
-			if(_this.now>2){
+			if(_this.now>3){
 				_this.now = 0;
 			}
 			_this.tab();
@@ -141,7 +137,7 @@
 		this.oLeftRow.onclick = function(){
 			_this.now--;
 			if(_this.now<0){
-				_this.now = 2;
+				_this.now = 3;
 			}
 			_this.tab();			
 		}
@@ -161,8 +157,8 @@
 			for(var i =0;i<this.Img.length;i++){
 				this.oUl.children[i].style.zIndex = 0;
 				this.oUl.children[i].style.dispaly = 'none';
-				this.oUl.children[i].style.opacity = 0.5;
-				this.oUl2.children[i].style.borderColor = '#fff';
+				this.oUl.children[i].style.opacity = 0.4;
+				this.oUl2.children[i].style.borderColor = '#gray';
 			}
 				this.oUl.children[this.now].style.zIndex = 50;
 				this.oUl.children[this.now].style.dispaly = 'block';
@@ -185,9 +181,9 @@
 
 	new Lbpicture({
 		id:'box',
-		img:["b1.jpg","b2.jpg","b3.jpg"],
-		width:430,
-		height:434,
+		img:["q1.jpg","q2.jpg","q3.jpg","q4.jpg"],
+		width:560,
+		height:560,
 		playAuto:2000
 	});
 </script>

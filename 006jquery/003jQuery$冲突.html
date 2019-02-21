@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	(function(){
+		window.$= function(){
+			console.log('aaaaa')
+		}
+	})(window);
+</script>
+<script src="jquery-1.12.4.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	// jQuery.noConflict();
+	// $(function(){
+		// console.log('bbbb')
+	// });
+	// jQuery(function(){
+		// console.log('ccccc')
+	// });
+	// 方法一 释放掉$权限，此时相当于 $()  调用上方自定义函数,此时用jQuery可调用jQuery;
+
+	$(function(){
+		console.log('bbbb')
+	});
+	var kz= jQuery.noConflict();
+	$();
+	// 释放存在代码先后问题;
+	jQuery(function(){
+		console.log('ccccc')
+	});	
+	kz(function(){
+		console.log('dddd')
+	});
+	// 方法二 释放掉$权限，此时相当于 $()  调用上方自定义函数,此时用jQuery和自定义变量可调用jQuery;
+</script>
+</html>

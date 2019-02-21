@@ -1,3 +1,12 @@
+//logo
+	var oLogo = document.querySelector('.header-logo')
+	var oloDiv = document.querySelector('.header-logo-div')
+	oLogo.onmouseenter = function(){
+		oloDiv.style.marginLeft = '-50px';
+	}
+	oLogo.onmouseleave = function(){
+		oloDiv.style.marginLeft = '0px';
+	}
 
 //购物车
 	var oTcat = document.querySelector('.top-car')
@@ -11,6 +20,7 @@
 		oCat.style.color = '#ff6700';
 		oCat.style.background = '#fff';
 		oLoder.style.display = 'block';
+		oContent.style.display = 'block';
 		sssss(oContent,{height:100},1,function(){
 			setTimeout(function(){
 				oLoder.style.display = 'none';
@@ -21,7 +31,9 @@
 	oTcat.onmouseleave = function(){
 		oCat.style.color = '#b0b0b0';
 		oCat.style.background = '#424242';
-		sssss(oContent,{height:0},1);
+		sssss(oContent,{height:0},1,function(){
+			oContent.style.display = 'none';			
+		});
 		oLoder.style.display = 'none';
 		oTxt.style.display = 'none';
 	}
@@ -103,7 +115,45 @@
 	oAtn[0].onmouseleave=function(){
 		oAtn2.style.display='none';
 	}
-
+	var oAtn2li  = oAtn2.querySelectorAll('li')
+	var oAtn2liA = oAtn2.querySelectorAll('a')
+	var oAtn2Content = oAtn2.querySelectorAll('div')
+	for(var i = 0;i<oAtn2li.length;i++){
+		oAtn2li[i].index = i;
+		oAtn2li[i].onmouseenter = function(){
+			for(var j = 0;j<oAtn2li.length;j++){
+				oAtn2li[j].style.background = '#fff';
+				oAtn2liA[j].style.color = 'black';
+				oAtn2Content[j].style.display = 'none';
+			}
+			this.style.background = 'rgb(255,103,0)';
+			oAtn2liA[this.index].style.color = '#fff';
+			oAtn2Content[this.index].style.display = 'block';
+			var _this = this;
+			loadData2(_this.index);
+		}
+		oAtn2.onmouseleave = function(){
+			for(var j = 0;j<oAtn2li.length;j++){
+				oAtn2li[j].style.background = '#fff';
+				oAtn2liA[j].style.color = 'black';
+				oAtn2Content[j].style.display = 'none';
+			}
+		}
+	}
+	function loadData2(index){
+		var data2 = aAtn2[index];
+		var html = '<ul class="header-nav-ul-2-u">';
+		for(var i = 0;i<data2.length;i++){
+		html +=		'			<li class="header-nav-ul-2-u-li">'
+		html +=		'				<a href="'+data2[i].url+'" class="clearfix">'
+		html +=		'					<img src="'+data2[i].img+'" alt="">'
+		html +=		'					<span>'+data2[i].name+'</span>'
+		html +=		'				</a>'
+		html +=		'			</li>'
+		}
+		html +='</ul>';
+		oAtn2Content[index].innerHTML = html;
+	}
 //轮播图
 		var oImg = document.querySelectorAll('.am-lb-i')
 		var oLrow = document.querySelector('.left-aarow')
