@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" name="a1" value="aa1">
+	<input type="text" name="b1" value="bb1">
+	<input type="checkbox" checked>
+</body>
+<script src="jquery-1.12.4.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		// console.log($('input').attr('name'));
+		// console.log($('input').eq(1).attr('name'));
+		// console.log($('input').eq(2).attr('checked'));
+		// console.log($('input').prop('name'));
+		// console.log($('input').eq(1).prop('name'));
+		// console.log($('input').eq(2).prop('checked'));
+
+		// console.log($('input').attr('name','aa1'));
+		// console.log($('input').eq(1).attr('name','bb1'));
+		// console.log($('input').prop('name','aa1'));
+		// console.log($('input').eq(1).prop('name','bb1'));
+
+
+		// $('input').removeAttr('name');
+		// $('input').eq(1).removeAttr('name');
+		// $('input').eq(2).removeAttr('checked');
+		// $('input').removeProp('name');
+		// $('input').eq(1).removeProp('name');
+		$('input').eq(2).removeProp('checked');
+		// removeProp删除不了checked;
+
+	});
+</script>
+</html>

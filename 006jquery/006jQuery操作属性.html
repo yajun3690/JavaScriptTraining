@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+		}
+		.box2{
+			color: red;
+		}
+		.box3{
+			background: blue;
+		}
+		.box4{
+			background: yellow;
+		}
+		button{
+			width: 20px;
+			height: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn"></button>
+	<div>div1</div>
+	<div>div2</div>
+</body>
+<script src="jquery-1.12.4.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		$('div').addClass('box1 box2');
+		// $('div').remveClass('box1 box2 box3')
+		var oBtn = document.querySelector('#btn');
+		oBtn.onclick = function(){
+			$('div').toggleClass('box3');
+			$('div').eq(1).toggleClass('box4');
+		}
+		// toggleClass  没有则添加，有则删除。
+	})
+</script>
+</html>

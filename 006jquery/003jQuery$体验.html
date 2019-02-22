@@ -18,8 +18,10 @@
 <body>
 	<button>点我</button>
 	<div id="ccc"></div>
-	<div class="div2" data-bbb=2></div>
-	<div></div>
+	<div class="div2" data-bbb=2>2</div>
+	<div id="c3">3
+		<p id="bbb"></p>
+	</div>
 </body>
 <script src="jquery-1.12.4.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -103,5 +105,31 @@
 	$('div').data('ccc','3');
 	console.log($('div').data('ccc'));
 	console.log($('.div2').data('bbb'));
+
+
+	console.log(
+		$('div:eq(1)')
+
+	)
+	console.log(
+		$('div:empty'),
+		)
+	console.log(
+		$('div:parent'),
+		)
+	console.log(
+		$('div:contains(2)')
+		)
+	console.log(
+	$('div:has(#bbb)')
+	)
+	console.log(
+	$('div').eq(1)
+	)
+	console.log(
+	$('#ccc').siblings()
+		)
+	console.log($(''))
+
 </script>
 </html>
