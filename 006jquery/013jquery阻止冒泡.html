@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.gf{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+			background: blue;
+			margin: 100px auto;
+		}
+		.f{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			background: yellow;
+			margin-left: 100px;
+			margin-top: 100px;
+		}
+		.s{
+			width: 100px;
+			height: 100px;
+			background: orange;
+			border: 1px solid #000;
+			margin-left: 100px;
+			margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="gf">
+		<div class="f">
+			<div class="s"></div>
+		</div>
+	</div>
+	<form action="https://www.baidu.com">
+		<input type="text">
+		<button type="submit">提交</button>
+	</form>
+	<a href="https://www.baidu.com">
+		<span>去学习</span>
+	</a>
+</body>
+<script src="jquery-1.12.4.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		$('.s').click(function(){
+			alert('s')
+			// return false;
+		});
+		$('.f').click(function(ev){
+			alert('f')
+			// return false;
+			ev.stopPropagation();
+			// 阻止冒泡
+		});
+		$('.gf').click(function(){
+			alert('gf')
+		});
+		$('a').click(function(ev){
+			// return false
+			ev.preventDefault()
+			// 阻止默认行为
+		})
+		// $('a').click()
+		// $('button').click();
+		// return false 可同时阻止冒泡和默认行为(a标签，form表单submit自动跳转页面，右键菜单)
+		// $('button').trigger('click')
+		// $('span').trigger('click')
+		// $('a').trigger('click')
+		// 不阻止冒泡和默认行为
+		// $('button').triggerHander('click')
+		// $('span').triggerHander('click')
+		// 组织冒泡和默认行为
+		// a标签自动触发，不阻止冒泡，但会阻止默认行为
+	})
+</script>
+</html>
