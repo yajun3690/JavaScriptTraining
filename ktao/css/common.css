@@ -1,0 +1,104 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.content{
+	position: relative;
+	width: 1200px;
+	height: 100%;
+	background: #fff;
+	margin-left: auto;
+	margin-right: auto;
+}
+.clearfix:after{
+    content: "";
+    clear: both;
+    display: block;
+    height: 0px;
+    visibility: hidden;
+}
+.clearfix{
+    *zoom:1;
+}
+
+ul{
+	list-style: none;
+}
+input{
+	outline: none;
+}
+a{
+	text-decoration: none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+/*
+	大方块推荐共同格式
+*/
+
+	.big-content{
+		width: 1200px;
+		height: 450px;
+		background: blue;
+	}
+	.big-content .big-content-top-nav{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 45.6px;	
+		background: yellow;	
+		z-index: 999;
+		line-height: 45px;
+	}
+	.big-content .big-content-top-nav span{
+		position: absolute;
+		left: 0;
+		top: 0;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.big-content .big-content-top-nav p{
+		position: absolute;
+		left: 20px;
+		top: 0;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.big-content .big-content-top-nav img{
+		position: absolute;
+		left: 110px;
+		top: 13px;
+		width: 20px;
+		height: 20px;
+	}
+	.big-content-top-nav div{
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.big-content-top-nav div a{
+		font-size: 15px;
+		height: 100%;
+		text-align: center;
+		margin-right: 20px;
+		float: left;
+		color: rgba(102,102,102);
+	}
+	.big-content-top-nav div a:hover{
+		color: rgba(255,102,0);
+	}
+	.big-content-next-content{
+		position: absolute;
+		width: 100%;
+		height: 405px;
+		left: 0;
+		top: 45.6px;
+		background: rgb(255,255,255);
+		z-index: 9999;
+	}
