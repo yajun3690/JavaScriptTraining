@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>请求数据</button>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').click(function(){
+			$.ajax({
+				url:'data.json',
+				type:'get',
+				// data:{name:'YaJun5555',age:18},
+				dataType:'json',
+				success:function(data,statusMsg,jqXHR){
+					console.log("1:::")
+					console.log(data)
+					console.log(statusMsg)
+					console.log(jqXHR)
+				},
+				error:function(jqXHR,statusMsg){
+					console.log("2:::")
+					console.log(jqXHR)
+					console.log(statusMsg)
+				},
+				complete:function(jqXHR,statusMsg){
+					console.log("3:::")
+					console.log(jqXHR)
+					console.log(statusMsg)
+				},
+				Timeout:3000,
+				statusCode:{304:function(){
+					console.log('error 304')
+				},503:function(){
+					console.log('error 503')
+
+				}},
+				headers:{test:'test'},
+
+			})
+		})
+		// $('button').click(function(){
+		// 	$.get('data.json',{name:'YaJun5555',age:18},function(data){console.log(data)},"json")
+		// })		
+	})
+</script>
+</html>

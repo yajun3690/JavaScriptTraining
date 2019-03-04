@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div id="box"></div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+		
+		var slient = {
+			init:function($item){
+				if($item.is(':hidden')){
+					$item.data('status','hiden')
+				}else{
+					$item.data('status','shown')
+				}
+
+			},
+			show:function($item){
+				if($item.data('status') == 'shown') return;
+				if($item.data('status') == 'show') return;
+				$item.data('status','show').trigger('show');
+				$item.show(1000,function(){
+					$item.data('status','shown').trigger('shown');
+				});
+			},
+
+
+			hide:function($item){
+				if($item.data('status') == 'hiden') return;
+				if($item.data('status') == 'hide') return;
+				$item.data('status','hide').trigger('hide');
+				$item.hide(1000,function(){
+					$item.data('status','hiden').trigger('hiden');
+				});
+			}
+
+			
+		}	
+
+		var $item = $('#box')
+
+		$item.on('show shown hide hiden',function(ev){
+			if(ev.type == 'show' ){
+				console.log('show....')
+			}else if(ev.type == 'shown' ){
+				console.log('shown....')
+			}else if(ev.type == 'hide'){
+				console.log('hide....')
+			}else if(ev.type == 'hiden'){
+				console.log('hiden....')
+			}
+		})
+
+
+
+		slient.init($item);
+		$('button').eq(0).on('click',function(){
+
+			slient.show($item);
+
+		})
+
+
+		$('button').eq(1).on('click',function(){
+			slient.hide($item);
+		})
+
+</script>
+</html>

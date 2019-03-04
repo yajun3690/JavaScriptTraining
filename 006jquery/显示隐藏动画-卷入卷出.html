@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示隐藏测试</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div id="box"></div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	var js = {
+			fade:{
+				init:function($item){
+					js._init($item);	
+				},
+				show:function($item){
+					js._show($item,'fadeIn')
+				},
+				hide:function($item){
+					js._hide($item,'fadeOut')			
+				}
+			},
+			slide:{
+				init:function($item){
+					// $item.removeClass('transtion')
+					// if($item.is(":hidden")){
+					// 	$item.data('status','hidden');
+					// }else{
+					// 	$item.data('status','shown');
+					// }
+					js._init($item);
+				},
+				show:function($item){
+
+					if($item.data('status') == 'shown') return;
+					if($item.data('status') == 'show') return;
+					$item.data('status','show').trigger('show');
+					$item.stop().slideDown(function(){
+						$item.trigger('shown').data('status','shown')
+					})
+					// js._show($item,'slideDown')
+				},
+				hide:function($item){
+
+					if($item.data('status') == 'hiden') return;
+					if($item.data('status') == 'hide') return;
+					$item.data('status','hide').trigger('hide');
+					$item.stop().slideUp(function(){
+						$item.trigger('hiden').data('status','hiden');
+					})
+					// js._show($item,'slideUp')			
+				}
+			}
+
+	}
+	var $item = $('#box')
+
+	$item.on('show shown hide hiden',function(ev){
+		if(ev.type == 'show'){
+			console.log('show...')
+		}
+		else if(ev.type == 'shown'){
+			console.log('shown...')
+		}
+		else if(ev.type == 'hide'){
+			console.log('hide...')
+		}
+		else if(ev.type == 'hiden'){
+			console.log('hiden...')
+		}
+	})
+
+
+
+js._init = function($item){
+	$item.removeClass('transtion')
+	if($item.is(":hidden")){
+		$item.data('status','hidden');
+	}else{
+		$item.data('status','shown');
+	}
+}
+js._show = function($item,mode){
+
+	if($item.data('status') == 'shown') return;
+	if($item.data('status') == 'show') return;
+	$item.data('status','show').trigger('show');
+	// $item.show(1000);
+	// $item.trigger('shown').data('status','shown');
+	$item.stop()[mode](function(){
+		$item.trigger('shown').data('status','shown')
+	})
+
+}
+js._hide = function($item,mode){
+
+	if($item.data('status') == 'hiden') return;
+	if($item.data('status') == 'hide') return;
+	$item.data('status','hide').trigger('hide');
+	// $item.hide(1000);
+	// $item.trigger('hiden').data('status','hidden');
+	$item.stop()[mode](function(){
+		$item.trigger('hiden').data('status','hiden');
+	})		
+
+
+}
+
+	// js.fade.init($item);
+	// $('button').eq(0).click(function(){
+	// 	js.fade.show($item);
+	// })
+	// $('button').eq(1).click(function(){
+	// 	js.fade.hide($item);
+	// })
+
+	js.slide.init($item);
+	$('button').eq(0).click(function(){
+		js.slide.show($item);
+	})
+	$('button').eq(1).click(function(){
+		js.slide.hide($item);
+	})
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="list">
+		<li class="item1">li1</li>
+		<li class="item3">li3</li>
+		<li class="item7">li7</li>
+		<li class="item5">li5</li>
+	</ul>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var rDom0 = document.createElement('li')
+		var rDom2 = document.createElement('li')
+		var rDom4 = document.createElement('li')
+		var rDom6 = document.createElement('li')
+		$('ul').append(rDom0)
+		$('ul').append(rDom2)
+		$('ul').append(rDom4)
+		$('ul').append(rDom6)
+		$('.item1').before($(rDom0))
+		$('.item1').after($(rDom2))
+		$('.item3').after($(rDom4))
+		$('.item5').after($(rDom6))
+		$(rDom0).replaceWith('<li class="item0">li0</li>')
+		$(rDom2).replaceWith('<li class="item2">li2</li>')
+		$(rDom4).replaceWith('<li class="item4">li4</li>')
+		$(rDom6).replaceWith('<li class="item6">li6</li>')
+		$('.item7').remove()
+
+	})
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-显示隐藏-基本-防止无效点击.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 50px;
+			height: 30px;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			padding: 20px;
+			border: 10px solid #ff0;
+			background: red;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div class="box" class="transition"></div>
+	<div class="box" class="transition"></div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script src="showhide2.js"></script>
+<script>
+var $item = $('.box');
+//初始化
+$item.showHide({
+	js:true,
+	mode:"animate"
+});
+$item.on('show shown hide hidden',function(ev){
+	if(ev.type == 'show'){
+		console.log('show....');
+	}else if(ev.type == 'shown'){
+		console.log('shown....');
+	}else if(ev.type == 'hide'){
+		console.log('hide....')
+	}else if(ev.type == 'hiden'){
+		console.log('hiden....');
+	}
+});
+$('button').eq(0).on('click',function(){
+	$item.showHide('show');
+});
+$('button').eq(1).on('click',function(){
+	$item.showHide('hide');
+});
+</script>
+
+
+
+
+
+
+
+
+</html>

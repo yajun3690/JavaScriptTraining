@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 100px;
+			height: 100px;
+		}
+		#box{
+			position: absolute;
+			left: 0;
+			top: 200px;
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button>复原</button>
+	<button>移动</button>
+	<div id="box"></div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		
+		function Slient($item){
+			this.$item = $item;
+			this.activeX = parseFloat(this.$item.css('left'));
+			this.activeY = parseFloat(this.$item.css('top'));
+		}
+		Slient.prototype = {
+			constructor : Slient,
+			to:function(x,y){
+				x = (typeof x == 'number') ? x:this.activeX; 
+				y = (typeof y == 'number') ? y:this.activeY; 
+				if(this.activeX == x && this.activeY == y) return;
+				$item.trigger('move');
+				this.$item.css({
+						left:x,
+						top:y
+					});
+				$item.trigger('moved');
+				this.activeX = x;
+				this.activeY = y;
+
+			},
+			X:function(x){
+				this.to(x);
+			},
+			Y:function(y){
+				this.to(null,y);
+			}
+
+
+		}
+
+		function Js($item){
+			this.$item = $item;
+			this.activeX = parseFloat(this.$item.css('left'));
+			this.activeY = parseFloat(this.$item.css('top'));
+		}
+		Js.prototype = {
+			constructor : Js,
+			to:function(x,y){
+				x = (typeof x == 'number') ? x:this.activeX; 
+				y = (typeof y == 'number') ? y:this.activeY; 
+				if(this.activeX == x && this.activeY == y) return;
+				$item.trigger('move');
+				// this.$item.css({
+				// 		left:x,
+				// 		top:y
+				// 	});
+				// $item.trigger('moved');
+				this.$item.stop()
+				.animate({
+						left:x,
+						top:y
+				},function(){
+					this.$item.trigger('moved');
+				}.bind(this))
+				this.activeX = x;
+				this.activeY = y;
+
+			},
+			X:function(x){
+				this.to(x);
+			},
+			Y:function(y){
+				this.to(null,y);
+			}
+
+
+		}
+
+
+
+
+
+
+		var $item = $('#box');
+		var move = new Js($item);
+
+		$item.on('move moved',function(ev){
+			console.log(ev.type)
+		})
+
+
+		$('button').eq(0).on('click',function(){
+			move.to(0,200);
+			// move.X(0);
+		});
+
+
+		$('button').eq(1).on('click',function(){
+			move.to(200,400);
+			// move.X(200);
+			
+		});
+
+
+
+
+
+	})
+</script>
+</html>

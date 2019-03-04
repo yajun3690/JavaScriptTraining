@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示隐藏测试</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div id="box"></div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	var slient = {
+		show:function($item,cb){
+			$item.show();
+			cb();
+		},
+		hide:function($item,cb){
+			$item.hide();
+			cb();
+		}
+	}
+	var $item = $('#box')
+	$('button').eq(0).click(function(){
+		slient.show($item,function(){
+			console.log('show....')
+		});
+	})
+	$('button').eq(1).click(function(){
+		slient.hide($item,function(){
+			console.log('hide...')
+		});
+	})
+</script>
+</html>
