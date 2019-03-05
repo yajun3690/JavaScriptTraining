@@ -2,7 +2,7 @@
 * @Author: TomChen
 * @Date:   2019-02-26 18:15:35
 * @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-05 19:52:16
+* @Last Modified time: 2019-03-05 20:09:05
 */
 ;(function($){
 	function loadHtmlOnce($elem,cb){
@@ -224,7 +224,10 @@
 		});		
 	}
 
-	$win.on('scroll resize load',timeToShow);
+	$win.on('scroll resize load',function(){
+		clearTimeout($floor.showFloorTimer);
+		$floor.showFloorTimer = setTimeout(timeToShow,200);
+	});
 
 	$floor.tab({});
 })(jQuery);

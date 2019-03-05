@@ -1,10 +1,36 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-03 17:13:45
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-03 17:25:51
-*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跨淘网</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+		button{
+			width: 80px;
+			height: 40px;
+		}
+		.box{
+			position: absolute;
+			left:0;
+			top:100px;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button>复原</button><button>移动</button>
+	<div class="box transition"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+
+<script>
 ;(function($){
+	
 	function init($elem){
 		this.$elem = $elem;
 		this.$elem.removeClass('transition');
@@ -76,50 +102,28 @@
 		y:function(y){
 			this.to(null,y)
 		}
-	}
-	function getMove($elem,options){
-		var move = null;
-		if(options.js){
-			move = new Js($elem);
-		}else{
-			move = new Slient($elem);
-		}
-		//return move;
-		/*
-		return {
-			to:move.to.bind(move),
-			x:move.x.bind(move),
-			y:move.y.bind(move)
-		}
-		*/
-		return {
-			to:$.proxy(move.to,move),
-			x:$.proxy(move.x,move),
-			y:$.proxy(move.y,move)
-		}	
-	}
 
-
-	var DEFAULTS = {
-		js:true
 	}
-	//注册插件
-	$.fn.extend({
-		move:function(options,n1,n2){
-			return this.each(function(){
-				var $elem = $(this);
-				var moveObj = $elem.data('moveObj');
+	var $elem = $('.box');
+	var move = new Js($elem)
 
-				if(!moveObj){//单例模式
-					options = $.extend({},DEFAULTS,options)
-					moveObj = getMove($elem,options);
-					$elem.data('moveObj',moveObj);					
-				}
-				if(typeof moveObj[options] == 'function'){
-					moveObj[options](n1,n2);
-				}
-			});
-		}
+	$elem.on('move moved',function(ev){
+		console.log(ev.type)
 	});
 
+	$('button').eq(0).on('click',function(){//复原
+		move.to(0,100)
+		// move.x(0);
+		// move.y(100);
+	});
+	$('button').eq(1).on('click',function(){//移动
+		move.to(200,200)
+		// move.x(100);
+		// move.y(200);
+	});
 })(jQuery);
+</script>
+
+
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			display: none;
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+		button{
+			display: block;
+			margin-left: 300px;
+		}
+	</style>
+</head>
+<body>
+	<button>生成</button>
+	<button>消失</button>
+	<div id="box"></div>	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/yidong.js"></script>
+<script>
+	$(function(){
+		var $item = $('#box');
+		$item.showHide({
+			l:400,t:200,color:'blue',sizeW:200,sizeH:200
+		})
+		$('button').eq(0).on('click',function(){
+			$item.css({display:'block'})
+		})
+		$('button').eq(1).on('click',function(){
+			$item.css({display:'none'})
+		})
+	})
+</script>
+</html>

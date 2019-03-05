@@ -32,23 +32,6 @@
 			js:true,
 			mode:"slide"
 		});
-
-
-		$item.on('show shown hide hiden',function(ev){
-			if(ev.type == 'show'){
-				console.log('show...')
-			}
-			else if(ev.type == 'shown'){
-				console.log('shown...')
-			}
-			else if(ev.type == 'hide'){
-				console.log('hide...')
-			}
-			else if(ev.type == 'hiden'){
-				console.log('hiden...')
-			}
-		})
-
 // 绑定事件
 		$('button').eq(0).on('click',function(){
 			$item.showHide('show');
