@@ -1,33 +1,19 @@
 ;(function($){
 
-var cache = {
-	data:{},
-	count:0,
-	addData:function(key,val){
-		this.data[key] = val;
-		this.count++;
-	},
-	getData:function(key){
-		return this.data[key];
-	}
-}
-
-function Search($item,options){
+function Search($elem,options){
 	//1.罗列属性
-	this.$item = $item;
+	this.$elem = $elem;
 	this.options = options;
-	this.$searchBtn = $item.find('.search-btn');
-	this.$searchInput = $item.find('.search-input');
-	this.$searchForm = $item.find('.search-form');
-	this.$searchLayer = $item.find('.search-layer');
+	this.$searchBtn = $elem.find('.search-btn');
+	this.$searchInput = $elem.find('.search-input');
+	this.$searchForm = $elem.find('.search-form');
+	this.$searchLayer = $elem.find('.search-layer');
 
 	this.isLoaded = false;
-	this.timer = 0;
-	this.jqXHR = null;
 	//2.初始化
 	this.init();
-	if(this.options.autocomplete){
-		this.autocomplete();
+	if(this.options.autocompelete){
+		this.autocompelete();
 	}
 }
 Search.prototype = {
@@ -46,21 +32,11 @@ Search.prototype = {
 	getInputVal:function(){
 		return $.trim(this.$searchInput.val());
 	},
-	autocomplete:function(){
+	autocompelete:function(){
 		//1.初始化显示隐藏插件
 		this.$searchLayer.showHide(this.options);
 		//2.监听输入框input事件
-		this.$searchInput.on('input',function(){
-			//防止快速输入多次请求
-			if(this.options.getDataDelay){
-				clearTimeout(this.timer);
-				this.timer = setTimeout(function(){
-					this.getData();
-				}.bind(this),this.options.getDataDelay)
-			}else{
-				this.getData();
-			}
-		}.bind(this));
+		this.$searchInput.on('input',$.proxy(this.getData,this));
 		//3.点击页面其它地方隐藏下拉层
 		$(document).on('click',$.proxy(this.hideLayer,this));
 		//4.input获取焦点时显示下拉层
@@ -89,30 +65,18 @@ Search.prototype = {
 			this.hideLayer();
 			return;
 		}
-		// console.log('cache',cache);
-		if(cache.getData(inputVal)){
-			this.$item.trigger('getData',[cache.getData(inputVal)]);
-			return;
-		}
-		console.log('will trigger ajax....');
 
-		if(this.jqXHR){
-			this.jqXHR.abort();
-		}
-		this.jqXHR = $.ajax({
+		$.ajax({
 			url:this.options.url+this.getInputVal(),
 			dataType:"jsonp",
 			jsonp:"callback"
 		})
 		.done(function(data){
-			this.$item.trigger('getData',[data])			
-			cache.addData(inputVal,data);
+			this.$elem.trigger('getData',[data])			
+			
 		}.bind(this))
 		.fail(function(err){
-			this.$item.trigger('getNoData')	
-		}.bind(this))
-		.always(function(){
-			this.jqXHR = null;
+			this.$elem.trigger('getNoData')	
 		}.bind(this))
 	},
 	showLayer:function(){
@@ -132,23 +96,22 @@ Search.prototype = {
 }
 
 Search.DEFAULTS = {
-	autocomplete:true,
+	autocompelete:true,
 	// url:"https://suggest.taobao.com/sug?&q="
 	url:"http://127.0.0.1:3001/?&q=",
 	js:true,
-	mode:"slideDownUp",
-	getDataDelay:200
+	mode:"slideDownUp"
 }
 
 $.fn.extend({
 	search:function(options,val){
 		return this.each(function(){
-			var $item = $(this);
-			var search = $item.data('search');
+			var $elem = $(this);
+			var search = $elem.data('search');
 			if(!search){
 				options = $.extend({},Search.DEFAULTS,options);
-				search = new Search($item,options);
-				$item.data('search',search);				
+				search = new Search($elem,options);
+				$elem.data('search',search);				
 			}
 			if(typeof search[options] == 'function'){
 				search[options](val);

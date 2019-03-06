@@ -2,7 +2,7 @@
 * @Author: TomChen
 * @Date:   2019-02-26 18:15:35
 * @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-05 20:56:23
+* @Last Modified time: 2019-03-06 18:54:49
 */
 ;(function($){
 	function loadHtmlOnce($elem,cb){
@@ -42,7 +42,41 @@
 			image.src = imgUrl;	
 		},500)	
 	}
-
+	/*
+		懒加载共通函数
+		options = {
+			totalItemNum:5,
+			$elem:$elem,
+			eventName:'carousel-show',
+			eventPerfix:'carousel'
+		}
+	 */
+	function lazyLoad(options){
+		var item = {},
+		 	totalItemNum = options.totalItemNum,
+		 	totalLoadedItemNum = 0,
+		 	loadFn = null,
+		 	$elem = options.$elem,
+		 	eventName = options.eventName,
+		 	eventPerfix = options.eventPerfix;
+		//1.开始加载
+		$elem.on(eventName,loadFn = function(ev,index,elem){
+			if(item[index] != 'loaded'){
+				//2.具体的加载分离,在具体调用时监听事件eventPerfix+'-load'来执行
+				$elem.trigger(eventPerfix+'-load',[index,elem,function(){
+					item[index] = 'loaded';
+					totalLoadedItemNum++;
+					if(totalItemNum == totalLoadedItemNum){
+						$elem.trigger(eventPerfix+'-loaded');
+					}					
+				}]);
+			}
+		});
+		//3.加载结束
+		$elem.on(eventPerfix+'-loaded',function(){
+			$elem.off(eventName,loadFn);
+		});			
+	}	
 
 	//顶部下拉菜单
 	var $menuDropdown = $('.nav-side .dropdown');
@@ -122,6 +156,8 @@
 	});
 
 	//轮播图图片懒加载函数
+	/*
+	使用共通的来加载程序代替
 	function carouselImgLazyLoad($elem){
 		var item = {};//{0:'loaded',1:'loaded'}
 		var totalItemNum = $elem.find('.carousel-img').length;
@@ -152,23 +188,61 @@
 					$elem.trigger('carousel-loaded');
 				}
 			});
-
 		});
 		//3.加载结束
 		$elem.on('carousel-loaded',function(){
 			$elem.off('carousel-show',loadFn);
 		});			
 	}
+	*/
 	//焦点区域轮播图	
 	var $focusCarousel = $('.focus .carousel-wrap');
-	carouselImgLazyLoad($focusCarousel);
+	//carouselImgLazyLoad($focusCarousel);
+	$focusCarousel.on('carousel-load',function(ev,index,elem,success){
+		var $imgs = $(elem).find('.carousel-img');
+		$imgs.each(function(){
+			var $img = $(this);
+			var imgUrl = $img.data('src');
+			loadImage(imgUrl,function(imgUrl){
+				$img.attr('src',imgUrl);
+			},function(imgUrl){
+				$img.attr('src',"images/focus-carousel/placeholder.png");
+			});
+			success();
+		});
+	});	
+	lazyLoad({
+		totalItemNum:$focusCarousel.find('.carousel-img').length,
+		$elem:$focusCarousel,
+		eventName:'carousel-show',
+		eventPerfix:'carousel'		
+	});
 	$focusCarousel.carousel({});
 
 
 	//今日热销域轮播图	
 	var $todaysCarousel = $('.todays .carousel-wrap');
 	
-	carouselImgLazyLoad($todaysCarousel);
+	//carouselImgLazyLoad($todaysCarousel);
+	$todaysCarousel.on('carousel-load',function(ev,index,elem,success){
+		var $imgs = $(elem).find('.carousel-img');
+		$imgs.each(function(){
+			var $img = $(this);
+			var imgUrl = $img.data('src');
+			loadImage(imgUrl,function(imgUrl){
+				$img.attr('src',imgUrl);
+			},function(imgUrl){
+				$img.attr('src',"images/todays-carousel/placeholder.png");
+			});
+			success();
+		});
+	});	
+	lazyLoad({
+		totalItemNum:$todaysCarousel.find('.carousel-img').length,
+		$elem:$todaysCarousel,
+		eventName:'carousel-show',
+		eventPerfix:'carousel'		
+	});
 	$todaysCarousel.carousel({});
 
 
@@ -272,6 +346,20 @@
 		return html;
 	}	
 
+	$floor.on('tab-load',function(ev,index,elem,success){
+		var $imgs = $(elem).find('.floor-img');
+		$imgs.each(function(){
+			var $img = $(this);
+			var imgUrl = $img.data('src');
+			loadImage(imgUrl,function(imgUrl){
+				$img.attr('src',imgUrl);
+			},function(imgUrl){
+				$img.attr('src',"images/floor/placeholder.png");
+			});
+			success();
+		});
+	});
+	/*
 	function floorHtmlLazyLoad(){
 		var item = {};//{0:'loaded',1:'loaded'}
 		var totalItemNum = $floor.length;
@@ -290,13 +378,20 @@
 			//加载HTML
 			//1.生成HTML
 			getDataOnce($doc,'data/floor/floorData.json',function(data){
+				var $elem = $(elem);
 				var html = buildFloorHtml(data[index]);
 				//2.加载HTML
-				$(elem).html(html);
+				$elem.html(html);
 				//3.图片懒加载
-				floorImgLazyLoad($(elem));
+				//floorImgLazyLoad($(elem));
+				lazyLoad({
+					totalItemNum:$elem.find('.floor-img').length,
+					$elem:$elem,
+					eventName:'tab-show',
+					eventPerfix:'tab'	
+				});
 				//4.激活选项卡
-				$(elem).tab({});
+				$elem.tab({});
 			});
 			item[index] = 'loaded';
 			totalLoadedItemNum++;
@@ -310,8 +405,36 @@
 			$doc.off('floor-show',loadFn);
 		});			
 	}
-
-	floorHtmlLazyLoad();	
+	*/
+	$doc.on('floor-load',function(ev,index,elem,success){
+		//1.生成HTML
+		getDataOnce($doc,'data/floor/floorData.json',function(data){
+			var $elem = $(elem);
+			var html = buildFloorHtml(data[index]);
+			//2.加载HTML
+			$elem.html(html);
+			//3.图片懒加载
+			lazyLoad({
+				totalItemNum:$elem.find('.floor-img').length,
+				$elem:$elem,
+				eventName:'tab-show',
+				eventPerfix:'tab'	
+			});
+			//4.激活选项卡
+			$elem.tab({});
+		});
+		success();		
+	});
+	$doc.on('floor-loaded',function(){
+		$win.off('scroll resize',$floor.showFloorFn);
+	});		
+	//floorHtmlLazyLoad();	
+	lazyLoad({
+		totalItemNum:$floor.length,
+		$elem:$doc,
+		eventName:'floor-show',
+		eventPerfix:'floor'
+	});
 	
 	function isVisible($elem){
 		return ($win.height() + $win.scrollTop() > $elem.offset().top) && ($win.scrollTop() < $elem.offset().top+$elem.height());
@@ -323,7 +446,7 @@
 			}
 		});		
 	}
-	$win.on('scroll resize load',function(){
+	$win.on('scroll resize load',$floor.showFloorFn = function(){
 		clearTimeout($floor.showFloorTimer);
 		$floor.showFloorTimer = setTimeout(timeToShow,200);
 	});
