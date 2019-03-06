@@ -38,15 +38,6 @@
 			},500)	
 		}
 
-	/*
-		懒加载共通
-		options = {
-			totalItemNum:5,
-			$item:$item,
-			eventName:'carousel-show',
-			eventPerfix:'carousel'
-		}
-	*/
 	// 懒加载共通
 		function LazyLoad(options){
 			var item = {},
@@ -150,46 +141,6 @@
 			js:true,
 			mode:"fade"
 		});
-
-	//轮播图图片懒加载函数
-		// function carouselImgLazyLoad($item){
-		// 	var item = {};//{0:'loaded',1:'loaded'}
-		// 	var totalItemNum = $item.find('.carousel-img').length;
-		// 	var totalLoadedItemNum = 0;
-		// 	var loadFn = null;
-		// 	//1.开始加载
-		// 	$item.on('carousel-show',loadFn = function(ev,index,item){
-		// 		console.log('carousel-show trigger....');
-		// 		if(item[index] != 'loaded'){
-		// 			$item.trigger('carousel-load',[index,item])
-		// 		}
-		// 	});
-		// 	//2.执行加载
-		// 	$item.on('carousel-load',function(ev,index,item){
-		// 		console.log('will load img::',index);
-		// 		var $imgs = $(item).find('.carousel-img');
-		// 		$imgs.each(function(){
-		// 			var $img = $(this);
-		// 			var imgUrl = $img.data('src');
-		// 			loadImage(imgUrl,function(imgUrl){
-		// 				$img.attr('src',imgUrl);
-		// 			},function(imgUrl){
-		// 				$img.attr('src',"images/focus-carousel/placeholder.png");
-		// 			});
-		// 			item[index] = 'loaded';
-		// 			totalLoadedItemNum++;
-		// 			if(totalItemNum == totalLoadedItemNum){
-		// 				$item.trigger('carousel-loaded');
-		// 			}
-		// 		});
-
-		// 	});
-		// 	//3.加载结束
-		// 	$item.on('carousel-loaded',function(){
-		// 		$item.off('carousel-show',loadFn);
-		// 	});			
-		// }
-
 	//焦点区域轮播图	
 		var $focusCarousel = $('.focus .carousel-wrap');
 
@@ -214,50 +165,71 @@
 		});
 		$focusCarousel.carousel({});
 
-	//今日热销域轮播图	
+	//今日热销轮播图	
 		var $todaysCarousel = $('.todays .carousel-wrap');
-		
-		// carouselImgLazyLoad($todaysCarousel);
+	
+		$todaysCarousel.on('carousel-load',function(ev,index,item,success){
+			var $imgs = $(item).find('.carousel-img');
+			$imgs.each(function(){
+				var $img = $(this);
+				var imgUrl = $img.data('src');
+				loadImage(imgUrl,function(imgUrl){
+					$img.attr('src',imgUrl);
+				},function(imgUrl){
+					$img.attr('src',"images/focus-carousel/placeholder.png");
+				});
+				success();
+			});
+		});
+		LazyLoad({
+			totalItemNum:$todaysCarousel.find('.carousel-img').length,
+			$item:$todaysCarousel,
+			eventName:'carousel-show',
+			eventPerfix:'carousel'			
+		});	
+
 		$todaysCarousel.carousel({});
 
 	//楼层图片懒加载函数
-		function floorImgLazyLoad($item){
-			var item = {};//{0:'loaded',1:'loaded'}
-			var totalItemNum = $item.find('.floor-img').length;
-			var totalLoadedItemNum = 0;
-			var loadFn = null;
-			//1.开始加载
-			$item.on('tab-show',loadFn = function(ev,index,item){
-				console.log('tab-show trigger....');
-				if(item[index] != 'loaded'){
-					$item.trigger('tab-load',[index,item])
-				}
-			});
-			//2.执行加载
-			$item.on('tab-load',function(ev,index,item){
-				console.log('will load floor img::',index);
-				var $imgs = $(item).find('.floor-img');
-				$imgs.each(function(){
-					var $img = $(this);
-					var imgUrl = $img.data('src');
-					loadImage(imgUrl,function(imgUrl){
-						$img.attr('src',imgUrl);
-					},function(imgUrl){
-						$img.attr('src',"images/floor/placeholder.png");
-					});
-					item[index] = 'loaded';
-					totalLoadedItemNum++;
-					if(totalItemNum == totalLoadedItemNum){
-						$item.trigger('tab-loaded');
-					}
-				});
+		// function floorImgLazyLoad($item){
+		// 	var item = {};//{0:'loaded',1:'loaded'}
+		// 	var totalItemNum = $item.find('.floor-img').length;
+		// 	var totalLoadedItemNum = 0;
+		// 	var loadFn = null;
+		// 	//1.开始加载
+		// 	$item.on('tab-show',loadFn = function(ev,index,item){
+		// 		console.log('tab-show trigger....');
+		// 		if(item[index] != 'loaded'){
+		// 			$item.trigger('tab-load',[index,item])
+		// 		}
+		// 	});
+		// 	//2.执行加载
+		// 	$item.on('tab-load',function(ev,index,item){
+		// 		console.log('will load floor img::',index);
+		// 		var $imgs = $(item).find('.floor-img');
+		// 		$imgs.each(function(){
+		// 			var $img = $(this);
+		// 			var imgUrl = $img.data('src');
+		// 			loadImage(imgUrl,function(imgUrl){
+		// 				$img.attr('src',imgUrl);
+		// 			},function(imgUrl){
+		// 				$img.attr('src',"images/floor/placeholder.png");
+		// 			});
+		// 			item[index] = 'loaded';
+		// 			totalLoadedItemNum++;
+		// 			if(totalItemNum == totalLoadedItemNum){
+		// 				$item.trigger('tab-loaded');
+		// 			}
+		// 		});
 
-			});
-			//3.加载结束
-			$item.on('tab-loaded',function(){
-				$item.off('tab-show',loadFn);
-			});			
-		}	
+		// 	});
+		// 	//3.加载结束
+		// 	$item.on('tab-loaded',function(){
+		// 		$item.off('tab-show',loadFn);
+		// 	});			
+		// }
+
+
 
 	//楼层
 		var $floor = $('.floor');
@@ -320,30 +292,55 @@
 
 			return html;
 		}	
+	// 楼层HTML图片懒加载
+		// function floorHtmlLazyLoad(){
+		// 	var item = {};//{0:'loaded',1:'loaded'}
+		// 	var totalItemNum = $floor.length;
+		// 	var totalLoadedItemNum = 0;
+		// 	var loadFn = null;
+		// 	//1.开始加载
+		// 	$doc.on('floor-show',loadFn = function(ev,index,item){
+		// 		console.log('floor-show trigger....');
+		// 		if(item[index] != 'loaded'){
+		// 			$doc.trigger('floor-load',[index,item])
+		// 		}
+		// 	});
+		// 	//2.执行加载
+		// 	$doc.on('floor-load',function(ev,index,item){
+		// 		console.log('will load floor html::',index);
+		// 		//加载HTML
+		// 		//1.生成HTML
+		// 		getDataOnce($doc,'data/floor/floorData.json',function(data){
+		// 			var html = buildFloorHtml(data[index]);
+		// 			//2.加载HTML
+		// 			$(item).html(html);
+		// 			//3.图片懒加载
+		// 			floorImgLazyLoad($(item));
+		// 			//4.激活选项卡
+		// 			$(item).tab({});
+		// 		});
+		// 		item[index] = 'loaded';
+		// 		totalLoadedItemNum++;
+		// 		if(totalItemNum == totalLoadedItemNum){
+		// 			$doc.trigger('floor-loaded');
+		// 		}			
 
-		function floorHtmlLazyLoad(){
-			var item = {};//{0:'loaded',1:'loaded'}
-			var totalItemNum = $floor.length;
-			var totalLoadedItemNum = 0;
-			var loadFn = null;
-			//1.开始加载
-			$doc.on('floor-show',loadFn = function(ev,index,item){
-				console.log('floor-show trigger....');
-				if(item[index] != 'loaded'){
-					$doc.trigger('floor-load',[index,item])
-				}
-			});
-			//2.执行加载
-			$doc.on('floor-load',function(ev,index,item){
-				console.log('will load floor html::',index);
-				//加载HTML
+		// 	});
+		// 	//3.加载结束
+		// 	$doc.on('floor-loaded',function(){
+		// 		$doc.off('floor-show',loadFn);
+		// 	});			
+		// }
+
+		// floorHtmlLazyLoad();	
+		$doc.on('floor-load',function(ev,index,item,success){
 				//1.生成HTML
 				getDataOnce($doc,'data/floor/floorData.json',function(data){
 					var html = buildFloorHtml(data[index]);
 					//2.加载HTML
 					$(item).html(html);
 					//3.图片懒加载
-					floorImgLazyLoad($(item));
+					// floorImgLazyLoad($(item));
 					//4.激活选项卡
 					$(item).tab({});
 				});
@@ -360,8 +357,9 @@
 			});			
 		}
 
-		floorHtmlLazyLoad();	
-		
+
+
+
 		function isVisible($item){
 			return ($win.height() + $win.scrollTop() > $item.offset().top) && ($win.scrollTop() < $item.offset().top+$item.height());
 		}
