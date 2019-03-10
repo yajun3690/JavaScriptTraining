@@ -17,9 +17,6 @@
 						s+=1;
 					}
 				})
-			},
-			hide:function($item){
-				$item.css({display:'none'})
 			}
 		}
 
@@ -42,7 +39,7 @@
 	$.fn.extend({
 		showHide:function(options){
 				var options = $.extend({},DEFAULTS,options);
-			return this.each(function(){
+			return this.each(function(index,value){
 					slient.show($item,options.l,options.t,options.color,options.sizeW,options.sizeH);
 			});							
 		}

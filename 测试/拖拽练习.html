@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			background: gray;
+			margin: 100px auto;
+		}
+		.son{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="son" draggable="true"></div>
+	<div id="father"></div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#father').on('drop',function(){
+			$('#father').append($('.son'))
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+		$('.son').on('dragend',function(){
+			setTimeout(
+				function(){
+					alert('已完成拖拽')
+						
+					}
+				,4)
+			$('.son').removeProp('draggable')
+		})
+		// var oDate = new Date()
+	 //    oDate.setDate(oDate.getDate() + 3);
+	 //    document.cookie = "name=tom;expires="+oDate;		
+	 //    document.cookie = "nnnn=YaJun;Max-age=259200";		
+	})
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			background: gray;
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="father"></div>
+	<div id="son" draggable = "true"></div>	
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#son').on('dragstart',function(ev){
+			ev.originalEvent.dataTransfer.setData('sonId',ev.target.id)
+			console.log(ev.target.id)
+		})
+		$('#father').on('drop',function(ev){
+			var sonId = ev.originalEvent.dataTransfer.getData('sonId')
+			$(this).append($('#'+sonId))
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+	})
+</script>
+</html>

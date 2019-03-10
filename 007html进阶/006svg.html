@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		svg{
+			background: gray;
+		}
+	</style>
+</head>
+<body>
+<!-- 	<svg width="600px" height='400px' viewBox='0 0 60 40'>
+		<line x1="0" y1="0" x2="300" y2="200" style="stroke:rgb(99,99,99);stroke-width:10"/>
+		<rect width="30px" height='20px' >
+	</svg> -->
+	<!-- viewbox从坐标点开始截取设定像素大小，并设为画布的全屏 rect此时相对于viebox大小显示 -->
+	<canvas id="canvas"></canvas>
+</body>
+<script type="text/javascript">
+	var oCanvas = document.getElementById('canvas')
+	oCanvas.width = 600;
+	oCanvas.height = 600;
+	//获取canvas的上下文环境
+	var ctx = oCanvas.getContext('2d');
+	
+	ctx.moveTo(100,100);//指定起始坐标
+	ctx.lineTo(200,100);//直线终点坐标
+	ctx.lineTo(250,150);
+	ctx.lineTo(50,150);
+	ctx.strokeStyle = '#f00';//指定描边的样式
+	ctx.lineWidth = 1;//设置线条的宽度
+	ctx.fillStyle = '#fe0';//设置填充的颜色
+	ctx.closePath();//封闭路径
+	ctx.stroke();//描边
+	ctx.fill();//闭合路径后填充 
+</script>
+</html>

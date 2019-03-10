@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>cookie test</h1>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		// document.cookie = 'username=tom';	
+		// document.cookie = 'age=18';	
+	    // var oDate = new Date();
+	    // oDate.setDate(oDate.getDate() + 14);
+	    // document.cookie = "nusername=tom;expires="+oDate;
+	    // document.cookie = "nusername=tom;Max-age=10";
+
+	    function setCookie(key,val,iDate){
+	 
+		    var oDate = new Date();
+		    oDate.setDate(oDate.getDate() + iDate);
+		    document.cookie = key+'='+val+';expires='+oDate;
+	    }
+	    setCookie("aaa","bbb",1)
+
+	    function getCookie(key){
+	    	var str = document.cookie;
+	    	var arr1 = str.split(':');
+	    	var res ='';
+	    	for(var i =0;i<arr1.length;i++){
+
+	    		var arr2 = arr1[i].split('=')
+	    		if(key.trim() == arr2[0].trim()){
+	    			res = arr2[1];
+	    			break
+	    		}
+	    	}
+	    	return res
+	    }
+	    console.log(getCookie('aaa'))
+	})
+</script>
+</html>

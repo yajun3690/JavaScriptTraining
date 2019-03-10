@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对称数</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		function num(small,big){
+			var result = [];
+			for(i=small;i<big+1;i++){
+				var res = i.toString().split('').reverse().join('');
+				if(res == i){
+					result.push(i);
+				}
+			}
+				return result
+		}
+		console.log(num(1,10000))
+	})
+</script>
+</html>

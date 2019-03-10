@@ -1,0 +1,64 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+@color: #ff0;
+@color2: #f00;
+@width: 500px;
+@height: 200px;
+@border: 1px solid auto;
+@background:gray;
+@text-align: center;
+@line-height: 200px;
+
+.border-radius(@r:20px){
+	border-radius:@r;
+}
+
+
+#box1{
+	width: @width;
+	color: @color;
+	height: @height;
+	border: @border;
+	background:@background;
+	text-align: @text-align;
+	line-height: @line-height;
+	.border-radius(50px);
+}
+#box2{
+	// color: @color2;
+	#box1;
+}
+.trigin(@_,@c,@w){
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-style: solid;
+
+}
+.trigin(top,@c,@w){
+  border-width: @w;
+  border-color: @c transparent transparent transparent;	
+
+}
+.trigin(right,@c,@w){
+  border-width: @w;
+  border-color: @c transparent transparent transparent;	
+
+}
+.trigin(bottom,@c,@w){
+  border-width: @w;
+  border-color: @c transparent transparent transparent;	
+
+}
+.trigin(right,@c,@w){
+  border-width: @w;
+  border-color: @c transparent transparent transparent;	
+
+}
+#box4{
+	
+	.trigin(top,red,50px)
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			background: gray;
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="father"></div>
+	<div id="son" draggable = "true"></div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#father').on('drop',function(){
+			console.log('#father drop....')
+			$(this).append($('#son'))
+		})
+		.on('dragover',function(ev){
+			console.log('#father dragover....')
+			ev.preventDefault();
+		})
+		.on('dragenter',function(){
+			console.log('father:dragenter....')
+		})
+		.on('dragend',function(){
+			console.log('father:dragend....')
+		})
+		.on('drag',function(){
+			console.log('father:drag....')
+		})
+		.on('dragleave',function(){
+			console.log('father:dragleave....')
+		})
+
+
+		$('#son').on('dragstart',function(){
+			console.log('son:dragstart....')
+		})
+		.on('drag',function(){
+			console.log('son:drag....')
+		})
+		.on('dragend',function(){
+			console.log('son:dragend....')
+		})
+
+	})
+</script>
+</html>
