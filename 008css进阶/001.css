@@ -30,3 +30,26 @@
   border-width: 50px;
   border-color: #ff0000 transparent transparent transparent;
 }
+/*
+	该注释可以被保留
+*/
+.list li {
+  height: 100px;
+  width: 500px;
+}
+.list li a {
+  float: left;
+  color: yellow;
+  text-decoration: none;
+  font-size: 15px;
+}
+.list li span {
+  float: right;
+  font-size: 20px;
+}
+.list li:hover {
+  background: #ffff00;
+}
+#box4 {
+  width: 200px;
+}
