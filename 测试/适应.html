@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自适应</title>
+	<link rel="stylesheet" href="shiying.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+<img src="1.png" alt="">
+<div id="box"></div>
+<p>我是段落</p>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	;(function(doc,win){
+		var oHtml = $('html')[0];
+		setFontSize = function(){
+			var iWidth = document.body.clientWidth || doc.documentElement.clientWidth;
+			var iFontSize = iWidth/10;
+			oHtml.style.fontSize = iFontSize+'px';
+		}
+		win.addEventListener('resize',setFontSize,false);
+		win.addEventListener('DOMContentLoaded',setFontSize,false);
+	})(document,window)
+
+</script>
+</html>

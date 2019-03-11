@@ -1,0 +1,30 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@rem:32;
+.rem(@attr,@px1){
+		@{attr}:unit(@px1 / @rem,rem);
+
+}
+.rem(@attr,@px1,@px2){
+		@{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3){
+		@{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem);
+
+}
+.rem(@attr,@px1,@px2,@px3,@px4){
+		@{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem) unit(@px4 / @rem,rem);
+}
+img{
+	.rem(width,200);
+}
+#box{
+	.rem(width,100);
+	.rem(height,100);
+	background: red;
+}
+p{
+	.rem(font-size,20);
+}

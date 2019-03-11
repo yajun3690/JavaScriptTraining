@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  width: 6.25rem;
+}
+#box {
+  width: 3.125rem;
+  height: 3.125rem;
+  background: red;
+}
+p {
+  font-size: 0.625rem;
+}

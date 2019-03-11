@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <meta name="viewport" content="width=400,height=667"> -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="rem.css">
+	<!-- <meta name="viewport" content="width=400,height=667"> -->
+</head>
+<body>
+	<h1>我是大标题</h1>
+	<p>我是p标签</p>
+</body>
+<script type="text/javascript">
+	;(function(win,doc){
+		var oHtml = document.querySelector('html')
+
+		setReashFont=function(){
+			var iWidth = document.body.clientWidth||doc.documentElement.clientWidth
+			var iFontSet = iWidth/10
+			oHtml.style.fontSize = iFontSet+'px'
+
+		}
+		win.addEventListener('resize',setReashFont,false);
+		win.addEventListener('DOMContentLoaded',setReashFont,false);
+	})(window,document)
+</script>
+</html>
