@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性布局</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 600px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			display: flex;
+
+			/*flex-direction: row;*/
+			/*flex-direction: row-reverse;*/
+			/*flex-direction: column;*/
+			/*flex-direction: column-reverse;*/
+
+
+
+			/*flex-wrap: nowrap;*/
+			/*flex-wrap: wrap;*/
+			/*flex-wrap: wrap-reverse;*/
+
+
+			/*flex-flow: row wrap-reverse;*/
+
+			/*flex-start(默认值):左对齐
+			flex-end:右对齐
+			center:居中
+			space-between:两端对齐,项目之间的间隔都相等。
+			space-around:每个项目两侧的间隔相等。所以,项目之间的间隔比项目与边框的间隔大一倍。*/
+
+
+			/*justify-content: flex-start;*/
+			/*justify-content: flex-end;*/
+			/*justify-content: center;*/
+			/*justify-content: space-between;*/
+			/*justify-content: space-around;*/
+
+
+
+/*			stretch(默认值):换行后,如果项目未设置高度或设为auto,将占满整个容器的高度
+			flex-start：起点对齐
+			flex-end：终点对齐
+			center：中点对齐
+			baseline: 项目的第一行文字的基线对齐
+			align-items/align-content的区别
+			align-item换行后会根据父容器的高度填充整个行
+			align-content换行后按项目的的高度来填充行*/
+
+/*			align-items:stretch;
+			align-items:flex-start;
+			align-items:flex-end;
+			align-items:center;
+			align-items:baseline;
+*/
+/*
+			align-content:stretch;
+			align-content:flex-start;
+			align-content:flex-end;
+			align-content:center;
+			align-content:baseline;*/
+
+
+			align-content:;
+		}
+		.son{
+			height: 50px;
+		}
+		.son1{
+			width: 50px;
+			background: blue;
+		}
+		.son2{
+			width: 150px;
+			background: yellow;
+		}
+		.son3{
+			width: 250px;
+			background: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+	</div>
+</body>
+</html>
