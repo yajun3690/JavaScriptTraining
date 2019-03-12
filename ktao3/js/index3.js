@@ -1,14 +1,16 @@
 ;(function($){
-	function loadHtmlOnce($item,cb){
-		var loadUrl = $item.data('load');
-		if(!loadUrl) return;
-		var isLoaded = $item.data('isLoaded');
-		if(isLoaded) return;
-		$.getJSON(loadUrl,function(data){
-			typeof cb == 'function' && cb($item,data);
-		})		
-	}
-	//获取数据
+	// 加载一次事件绑定
+		function loadHtmlOnce($item,cb){
+			var loadUrl = $item.data('load');
+			if(!loadUrl) return;
+			var isLoaded = $item.data('isLoaded');
+			if(isLoaded) return;
+			$.getJSON(loadUrl,function(data){
+				typeof cb == 'function' && cb($item,data);
+			})		
+		}
+	
+	//获取一次数据
 		function getDataOnce($item,url,cb){
 			var data = $item.data(url);
 			if(!data){
@@ -141,6 +143,7 @@
 			js:true,
 			mode:"fade"
 		});
+
 	//焦点区域轮播图	
 		var $focusCarousel = $('.focus .carousel-wrap');
 
@@ -152,11 +155,13 @@
 				loadImage(imgUrl,function(imgUrl){
 					$img.attr('src',imgUrl);
 				},function(imgUrl){
+					// 正在加载
 					$img.attr('src',"images/focus-carousel/placeholder.png");
 				});
 				success();
 			});
 		});
+		// 加载图片
 		LazyLoad({
 			totalItemNum:$focusCarousel.find('.carousel-img').length,
 			$item:$focusCarousel,
@@ -176,11 +181,13 @@
 				loadImage(imgUrl,function(imgUrl){
 					$img.attr('src',imgUrl);
 				},function(imgUrl){
+					// 正在加载
 					$img.attr('src',"images/focus-carousel/placeholder.png");
 				});
 				success();
 			});
 		});
+		// 加载图片
 		LazyLoad({
 			totalItemNum:$todaysCarousel.find('.carousel-img').length,
 			$item:$todaysCarousel,
@@ -190,54 +197,13 @@
 
 		$todaysCarousel.carousel({});
 
-	//楼层图片懒加载函数
-		// function floorImgLazyLoad($item){
-		// 	var item = {};//{0:'loaded',1:'loaded'}
-		// 	var totalItemNum = $item.find('.floor-img').length;
-		// 	var totalLoadedItemNum = 0;
-		// 	var loadFn = null;
-		// 	//1.开始加载
-		// 	$item.on('tab-show',loadFn = function(ev,index,item){
-		// 		console.log('tab-show trigger....');
-		// 		if(item[index] != 'loaded'){
-		// 			$item.trigger('tab-load',[index,item])
-		// 		}
-		// 	});
-		// 	//2.执行加载
-		// 	$item.on('tab-load',function(ev,index,item){
-		// 		console.log('will load floor img::',index);
-		// 		var $imgs = $(item).find('.floor-img');
-		// 		$imgs.each(function(){
-		// 			var $img = $(this);
-		// 			var imgUrl = $img.data('src');
-		// 			loadImage(imgUrl,function(imgUrl){
-		// 				$img.attr('src',imgUrl);
-		// 			},function(imgUrl){
-		// 				$img.attr('src',"images/floor/placeholder.png");
-		// 			});
-		// 			item[index] = 'loaded';
-		// 			totalLoadedItemNum++;
-		// 			if(totalItemNum == totalLoadedItemNum){
-		// 				$item.trigger('tab-loaded');
-		// 			}
-		// 		});
-
-		// 	});
-		// 	//3.加载结束
-		// 	$item.on('tab-loaded',function(){
-		// 		$item.off('tab-show',loadFn);
-		// 	});			
-		// }
-
-
-
 	//楼层
 		var $floor = $('.floor');
 
 		//判断元素是否进入可视区
 		var $win = $(window);
 		var $doc = $(document);
-		//楼层HTML懒加载函数
+	//楼层HTML加载函数
 		function buildFloorHtml(oneFloorData){
 			var html = '';
 			html += '<div class="container">';
@@ -291,75 +257,52 @@
 			html += '</div>';
 
 			return html;
-		}	
+		}
+	// 楼层tab正在加载图片懒加载	
+		$floor.on('tab-load',function(ev,index,item,success){
+			var $imgs = $(item).find('.floor-img');
+			$imgs.each(function(){
+				var $img = $(this);
+				var imgUrl = $img.data('src');
+				loadImage(imgUrl,function(imgUrl){
+					$img.attr('src',imgUrl);
+				},function(imgUrl){
+					$img.attr('src',"images/floor/placeholder.png");
+				});
+				success();
+			});
+		});	
 	// 楼层HTML图片懒加载
-		// function floorHtmlLazyLoad(){
-		// 	var item = {};//{0:'loaded',1:'loaded'}
-		// 	var totalItemNum = $floor.length;
-		// 	var totalLoadedItemNum = 0;
-		// 	var loadFn = null;
-		// 	//1.开始加载
-		// 	$doc.on('floor-show',loadFn = function(ev,index,item){
-		// 		console.log('floor-show trigger....');
-		// 		if(item[index] != 'loaded'){
-		// 			$doc.trigger('floor-load',[index,item])
-		// 		}
-		// 	});
-		// 	//2.执行加载
-		// 	$doc.on('floor-load',function(ev,index,item){
-		// 		console.log('will load floor html::',index);
-		// 		//加载HTML
-		// 		//1.生成HTML
-		// 		getDataOnce($doc,'data/floor/floorData.json',function(data){
-		// 			var html = buildFloorHtml(data[index]);
-		// 			//2.加载HTML
-		// 			$(item).html(html);
-		// 			//3.图片懒加载
-		// 			floorImgLazyLoad($(item));
-		// 			//4.激活选项卡
-		// 			$(item).tab({});
-		// 		});
-		// 		item[index] = 'loaded';
-		// 		totalLoadedItemNum++;
-		// 		if(totalItemNum == totalLoadedItemNum){
-		// 			$doc.trigger('floor-loaded');
-		// 		}			
-
-		// 	});
-		// 	//3.加载结束
-		// 	$doc.on('floor-loaded',function(){
-		// 		$doc.off('floor-show',loadFn);
-		// 	});			
-		// }
-
-		// floorHtmlLazyLoad();	
 		$doc.on('floor-load',function(ev,index,item,success){
 				//1.生成HTML
 				getDataOnce($doc,'data/floor/floorData.json',function(data){
+					var $item = $(item);
 					var html = buildFloorHtml(data[index]);
 					//2.加载HTML
 					$(item).html(html);
 					//3.图片懒加载
 					// floorImgLazyLoad($(item));
+					LazyLoad({
+						totalItemNum:$item.find('.floor-img').length,
+						$item:$item,
+						eventName:'tab-show',
+						eventPerfix:'tab'			
+					});	
 					//4.激活选项卡
 					$(item).tab({});
 				});
-				item[index] = 'loaded';
-				totalLoadedItemNum++;
-				if(totalItemNum == totalLoadedItemNum){
-					$doc.trigger('floor-loaded');
-				}			
-
+					success();		
 			});
 			//3.加载结束
 			$doc.on('floor-loaded',function(){
-				$doc.off('floor-show',loadFn);
+				$win.off('scroll resize',$floor.showFloorFn);
 			});			
-		}
-
-
-
-
+			LazyLoad({
+				totalItemNum:$floor.length,
+				$item:$doc,
+				eventName:'floor-show',
+				eventPerfix:'floor'
+			});			
 		function isVisible($item){
 			return ($win.height() + $win.scrollTop() > $item.offset().top) && ($win.scrollTop() < $item.offset().top+$item.height());
 		}
@@ -374,5 +317,49 @@
 			clearTimeout($floor.showFloorTimer);
 			$floor.showFloorTimer = setTimeout(timeToShow,200);
 		});
-		//$floor.tab({});
+	// 电梯
+		// 获取楼层号		
+			function getFloorNum(){
+				var num = -1;
+				$floor.each(function(index,item){
+					num = index;
+					if($(item).offset().top>$win.scrollTop()+$win.height()/2){
+						num = index -1;
+						return false;
+					}
+				})
+				return num;
+			};
+		// 设置电梯样式
+			var $elevator = $('#elevator');
+			var $elevatorItems = $elevator.find('.elevator-item');
+			function setElevator(){
+				var num =getFloorNum();
+				if(num == -1){
+					$elevator.fadeOut();
+				}else{
+					$elevator.fadeIn();
+					$elevatorItems.removeClass('elevator-active');
+					$elevatorItems.eq(num).addClass('elevator-active');
+
+				}
+
+			}
+			// setElevator();
+			$win.on('scroll resize load',function(){
+				clearTimeout($elevator.showElevatorTimer);
+				$elevator.showElevatorTimer = setTimeout(setElevator,4);
+			});
+		//点击电梯到达指定楼层
+			$elevator.on('click','.elevator-item',function(){
+				var num = $elevatorItems.index(this)
+				$('html,body').animate({scrollTop:$floor.eq(num).offset().top})
+
+			}) 
+	// 工具条回到顶部
+		$('#backToTop').on('click',function(){
+				$('html,body').animate({scrollTop:0})
+		})
+
+
 })(jQuery);
