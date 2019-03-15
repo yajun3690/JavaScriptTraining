@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let a =function(val){
+		return console.log(val);
+	}
+	a(1);
+
+
+  let fn1 = (x,y)=>{
+        console.log(x,y);
+         return console.log(x+y);
+    }
+
+    let fn2 = (x,y)=> console.log(x + y);
+    let fn3 = x=> console.log(x);
+    fn1(10,10,);
+    fn2(100,100,);
+    fn3(1000);
+
+
+    function timer(id1){
+    	this.id1 = id1;
+    	setTimeout(function(){
+    		console.log(this,this.id1)
+    	},100)
+    }
+    let id1 =10;
+
+     new timer(20);
+
+    function Timer(id2){
+        this.id2 = id2;    
+        setTimeout(()=>{
+            console.log(this,this.id2);
+        },100); 
+    }   
+    var id2 = 99;
+    let t = new Timer(100);
+
+</script>
+</html>

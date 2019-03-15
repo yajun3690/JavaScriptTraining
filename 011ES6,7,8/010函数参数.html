@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	function show1(name='tom',age='18'){
+
+		console.log('a::',name,age)
+
+	}
+
+	show1('yajun');
+
+	function show2(age,name='tom'){
+
+		console.log('b::',name,age)
+
+	}
+
+	show2(18);
+
+	function show3(age,{name='tom'}={}){
+		console.log('c::',name,age)
+	}
+	show3(18);
+	show3(18,{name:'yajun'});
+
+
+
+	function show4(
+		arr1,
+		arr2,
+		arr3,
+		arr4,
+
+
+		){
+
+		console.log('show4::',arr1,arr2,arr3,arr4)
+
+	}
+	show4(1,2,3,4);
+
+
+	function show5(...arr){
+		console.log('show5::',arr)
+	}
+	show5(1,2,3,4,6)
+	let x= 100;
+	function show6(a=10+x){
+		console.log(a)
+	}
+	show6();
+</script>
+</html>
