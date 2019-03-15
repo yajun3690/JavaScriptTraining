@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let age = 18;
+	let obj1 = {
+		name:'yajun',
+		age:18
+	}
+	let obj2 = {
+		name:'yajun2',
+		age:20
+	}
+ let map = new Map();
+ map.set('age',age)
+ map.set(obj1,'aaa')
+ map.set(obj2,'bbb')
+ map.delete('age')
+ // map.clear()
+ console.log(map.get(obj1))
+ console.log(map)
+
+	for(let key of map.keys()){
+		console.log('a::',key)
+	}
+
+	for(let value of map.values()){
+		console.log('b::',value)
+	}
+
+	for(let entry of map.entries()){
+		console.log('c::',entry)
+	}
+	for(let entry of map){
+		console.log('b2::',entry)
+	}
+	map.forEach(function(val,key){
+		console.log('d::',val,key)
+	})
+
+
+</script>
+</html>

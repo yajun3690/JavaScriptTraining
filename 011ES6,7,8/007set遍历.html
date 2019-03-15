@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			background: black;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	let arr = [11,22,89,28,80,22,828,]
+
+	let s = new Set(arr);
+
+	for(let key of s.keys()){
+		console.log('a::',key)
+	}
+
+	for(let value of s.values()){
+		console.log('b::',value)
+	}
+	for(let value of s){
+		console.log('b2::',value)
+	}
+
+	for(let entry of s.entries()){
+		console.log('c::',entry)
+	}
+	s.forEach(function(val,key){
+		console.log('d::',val,key)
+	})
+
+
+</script> 
+</html>
