@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>4</button>
+</body>
+<script type="text/javascript">
+	let oButton = document.querySelectorAll('button');
+	// for(let i=0;i<oButton.length;i++){
+	// 	oButton[i].onclick = function(){
+			
+	// 		console.log(this);
+	// 		console.log(oButton[i]);
+	// 	}
+	// }
+	for(var  i=0;i<oButton.length;i++){
+		;(function(i){
+			oButton[i].onclick = function(){
+				
+				console.log(this);
+				// console.log(oButton[i]);
+			}
+		})(i)
+	}
+</script>
+</html>

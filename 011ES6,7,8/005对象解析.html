@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击</button>
+</body>
+<script type="text/javascript">
+	const b={
+		name:'yajun',
+		age:{name:'tom'}
+	};
+	const {name,age={name:'leo'}} = b;
+	console.log(b);
+	console.log(name,age);
+ let oBtn = document.querySelector('button');
+ // oBtn.onclick = function(){
+ // 	var username = 'yajun'
+ // 	var html ='';
+ // 	html+='<ul>';
+ // 	html+='<li>'+username+'</li>';
+ // 	html+='<li>'+username+'</li>';
+ // 	html+='<li>'+username+'</li>';
+ // 	html+='</ul>';
+ // 	document.body.innerHTML= html
+ // }
+  oBtn.onclick = function(){
+ 	var username = 'yajun'
+ 	var html =`<ul>
+				<li>${username}</li>
+				<li>${username}</li>
+				<li>${username}</li>
+ 				</ul>`;
+
+ 	document.body.innerHTML= html
+ }
+</script>
+</html>
