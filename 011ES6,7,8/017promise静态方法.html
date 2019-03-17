@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let p1 = Promise.resolve('ccc');
+	console.log(p1);
+	let p2 = Promise.reject('ERROR!!!');
+	p2.catch(ero=>{
+		console.log('error')
+	})
+	console.log(p2);
+	let p3 = Promise.all('bbb')
+	console.log(p3)
+
+	
+	let p4 = Promise.resolve();
+	let p5 = Promise.resolve(p4);
+	console.log(p4===p5)
+</script>
+</html>

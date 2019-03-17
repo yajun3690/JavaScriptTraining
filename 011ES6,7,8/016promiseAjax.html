@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+	$.get('http://api.github.com/users/yajun3690',data=>{
+		console.log(data)
+		$.get(data.followers_url,data2=>{
+			console.log(data2)
+		})
+	})
+	let getFollower = (url) =>{
+		let promise = new Promise((resolve,reject)=>{
+ 			resolve('ttt');
+ 			// reject('teacher');
+
+ 			})
+	}
+	promise.then(()=>{},()=>{})
+</script>
+</html>

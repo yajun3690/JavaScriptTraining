@@ -11,19 +11,20 @@
 <script type="text/javascript">
 	
 	function  getImg(url,success,error){
-		var img = new Imge()
-		img.onload = function(){
-			success();
+		var img = new Image();
+		img.onload = function(url){
+			success(url);
 		}
-		img.onerror =function(){
-			error();
+		img.onerror =function(url){
+			error(url);
 		}
-	}
+	};
 
 
 	getImg('0.jpg',function(url){
-
+		console.log(url+'loaded...')
 	},function(url){
+		console.log(url+'error')
 
 	});
 
