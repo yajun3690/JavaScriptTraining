@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+ 	let promise = new Promise((resolve,reject)=>{
+ 		// promise立即执行
+ 		console.log('hellow')
+ 		// 1执行成功请求
+ 			// resolve('ttt');
+ 		// 2执行失败请求
+ 			reject('teacher');
+
+ 	});
+ 	// then方法返回一个新的promise实例
+ 	promise.then((data)=>{
+ 		console.log('success::',data)
+ 	},(ero)=>{
+ 		console.log('ero::',ero)
+ 	})
+	
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+
+<script type="text/javascript">
+	
+	function  getImg(url,success,error){
+		var img = new Imge()
+		img.onload = function(){
+			success();
+		}
+		img.onerror =function(){
+			error();
+		}
+	}
+
+
+	getImg('0.jpg',function(url){
+
+	},function(url){
+
+	});
+
+
+
+
+</script>
+</html>
