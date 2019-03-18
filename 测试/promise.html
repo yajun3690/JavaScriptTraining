@@ -9,17 +9,7 @@
 </body>
 <script src="jquery-1.12.4.js"></script>
 <script>
-	/*
-	$.get('http://api.github.com/users/yajun3690',data=>{
-		console.log(data)
-		$.get(data.followers_url,data2=>{
-			console.log(data2)
-		})
-	})
-
-
-	*/
-	let getFollower = (url) =>{
+	let getNum = (url) =>{
 		return new Promise((resolve,reject)=>{
 			$.get(url,data=>{
 				resolve(data);
@@ -27,12 +17,13 @@
 
  		})
 	}
-	let promise = getFollower('http://api.github.com/users/yajun3690');
+	let promise = getNum('http://127.0.0.1:3000');
 	promise.then(data1=>{
-		return getFollower(data1.followers_url);
+		return getNum(data1.kuazhu_url);
 	})
 	.then(data2=>{
-		console.log(data2);
+		console.log(data2.userInfo.phoneNum);
 	})
+			
 </script>
 </html>
