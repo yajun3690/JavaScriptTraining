@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function * show(){
+		console.log('aaaaa');
+		yield  'data1';
+		console.log('bbbbb');
+		yield  'data2';
+		console.log('ccccc');
+		yield  'data3';
+		return 'cccc'
+	};
+	show().next();
+</script>
+</html>
