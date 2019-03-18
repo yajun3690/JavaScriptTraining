@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function * show(x){
+		console.log('x=',x)
+		let y = yield x+5 
+		console.log('y=',y)
+		let z=  yield y+5
+		console.log('z=',z);
+		return x+y+z;
+	}
+	let s= show(5);
+	console.log(s.next())
+	// 第一个next不传参数
+	console.log(s.next(20));
+	console.log(s.next(40));
+</script>
+</html>

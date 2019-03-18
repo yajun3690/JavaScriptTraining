@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let b = new Promise((resolve,reject)=>{
+			resolve('aaa')
+	})
+	
+	// async function fn(){
+	// 	// let g = await 'ccc'
+	// 	let g = await b
+	// 	console.log(g)
+	// }
+
+	async function fn(){
+		// let g = await 'ccc'
+		try{
+			await Promise.reject('ddd')
+		}
+		catch(err){
+			console.log(err)
+		}
+		try{
+			let g = await b
+			console.log(g)
+
+		}
+		catch{}
+
+	}
+	fn();
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<<script src="jquery-1.12.4.js"></script>
+<script>
+	function getDataPromise(url){
+		return new Promise((resolve,reject)=>{
+			$.get(url,data=>{
+				resolve(data)
+			})
+		})
+	}
+	async function  gen(url){
+		let data1 = await getDataPromise(url);
+		let data2 = await getDataPromise(data1.followers_url);
+		let data3 = await getDataPromise(data2[0].followers_url);
+		console.log('getDate::',data3);
+	}
+	gen('http://api.github.com/users/kuazhu');	
+</script>
+</html>
