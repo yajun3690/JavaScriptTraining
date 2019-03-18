@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function person(name,age){
+		this.name = name;
+		this.age = age
+	}
+	person.prototype.sayName = function(){
+		console.log('I am '+this.name)
+	}
+	person.prototype.sayAge = function(){
+		console.log('I am '+this.age+' years old')
+	}
+	person.sayHi = function(){
+		console.log('hi......')
+	}
+
+	let a = new person('yajun',18);
+	a.sayName();
+	a.sayAge();
+	person.sayHi();
+
+
+	function student(name,age){
+		person.call(this,name,age);
+
+	}
+	let b = new student('yajun2',88)
+	console.log(b)
+</script>
+</html>

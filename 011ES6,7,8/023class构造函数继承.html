@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	class person{
+			constructor(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			sayName(){
+				console.log('I am '+this.name)
+			}
+			sayAge(){
+				console.log('I am '+this.age+' years old')
+			}
+			static sayHi(){
+				console.log('hi......')
+			}
+	}
+
+	let a = new person('yajun',18);
+	a.sayName();
+	a.sayAge();
+	person.sayHi();
+
+	class student extends person{
+		constructor(name,age,major){
+			super(name,age);
+			this.major = major;
+		}
+		sayMajor(){
+			console.log('I am study '+this.major)
+		}
+		static sayLove(){
+			console.log('I miss you ')
+		}
+	}
+
+	let b = new student('yajun2',18,'computer');
+	b.sayName();
+	b.sayAge();
+	b.sayMajor();
+	student.sayLove();
+</script>
+</html>
