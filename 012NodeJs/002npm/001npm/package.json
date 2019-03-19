@@ -1,0 +1,14 @@
+{
+  "name": "001npm",
+  "version": "1.0.0",
+  "description": "fist package",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "yajun",
+  "license": "ISC"
+}
