@@ -8,7 +8,7 @@
 	
 </body>
 <script type="text/javascript">
-	class person{
+	class Person{
 		constructor(num,name){
 			this.num = num;
 			this.name = name;
@@ -24,13 +24,13 @@
 		}
 	}
 
-	let p = new person('tow',"piter");
-	person.sayDate('peoper');
+	let p = new Person('tow',"piter");
+	Person.sayDate('peoper');
 	p.sayName();
 	p.sayChildrenNum();
 
 
-	class father extends person{
+	class Father extends Person{
 		constructor(num,name,from){
 			super(num,name);
 			this.from = from
@@ -42,11 +42,11 @@
 			console.log('I am 30 years old')
 		}
 	}
-	let f = new father('one','tom','china')
+	let f = new Father('one','tom','china')
 	f.sayName();
 	f.sayChildrenNum();
-	father.sayAge();
-	father.sayDate('father');
+	Father.sayAge();
+	Father.sayDate('father');
 
 
 
