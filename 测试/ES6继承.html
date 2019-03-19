@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	class person{
+		constructor(num,name){
+			this.num = num;
+			this.name = name;
+		}
+		static sayDate(who){
+			console.log(who+' say today is 2019.3.19')
+		}
+		sayName(){
+			console.log('hellow my name is '+this.name)
+		}
+		sayChildrenNum(){
+			console.log('I have '+ this.num +' children');
+		}
+	}
+
+	let p = new person('tow',"piter");
+	person.sayDate('peoper');
+	p.sayName();
+	p.sayChildrenNum();
+
+
+	class father extends person{
+		constructor(num,name,from){
+			super(num,name);
+			this.from = from
+		}
+		sayFrom(){
+			console.log('I am from '+this.from )
+		}
+		static sayAge(){
+			console.log('I am 30 years old')
+		}
+	}
+	let f = new father('one','tom','china')
+	f.sayName();
+	f.sayChildrenNum();
+	father.sayAge();
+	father.sayDate('father');
+
+
+
+
+</script>
+</html>
