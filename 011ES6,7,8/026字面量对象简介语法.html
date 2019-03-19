@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let username = 'tom',
+		age = 18;
+	// let obj = {
+	// 	username:username,
+	// 	age:age
+	// }
+	// let obj={
+	// 	username,
+	// 	age
+	// }
+	// 定义变量相等时可省略
+	// let obj={
+	// 	username,
+	// 	age,
+	// 	sayUsername:function(){
+	// 		console.log('I am '+this.username )
+	// 	},
+	// 	satAge:function(){
+	// 		console.log('I am '+this.age + 'years old')
+	// 	}
+	// }
+	// let obj={
+	// 	username,
+	// 	age,
+	// 	sayUsername(){
+	// 		console.log('I am '+this.username )
+	// 	},
+	// 	satAge(){
+	// 		console.log('I am '+this.age + 'years old')
+	// 	}
+	// }
+	// 省略:function
+	let obj={
+		username,
+		age,
+		sayUsername:()=>{
+			console.log('I am '+this.username )
+		},
+		satAge:()=>{
+			console.log('I am '+this.age + 'years old')
+		}
+	}
+	console.log(obj);
+	obj.sayUsername();
+	obj.satAge();
+	// 箭头函数this在定义时确定，此时this定义在window上，window上无username,age属性
+
+</script>
+</html>
