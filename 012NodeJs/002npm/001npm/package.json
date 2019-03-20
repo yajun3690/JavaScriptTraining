@@ -1,14 +1,17 @@
 {
   "name": "001npm",
   "version": "1.0.0",
-  "description": "fist package",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "test"
-  ],
-  "author": "yajun",
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.6"
+  }
 }
