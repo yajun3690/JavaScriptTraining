@@ -55,7 +55,6 @@ add('Tom',(err,data)=>{
 //async异步处理
 async function add(name){
 	//1.获取原有的数据
-	//异步操作await
 	let data = await readFile(filePath);
 	let arr = JSON.parse(data);
 	//2.添加数据到原有的数据中
@@ -70,10 +69,74 @@ async function add(name){
 	return arr;
 	
 }
-add('Leo')
+async function get(id){
+	//1.获取原有的数据
+	let data = await readFile(filePath);
+	let arr = JSON.parse(data);	
+	//2.查找对应id的对象
+	return arr.find(val=>{
+		return val['id'] == id;
+	})
+}
+async function update(id,name){
+	//1.获取原有的数据
+	let data = await readFile(filePath);
+	let arr = JSON.parse(data);	
+	//2.查找对应id的对象
+	let obj = arr.find(val=>{
+		return val['id'] == id;
+	})
+	if(obj){
+		obj.name = name;
+		let strArr = JSON.stringify(arr);
+		//3.保存
+		await writeFile(filePath,strArr);
+		return arr;
+	}else{
+		return obj;
+	}	
+}
+async function remove(id){
+	//1.获取原有的数据
+	let data = await readFile(filePath);
+	let arr = JSON.parse(data);
+	//2.过滤
+	let newArr = arr.filter(val=>{
+		return val['id'] != id;
+	})	
+	let strArr = JSON.stringify(newArr);
+	//3.保存
+	await writeFile(filePath,strArr);
+	return newArr;	
+
+}
+
+
+
+// add('Mike')
+// .then(data=>{
+// 	console.log(data);
+// })
+// .catch(err=>{
+// 	console.log(err);
+// })
+
+/*
+get('15532516861085320')
 .then(data=>{
-	console.log(data);
+	console.log(data)
 })
 .catch(err=>{
 	console.log(err);
+})
+*/
+/*
+update('15532506973691480','Peter')
+.then(data=>{
+	console.log(data);
+})
+*/
+remove('15532526361332478')
+.then(data=>{
+	console.log(data);
 })
