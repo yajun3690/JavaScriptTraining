@@ -1,5 +1,3 @@
-//获取wish数据，添加数据到datajson，在服务器datajson删除所选wish
-
 const fs = require('fs');
 const util = require('util');
 
@@ -63,5 +61,3 @@ module.exports = {
 	getAll,
 	remove
 }
-
-
