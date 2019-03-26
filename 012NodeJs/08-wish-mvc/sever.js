@@ -35,7 +35,6 @@ const server = http.createServer((req,res)=>{
 		let paths = pathname.split('/');
 		// 默认处理，若拿不到第一项的值添加Wish
 		let controller = paths[1] || 'Wish';
-
 		// 默认处理，若拿不到第一项的值添加index
 		let action = paths[2] || 'index';
 		//第三项以后归为一个数组
@@ -52,7 +51,6 @@ const server = http.createServer((req,res)=>{
 			res.end('<h1>出错啦!</h1>');
 		}
 	}	
-
 });
 
 server.listen(3000,'127.0.0.1',()=>{
