@@ -40,28 +40,35 @@
 	addWishPep($wish);
 	//添加许愿卡到服务器
 	$('.sub-btn').on('click',function(){
-		$.ajax({
-			url:'/Wish/add',
-			type:'post',
-			dataType:'json',
-			data:{
-				content: $('#content').val()
-			}
-		})
-		.done(function(result){
-			if(result.statuCode == 0){
-				var $dom = $( `<div class="wish" style="background: ${result.data.color}">
-									<a href="javascript:;" class="close" data-id='${result.data.id}'></a>
-									${result.data.content}
-								</div>`)
-				$wall.append($dom);
-				addWishPep($dom);
-				$('#content').val('');
-			}else{ 
 
-				alert(result.message)
-			}
-		})
+		if($('#content').val().replace(/\s*/g,"") == ''){
+
+			alert('请许下愿望')
+		}
+		else{
+			$.ajax({
+				url:'/Wish/add',
+				type:'post',
+				dataType:'json',
+				data:{
+					content: $('#content').val()
+				}
+			})
+			.done(function(result){
+				if(result.statuCode == 0){
+					var $dom = $( `<div class="wish" style="background: ${result.data.color}">
+										<a href="javascript:;" class="close" data-id='${result.data.id}'></a>
+										${result.data.content}
+									</div>`)
+					$wall.append($dom);
+					addWishPep($dom);
+					$('#content').val('');
+				}else{ 
+
+					alert(result.message)
+				}
+			})
+		}
 	})
 
 	$wall.on('click','.close',function(){
