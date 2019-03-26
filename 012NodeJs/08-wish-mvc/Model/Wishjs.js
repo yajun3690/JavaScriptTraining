@@ -1,7 +1,9 @@
 const fs = require('fs');
 const util = require('util');
+const path = require('path');
 
-const filePath = './data/wish.json';
+// 绝对路径
+const filePath = path.normalize(__dirname+'/../data/wish.json');
 // 读取文件promise
 const readFile = util.promisify(fs.readFile);
 // 写入文件promis
@@ -20,8 +22,6 @@ async function add(options){
 	//1.获取原有的数据
 	let data = await readFile(filePath);
 	let arr = JSON.parse(data);
-
-	console.log(arr)
 	//2.添加数据到原有的数据中
 	options.id = Date.now().toString()+parseInt(Math.random()*10000).toString().padStart(4,'0');
 	options.color = arrColor[getRandom(0,arrColor.length-1)];

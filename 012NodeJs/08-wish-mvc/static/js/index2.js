@@ -41,7 +41,7 @@
 	//添加许愿卡到服务器
 	$('.sub-btn').on('click',function(){
 		$.ajax({
-			url:'/add',
+			url:'/Wish/add',
 			type:'post',
 			dataType:'json',
 			data:{
@@ -67,13 +67,8 @@
 	$wall.on('click','.close',function(){
 		var $this = $(this)
 		$.ajax({
-			url:'del',
+			url:'/Wish/del/'+$this.data('id'),
 			dataType:'json',
-			data:{
-			  id:$this.data('id')
-			}
-			// 写法2
-			// data: 'id='+$this.data('id')
 		})
 		.done(function(result){
 			if(result.statuCode ==0){
