@@ -30,13 +30,28 @@ db.on('error',(err)=>{
 
 db.once('open',()=>{
 	console.log('connection success');
-
-	UserModel.distinct("name",{age:{$gt:30}},(err,doc)=>{
+	let arr = [];
+	for(i=0;i<10;i++){
+		arr.push({name:getName(),
+				age:getRandom(18,50),
+				major:getMajor(),
+			})
+	}
+	UserModel.create(arr,(err,doc)=>{
 			if(err){
-				console.log('distinct error:::',err)
+				console.log('creat error:::',err)
 			}else{
 				console.log(doc)
 			}
-	})
+	}) 
+
+	// UserModel.findById('5c9c88a5977e401d24ede235',(err,doc)=>{
+	// 		if(err){
+	// 			console.log('creat error:::',err)
+	// 		}else{
+	// 			console.log(doc)
+
+	// 		}
+	// })
 
 });
