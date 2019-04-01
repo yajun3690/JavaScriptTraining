@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.min {
+  overflow: hidden;
+  margin-top: 61px;
+}
+#active-nav-ul .active a {
+  color: #f65a8a;
+  background: rgba(255, 252, 255, 0);
+}
+#active-nav-ul li a:hover {
+  color: #f65a8a;
+}
+.col-md-4 .item {
+  padding: 0px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.col-md-4 .item img {
+  width: 100%;
+}
+.col-md-4 .item:hover {
+  box-shadow: 0 5px 5px;
+}
+.panel-default > .panel-heading {
+  background: transparent;
+}
+.panel-footer {
+  background: transparent;
+}
+.panel-footer span {
+  margin-left: 2px;
+}
+.panel-heading a {
+  text-decoration: none;
+  color: #000;
+}
+.panel-heading a:hover {
+  color: #f65a8a;
+}
+.panel {
+  margin-bottom: 20px;
+}
+.img-circle {
+  width: 100px;
+  height: 100px;
+}
+.panel-body {
+  position: relative;
+}
+.panel-body .namew {
+  position: absolute;
+  right: 150px;
+  top: 60px;
+  font-weight: bold;
+}
+.hot-list .panel-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+.hot-list .panel-body .list-group-item {
+  border: none;
+}
+.text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+}
+.list-group-item a {
+  text-decoration: none;
+  color: #000;
+}
+.list-group-item a:hover {
+  color: #f65a8a;
+}
+.footer {
+  text-align: center;
+}
+.footer a {
+  text-decoration: none;
+}
