@@ -110,6 +110,7 @@
 			})
 		}
 	})
+/*
 	//4,用户退出
 	$('#logout').on('click',function(){
 		 var errMsg = ''
@@ -128,5 +129,6 @@
 			$err.html('数据请求失败，请稍后再试')			
 		})
 	})
+*/
 
 })(jQuery);
