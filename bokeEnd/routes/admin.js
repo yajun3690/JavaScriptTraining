@@ -33,6 +33,7 @@ router.get('/users', (req, res) => {
 			users:data.docs,
 			page:data.page,
 			list:data.list,
+			pages:data.pages,
 			url:'/admin/users'
 		})
 	})

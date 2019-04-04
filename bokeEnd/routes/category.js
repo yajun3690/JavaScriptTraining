@@ -1,6 +1,6 @@
 const express = require('express')
-const pagination = require('../util/pagination')
 const CategoryModel = require('../models/category.js')
+const pagination = require('../util/pagination.js')
 const router = express.Router()
 //权限验证 防止未登录 直接进入后台
 router.use((req,res,next)=>{
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 		model:CategoryModel,
 		query:{},
 		projection:'-__v',
-		sort:{order:1}
+		sort:{order:-1}
 	}
 	pagination(options)
 	.then(data=>{
@@ -26,17 +26,18 @@ router.get('/', (req, res) => {
 			userInfo:req.userInfo,
 			categories:data.docs,
 			page:data.page,
-			list:data.list
+			list:data.list,
+			pages:data.pages,
+			url:'/category'
 		})
 	})	
-	res.render('admin/category_list',{
-		userInfo:req.userInfo,
-	})
 })
 //显示添加分类页面
 router.get('/add', (req, res) => {
+
+
 	res.render('admin/category_add',{
-		userInfo:req.userInfo,
+		userInfo:req.userInfo
 	})
 })
 //处理添加分类
@@ -73,5 +74,56 @@ router.post('/add', (req, res) => {
 	})
 })
 
+//显示编辑页面
+router.get('/edit/:id',(req,res)=>{
+	const { id } = req.params
+	CategoryModel.findById(id)
+	.then(category=>{
+			res.render('admin/category_edit',{
+				userInfo:req.userInfo,
+				category
+			})
+	})
+})
+//处理编辑
+router.post('/edit',(req,res)=>{
+	const { id,name,order } = req.body
+	CategoryModel.findById(id)
+	.then(category=>{
+		if(category.name == name && category.order == order ){
+			res.render('admin/error',{
+				userInfo:req.userInfo,
+				message:'请修改后再提交'
+			})			
+		}else{
+			CategoryModel.findOne({name:name,_id:{$ne:id}})
+			.then(newcategory)=>{
+				if(newcategory){
+					res.render('admin/error',{
+						userInfo:req.userInfo,
+						message:'分类已存在'
+					})	
+				}else{
+					CategoryModel.updateOne({_id:id},{name,order})
+					.then(result=>{
+						res.render('admin/success',{
+							userInfo:req.userInfo,
+							message:'修改分类成功',
+							url:'/category'
+						})					
+					})
+					.catch(err=>{
+						throw err
+					})
+				}
+		}
+	})
+	.catch(err=>{
+
+
+
+		
+	})
+})
 
 module.exports = router

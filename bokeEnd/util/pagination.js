@@ -26,12 +26,15 @@ async function pagination(options){
 		page = 1;
 	}
 
-	const count = await model.countDocuments(query)
+	const count = await model.countDocuments(query);
 
 	//计算总页数
 	const pages = Math.ceil(count / limit)
 	if(page > pages){
 		page = pages
+	}
+	if(pages == 0){
+		page = 1;
 	}
 	//生成页码数组
 	const list = [];
@@ -42,12 +45,13 @@ async function pagination(options){
 	//跳过条数
 	const skip = (page -1) * limit	
 
-	const docs= await model.find({query,projection}).sort(sort).skip(skip).limit(limit)
+	const docs= await model.find(query,projection).sort(sort).skip(skip).limit(limit)
 	
 	return {
 		docs,
 		page,
-		list		
+		list,
+		pages
 	}
 }
 
