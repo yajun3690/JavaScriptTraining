@@ -97,7 +97,7 @@ router.post('/edit',(req,res)=>{
 			})			
 		}else{
 			CategoryModel.findOne({name:name,_id:{$ne:id}})
-			.then(newcategory)=>{
+			.then(newcategory=>{
 				if(newcategory){
 					res.render('admin/error',{
 						userInfo:req.userInfo,
@@ -116,13 +116,20 @@ router.post('/edit',(req,res)=>{
 						throw err
 					})
 				}
+			})
+			.catch(err=>{
+				throw err
+			})
 		}
 	})
 	.catch(err=>{
+		res.render('admin/error',{
+			userInfo:req.userInfo,
+			message:'修改分类失败,操作数据库错误，请稍后再试'
+		})
 
 
 
-		
 	})
 })
 
