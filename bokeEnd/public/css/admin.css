@@ -10,3 +10,6 @@
 .btn-add{
 	margin-bottom: 20px;
 }
+.ck-editor__editable{
+	height: 200px;
+}

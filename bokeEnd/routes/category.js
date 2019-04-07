@@ -133,4 +133,24 @@ router.post('/edit',(req,res)=>{
 	})
 })
 
+//处理删除
+router.get('/delete/:id',(req,res)=>{
+	const { id } = req.params
+	CategoryModel.deleteOne({_id:id})
+	.then(result=>{
+		res.render('admin/success',{
+			userInfo:req.userInfo,
+			message:'删除分类成功',
+			url:'/category'
+		})
+	})
+	.catch(err=>{
+		res.render('admin/error',{
+			userInfo:req.userInfo,
+			message:'添加分类失败,操作数据库错误，请稍后再试'
+		})
+	})
+})
+
+
 module.exports = router

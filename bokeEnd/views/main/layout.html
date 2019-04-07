@@ -30,10 +30,14 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul id="active-nav-ul" class="nav navbar-nav">
 	        <li class="active"><a href="#">个人资料 <span class="sr-only">(current)</span></a></li>
-	        <li><a href="detail.html">Html进阶</a></li>
+<!-- 	        <li><a href="detail.html">Html进阶</a></li>
 	        <li><a href="#">生活</a></li>
-	        <li><a href="#">购物</a></li>
-	        <li><a href="#">学习空间</a></li>
+	        <li><a href="#">购物</a></li> -->
+	        {% for category in categories %}
+				
+	        <li><a href="/list/{{ category._id.toString() }}">{{ category.name}}</a></li>
+
+	        {% endfor %}
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container -->
