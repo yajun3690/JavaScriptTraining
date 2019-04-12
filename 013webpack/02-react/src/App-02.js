@@ -15,12 +15,35 @@ class App extends Component{
 		this.handleAdd = this.handleAdd.bind(this)
 	}
 	handleAdd(){
+		/*
+		this.setState({
+			list:[...this.state.list,this.state.val],
+			val:''
+		})
+
+		*/
+
+		/*
+		this.setState(()=>{
+			return {
+				list:[...this.state.list,this.state.val],
+				val:''				
+			}
+		})
+		//preState 没有改变之前的state = this.state
+		*/
 		this.setState(preState=>({
 			list:[...this.state.list,this.state.val],
 			val:''	
 		}))
 	}
 	handleChange(ev){
+		/*
+		this.setState({
+			val:ev.target.value
+		})
+		//箭头函数内部拿不到ev
+		*/
 		const val = ev.target.value
 		this.setState(()=>({
 			val
