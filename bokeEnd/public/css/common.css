@@ -115,3 +115,13 @@ body{
 .footer a {
   text-decoration: none;
 }
+
+#article-wrap{
+  min-height: 500px;
+}
+.btn-sub-comment{
+  padding: 26px 20px;
+}
+#comment-wrap .panel-body{
+  word-break: break-word;
+}

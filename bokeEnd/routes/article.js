@@ -11,17 +11,9 @@ router.use((req,res,next)=>{
 		res.send('<h1>请用管理员账号登陆</h1>')
 	}
 })
-
 //显示文章列表
 router.get('/', (req, res) => {
-	const options = {
-		page:req.query.page,
-		model:ArticleModel,
-		query:{},
-		projection:'-__v',
-		sort:{_id:-1}
-	}
-	pagination(options)
+	ArticleModel.getPaginationArticles(req)
 	.then(data=>{
 		res.render('admin/article_list',{
 			userInfo:req.userInfo,
@@ -30,7 +22,7 @@ router.get('/', (req, res) => {
 			list:data.list,
 			pages:data.pages,
 			url:'/article'
-		})
+		})		
 	})	
 })
 //显示添加文章页面
@@ -39,7 +31,7 @@ router.get('/add', (req, res) => {
 	CategoryModel.find({},'name')
 	.sort({order:-1})
 	.then(categories=>{
-		res.render('admin/article_add',{
+		res.render('admin/article_add_edit',{
 			userInfo:req.userInfo,
 			categories
 		})
@@ -81,7 +73,7 @@ router.get('/edit/:id',(req,res)=>{
 	.then(categories=>{
 		ArticleModel.findById(id)
 		.then(article=>{
-			res.render('admin/article_edit',{
+			res.render('admin/article_add_edit',{
 				userInfo:req.userInfo,
 				article,
 				categories
@@ -117,12 +109,12 @@ router.post('/edit',(req,res)=>{
 //处理删除
 router.get('/delete/:id',(req,res)=>{
 	const { id } = req.params
-	CategoryModel.deleteOne({_id:id})
+	ArticleModel.deleteOne({_id:id})
 	.then(result=>{
 		res.render('admin/success',{
 			userInfo:req.userInfo,
 			message:'删除分类成功',
-			url:'/category'
+			url:'/article'
 		})
 	})
 	.catch(err=>{

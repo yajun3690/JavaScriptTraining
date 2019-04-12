@@ -1,6 +1,6 @@
 
 
-
+const pagination = require('../util/pagination.js')
 const mongoose = require('mongoose');
 
 
@@ -16,10 +16,12 @@ const ArticleSchema = new mongoose.Schema({
 		type:String
 	},
 	user:{
-		type:mongoose.Schema.Types.ObjectId
+		type:mongoose.Schema.Types.ObjectId,
+		ref:'user'
 	},
 	category:{
-		type:mongoose.Schema.Types.ObjectId		
+		type:mongoose.Schema.Types.ObjectId,
+		ref:'Category'	
 	},
 	click:{
 		type:Number,
@@ -30,6 +32,21 @@ const ArticleSchema = new mongoose.Schema({
 		default:Date.now
 	}
 });
+
+
+
+ArticleSchema.statics.getPaginationArticles = function(req,query={}){
+	const options = {
+		page:req.query.page,
+		model:this,
+		query:query,
+		projection:'-__v',
+		sort:{_id:-1},
+		populates:[{path:"user",select:'username'},{path:'category',select:'name'}]
+	}
+	return pagination(options)	
+}
+
 
 
 //2.生成模型Model

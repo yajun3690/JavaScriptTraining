@@ -1,2 +1,5 @@
 *.jpg
 *.jpeg
+**/db
+**/node_modules
+*.png

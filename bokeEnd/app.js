@@ -11,6 +11,7 @@ const port = 3000
 
 console.log(Cookies)
 
+// mongoose.connect('mongodb://211.67.191.16/blog', {useNewUrlParser: true});
 mongoose.connect('mongodb://localhost/blog', {useNewUrlParser: true});
 
 const db = mongoose.connection;
@@ -81,7 +82,9 @@ app.use((req,res,next)=>{
 app.use('/',require('./routes/index.js'))
 app.use('/user',require('./routes/user.js'))
 app.use('/admin',require('./routes/admin.js'))
+app.use('/home',require('./routes/home.js'))
 app.use('/category',require('./routes/category.js'))
 app.use('/article',require('./routes/article.js'))
+app.use('/comment',require('./routes/comment.js'))
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))

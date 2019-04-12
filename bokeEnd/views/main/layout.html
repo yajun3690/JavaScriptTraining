@@ -6,9 +6,9 @@
 	<title>
 	{% block title %}{% endblock %}
     </title>
-	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" href="css/common.css"> -->
-	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="/css/common.css">
 	{% block head %}{% endblock %}
 </head>
 <body>
@@ -29,15 +29,19 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul id="active-nav-ul" class="nav navbar-nav">
-	        <li class="active"><a href="#">个人资料 <span class="sr-only">(current)</span></a></li>
-<!-- 	        <li><a href="detail.html">Html进阶</a></li>
-	        <li><a href="#">生活</a></li>
-	        <li><a href="#">购物</a></li> -->
-	        {% for category in categories %}
-				
-	        <li><a href="/list/{{ category._id.toString() }}">{{ category.name}}</a></li>
+          {% if category %}
+          <li><a href="/">首页</span></a></li>
+          {% else %}
+          <li class="active"><a href="/">首页</span></a></li>
+          {% endif %}
 
-	        {% endfor %}
+          {% for cate in categories %}
+          {% if cate._id.toString() == category %}
+          <li class="active"><a href="/second/{{ cate._id.toString() }}">{{ cate.name }}</a></li>
+          {% else %}
+           <li><a href="/second/{{ cate._id.toString() }}">{{ cate.name }}</a></li>
+          {% endif %}
+          {% endfor %}
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container -->
@@ -126,10 +130,10 @@
           {% endif %} 
           <!--用户注册登录-->          
 		    <div class="item ">
-		      <img src="images/1.jpg" alt="...">
+		      <img src="/images/1.jpg" alt="...">
 		    </div>
 		    <div class="item">
-		      <img src="images/2.jpg" alt="...">
+		      <img src="/images/2.jpg" alt="...">
 		    </div>
 			<div class="panel panel-default">
 			  <div class="panel-heading">个人资料</div>
@@ -137,7 +141,7 @@
 				<div class="media">
 					  <div class="media-left">
 					    <a href="#">
-					      <img class="media-object img-circle" src="images/4.jpg" alt="...">
+					      <img class="media-object img-circle" src="/images/4.jpg" alt="...">
 					    </a>
 					  </div>
 					  <div class="media-body">
@@ -153,22 +157,16 @@
 			  <!-- List group -->
 			  <div class="panel-body">
 				  <ul class="list-group">
-				    <li class="list-group-item"><a class="text" href="">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-				    <li class="list-group-item"><a class="text" href="">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-				    <li class="list-group-item"><a class="text" href="">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-				    <li class="list-group-item"><a class="text" href="">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-				    <li class="list-group-item"><a class="text" href="">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-				    <li class="list-group-item"><a class="text" href="">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-				    <li class="list-group-item"><a class="text" href="">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-				    <li class="list-group-item"><a class="text" href="">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-				    <li class="list-group-item"><a class="text" href="">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                {% for article in topArticles %}
+                <li class="list-group-item"><a href="/view/{{ article._id.toString() }}" class="text" target="_blank">[{{article.click}}] {{ article.title }}</a></li>                                                 
+                {% endfor %}
 				  </ul>
 			  </div>
 			</div>
 			<div class="panel panel-default">
 			  <div class="panel-heading">联系方式</div>
 			  <div class="panel-body">
-			  	<img src="images/5.jpg" class="img-responsive" alt="Responsive image">
+			  	<img src="/images/5.jpg" class="img-responsive" alt="Responsive image">
 			  </div>
 			</div>	
 		</div>
@@ -178,9 +176,11 @@
 
 
 </body>
-<script src="js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/logout.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
+<script src="/js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/moment.js"></script>
+<script type="text/javascript" src="/js/logout.js"></script>
+<script type="text/javascript" src="/js/pagination.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
 {% block footer %}{% endblock %}
 </html>
