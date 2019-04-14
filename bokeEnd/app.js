@@ -28,6 +28,8 @@ db.once('open', ()=>{
 
 
 
+
+
 app.use(express.static('public'))
 //开发阶段设置不走缓存
 swig.setDefaults({
