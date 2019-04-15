@@ -95,6 +95,7 @@ router.get('/view/:id',(req,res)=>{
 			//评论分页数据
 			comments:pageData.docs,
 			page:pageData.page,
+			list:pageData.list,
 			pages:pageData.pages	
 		})	
 	})
