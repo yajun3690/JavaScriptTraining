@@ -1,9 +1,4 @@
-/*
-* @Author: Tom
-* @Date:   2018-08-06 09:23:30
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-15 18:25:38
-*/
+
 const Router = require('express').Router;
 
 const UserModel = require('../models/user.js');
@@ -14,7 +9,8 @@ const hmac = require('../util/hmac.js')
 
 const router = Router();
 
-
+/*
+//注册管理员
 router.get("/init",(req,res)=>{
 	//插入数据到数据库
 	new UserModel({
@@ -30,6 +26,29 @@ router.get("/init",(req,res)=>{
 		}
 	})
 });
+
+*/
+/*
+//注册用户
+router.get("/init",(req,res)=>{
+	const users = [];
+	for(let i=0;i<500;i++){
+		users.push({
+			username:'test'+i,
+			password:hmac('test'+i),
+			phone:'1883847'+parseInt(Math.random()*10000),
+			email:'test'+i+'@qq.com'
+		})
+	}
+	UserModel.insertMany(users)
+	.then(result=>{
+		res.send('ok')
+	})
+});
+
+
+*/
+
 
 //用户登录
 router.post("/login",(req,res)=>{
@@ -54,7 +73,7 @@ router.post("/login",(req,res)=>{
 			 res.json(result);
 		}else{
 			result.code = 1;
-			result.message = '用户名和密码错误1'
+			result.message = '用户名和密码错误'
 			res.json(result);
 		}
 	})
@@ -91,6 +110,9 @@ router.get('/count',(req,res)=>{
 		})
 	})
 })
+
+
+
 //获取用户
 router.get('/users',(req,res)=>{
 	let options = {
