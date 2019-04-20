@@ -1,23 +1,22 @@
-
-
 import React,{ Component } from 'react'
-
-import Layout from 'common/layout'
-
-
-import './index.css'
+import {Route,Switch} from "react-router-dom"
+import CategoryAdd from './add.js'
+import CategoryList from './list.js'
 
 class Category extends Component{
     render(){
         return (
-        	<div className="Category">
-        		<Layout>
-        			欢迎进入分类管理！
-        		</Layout>
-        	</div>
+        	<Switch>
+        		<Route exact path='/category/add' component={CategoryAdd} />
+        		<Route exact path='/category/:pid?' component={CategoryList} />
+        		<Route exact path='/category' component={CategoryList} />
+        	</Switch>
         )
     }
 }
 
 
 export default Category
+
+
+

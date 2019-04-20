@@ -47,8 +47,8 @@ class App extends Component{
 						<LoginRoute path="/login" component={Login} />
 						<ProtectRoute path="/user" component={User} />
 						<ProtectRoute path="/category" component={Category} />
-						<ProtectRoute path="/order" component={Order} />
 						<ProtectRoute path="/product" component={Product} />
+						<ProtectRoute path="/order" component={Order} />
 						<Route component={Err} />
 					</Switch>
 				</div>

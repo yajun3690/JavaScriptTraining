@@ -2,7 +2,7 @@
 
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-import { Table, Divider, Tag } from 'antd';
+import { Table, Breadcrumb } from 'antd';
 import moment from 'moment';
 
 import { actionCreator } from './store'
@@ -49,12 +49,17 @@ class User extends Component{
 				isAdmin: user.get('isAdmin'),
 				email:user.get('email'),
 				phone:user.get('phone'),
-				createdAt:moment(user.get('createdAt')).format('MMMM Do YYYY, hh:mm:ss a') 			
+				createdAt:moment(user.get('createdAt')).format('YYYY-MM-DD HH:mm:ss ') 			
     		}
     	}).toJS()
         return (
         	<div className="User">
-        		<Layout>
+        		<Layout> 
+			        <Breadcrumb style={{ margin: '16px 0' }}>
+						<Breadcrumb.Item>首页</Breadcrumb.Item>
+						<Breadcrumb.Item>用户管理</Breadcrumb.Item>
+						<Breadcrumb.Item>用户列表</Breadcrumb.Item>
+			        </Breadcrumb>
 					<Table 
 						dataSource={dataSource} 
 						columns={columns} 

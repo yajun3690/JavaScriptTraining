@@ -1,23 +1,21 @@
-
-
 import React,{ Component } from 'react'
-
-import Layout from 'common/layout'
-
-
-import './index.css'
+import {Route,Switch} from "react-router-dom"
+import ProductSave from './save.js'
+import ProductList from './list.js'
 
 class Product extends Component{
     render(){
         return (
-        	<div className="Product">
-        		<Layout>
-        			欢迎进入商品管理!
-        		</Layout>
-        	</div>
+        	<Switch>
+        		<Route exact path='/product/save' component={ProductSave} />
+        		<Route exact path='/product/' component={ProductList} />
+        	</Switch>
         )
     }
 }
 
 
 export default Product
+
+
+
