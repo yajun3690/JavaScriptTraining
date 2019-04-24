@@ -2,7 +2,13 @@
 import * as types from './actionTypes.js'
 import { message } from 'antd'
 import { request } from 'util';
-import { GET_USERS,ADD_CATEGORY,GET_CATEGORIES,UPDATE_CATEGORY_ORDER,UPDATE_CATEGORY_NAME} from 'api'
+import { 
+	GET_USERS,
+	ADD_CATEGORY,
+	GET_CATEGORIES,
+	UPDATE_CATEGORY_NAME,
+	UPDATE_CATEGORY_ORDER,
+} from 'api'
 
 const getPageRequestAction = ()=>{
 	return {
@@ -106,7 +112,7 @@ export const getLevelOneCategoriesAction = (values)=>{
 		})
 	}
 }
-export const getOrderAction = (pid,id,newOrder)=>{
+export const getUpdateOrderAction = (pid,id,newOrder)=>{
 	return (dispath,getState)=>{
 		const state = getState().get('category')
 		request({

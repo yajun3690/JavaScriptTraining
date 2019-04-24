@@ -2,7 +2,118 @@
 import * as types from './actionTypes.js'
 import { message } from 'antd'
 import { request } from 'util';
-import { GET_USERS,ADD_CATEGORY,GET_CATEGORIES,UPDATE_CATEGORY_ORDER,UPDATE_CATEGORY_NAME} from 'api'
+import { 
+	GET_USERS,
+	SAVE_PRODUCT,
+	GET_PRODUCTS,
+	UPDATE_PRODUCT_ORDER,
+	UPDATE_PRODUCT_STATUS,
+	GET_PRODUCT_DETAIL
+} from 'api'
+
+export const getSetCategoryIdAction = (pid,id)=>{
+	return {
+		type:types.SET_CATEGORY_ID,
+		payload:{
+			parentCategoryId:pid,
+			categoryId:id
+		}
+	}
+}
+export const getSetImagesAction = (payload)=>{
+	return {
+		type:types.SET_IMAGES,
+		payload
+	}
+}
+export const getSetDetailAction = (payload)=>{
+	return {
+		type:types.SET_DETAIL,
+		payload
+	}
+}
+
+const setCategoryError=()=>{
+	return {
+		type:types.SET_CATEGORY_ERROR
+	}
+}
+const setImagesError=()=>{
+	return {
+		type:types.SET_IMAGES_ERROR
+	}
+}
+const setDetailError=()=>{
+	return {
+		type:types.SET_DETAIL_ERROR
+	}
+}
+const getSaveRequestAction = ()=>{
+	return {
+		type:types.SAVE_REQUEST
+	}
+} 
+const getSaveDoneAction = ()=>{
+	return {
+		type:types.SAVE_DONE
+	}
+} 
+export const getSaveAction = (err,values)=>{
+	return (dispath,getState)=>{
+		const state = getState().get('product')
+		const category = state.get('categoryId')
+		const images = state.get('images')
+		const detail = state.get('detail')
+		let hasError = false;
+		if(err){
+			hasError = false;
+		}
+		if(!category){
+			dispath(setCategoryError())
+			hasError = true;
+		}
+		if(!images){
+			dispath(setImagesError())
+			hasError = true;			
+		}
+		if(!detail){
+			dispath(setDetailError())
+			hasError = true;			
+		}
+		if(hasError){
+			return
+		}
+		dispath(getSaveRequestAction())
+		request({
+			method:'post',
+			url:SAVE_PRODUCT,
+			data:{
+				...values,
+				category,
+				images,
+				detail
+
+			}
+		})
+		.then(result=>{
+			if(result.code==0){
+				message.success('添加商品成功')
+				window.location.href='/product'
+			}else{
+				message.error(result.message)
+			}
+		})
+		.catch(err=>{
+			console.log(err)
+		})
+		.finally(()=>{
+			dispath(getSaveDoneAction())
+		})
+	}
+}
+
+
+
 
 const getPageRequestAction = ()=>{
 	return {
@@ -14,37 +125,23 @@ const getPageDoneAction = ()=>{
 		type:types.PAGE_DONE
 	}
 } 
+
 const setPageAction = (payload)=>{
 	return {
 		type:types.SET_PAGE,
 		payload
 	}
 }
-const getAddRequestAction = ()=>{
-	return {
-		type:types.ADD_REQUEST
-	}
-} 
-const getAddDoneAction = ()=>{
-	return {
-		type:types.ADD_DONE
-	}
-} 
-const setLevelOneCategoriesAction = (payload)=>{
-	return {
-		type:types.SET_LEVEL_ONE_CATEGORIES,
-		payload
-	}
-} 
 
-export const getPageAction = (pid,page)=>{
+
+export const getPageAction = (page)=>{
 	return (dispath)=>{
 		dispath(getPageRequestAction())
 		request({
-			url:GET_CATEGORIES,
+			url:GET_PRODUCTS,
 			data:{
 				page:page,
-				pid:pid
+
 			}
 		})
 		.then(result=>{
@@ -61,69 +158,48 @@ export const getPageAction = (pid,page)=>{
 	}
 }
 
-export const getAddAction = (values)=>{
-	return (dispath)=>{
-		dispath(getAddRequestAction())
-		request({
-			method:'post',
-			url:ADD_CATEGORY,
-			data:values
-		})
-		.then(result=>{
-			console.log(result)
-			if(result.code ==0){
-				if(result.data){
-					console.log(result)
-					dispath(setLevelOneCategoriesAction(result.data))
-				}
-				message.success('添加分类成功')
-			}else if(result.code ==1)(
-				message.error(result.message)
-				)
-		})
-		.catch(err=>{
-			console.log(err)
-			message.error('添加分类失败')
-		})
-		.finally(()=>{
-			dispath(getAddDoneAction())
-		})
-	}
-}
-export const getLevelOneCategoriesAction = (values)=>{
-	return (dispath)=>{
-		request({
-			url:GET_CATEGORIES,
-			data:{
-				pid:0
-			}
-		})
-		.then(result=>{
-				dispath(setLevelOneCategoriesAction(result.data))
-		})
-		.catch(err=>{
-			console.log(err)
-		})
-	}
-}
-export const getOrderAction = (pid,id,newOrder)=>{
+
+export const getUpdateOrderAction = (id,newOrder)=>{
 	return (dispath,getState)=>{
-		const state = getState().get('category')
+		const state = getState().get('product')
 		request({
 			method:'put',
-			url:UPDATE_CATEGORY_ORDER,
+			url:UPDATE_PRODUCT_ORDER,
 			data:{
-				pid:pid,
 				id:id,
 				order:newOrder,
 				page:state.get('current')
 			}
 		})
 		.then(result=>{
+			// console.log(result)
 			if(result.code ==0){
 				message.success('更新排序成功')
 				dispath(setPageAction(result.data))
-				// dispath(setLevelOneCategoriesAction(result.data))
+			}
+		})
+		.catch(err=>{
+			console.log(err)
+		})
+	}
+}		
+export const getUpdateStatusAction = (id,newStatus)=>{
+	return (dispath,getState)=>{
+		const state = getState().get('product')
+		request({
+			method:'put',
+			url:UPDATE_PRODUCT_STATUS,
+			data:{
+				id:id,
+				status:newStatus,
+				page:state.get('current')
+			}
+		})
+		.then(result=>{
+			if(result.code ==0){
+				message.success('更新状态成功')
+				// console.log(result)
+				dispath(setPageAction(result.data))
 			}
 		})
 		.catch(err=>{
@@ -131,45 +207,23 @@ export const getOrderAction = (pid,id,newOrder)=>{
 		})
 	}
 }
-export const getShowUpdateNameModalAction = (updateId,updateName)=>{
+const setProductDetailAction = (payload)=>{
 	return {
-		type:types.SHOW_UPDATE_NAME_MODAL,
-		payload:{
-			updateId,
-			updateName
-		}
-	}
-}
-export const getCloseUpdateNameModalAction = ()=>{
-	return {
-		type:types.CLOSE_UPDATE_NAME_MODAL
-	}
-}
-export const getUpdateNameChangeAction = (payload)=>{
-	return {
-		type:types.UPDATE_NAME_CHANGE,
+		type:types.SET_PRODUCT_DETAIL,
 		payload
 	}
 }
-export const getUpdateNameAction = (pid)=>{
+export const getProductDetailAction = (productId)=>{
 	return (dispath,getState)=>{
-		const state = getState().get('category')
 		request({
-			method:'put',
-			url:UPDATE_CATEGORY_NAME,
+			url:GET_PRODUCT_DETAIL,
 			data:{
-				pid:pid,
-				id:state.get('updateId'),
-				name:state.get('updateName'),
-				page:state.get('current')
+				id:productId,
 			}
 		})
 		.then(result=>{
 			if(result.code ==0){
-				message.success('修改名称成功')
-				dispath(getCloseUpdateNameModalAction())
-				dispath(setPageAction(result.data))
-				// dispath(setLevelOneCategoriesAction(result.data))
+				dispath(setProductDetailAction(result.data))
 			}
 		})
 		.catch(err=>{

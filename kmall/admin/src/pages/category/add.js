@@ -2,7 +2,18 @@ import { actionCreator } from './store'
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import {
-  Form, Input, Tooltip,Breadcrumb ,Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete,
+	Col, 
+	Row,
+	Icon, 
+	Form, 
+	Input, 
+	Button, 
+	Select,
+	Tooltip,
+	Checkbox,
+	Cascader,
+	Breadcrumb ,
+	AutoComplete,
 } from 'antd';
 const { Option } = Select;
 import Layout from 'common/layout'
@@ -19,6 +30,7 @@ class CategoryAdd extends Component{
 		this.props.form.validateFields((err, values) => {
 		  if (!err) {
 		    this.props.handleAdd(values);
+		    window.location.href='/category'
 
 		  }
 		});

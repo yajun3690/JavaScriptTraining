@@ -226,17 +226,12 @@ router.put("/updateStatus",(req,res)=>{
 	.update({_id:body.id},{status:body.status})
 	.then((product)=>{
 		if(product){
-			res.json({
-				code:0,
-				message:'更新状态成功'
-			})					
-		}else{
 			ProductModel
 			.getPaginationProducts(body.page,{})
 			.then((result)=>{
 				res.json({
-					code:1,
-					message:'更新状态失败',
+					code:0,
+					message:'更新状态成功',
 					data:{
 						current:result.current,
 						total:result.total,
@@ -244,6 +239,11 @@ router.put("/updateStatus",(req,res)=>{
 						list:result.list					
 					}
 				})	
+			})								
+		}else{
+			res.json({
+				code:1,
+				message:'更新状态失败'
 			})							
 		}
 	})

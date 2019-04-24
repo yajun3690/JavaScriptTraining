@@ -33,7 +33,7 @@ class CategoryList extends Component{
             pageSize,
             updateName,
             handlePage,
-            handleOrder,
+            handleUpdateOrder,
             isPageFecthing,
             handleUpdateName,
             showUpdateNameModal, 
@@ -69,7 +69,7 @@ class CategoryList extends Component{
                                 defaultValue={order}
                                 onBlur={(ev)=>{
                                     if(ev.target.value !=order){
-                                        handleOrder(record.pid,record.id,ev.target.value)
+                                        handleUpdateOrder(record.pid,record.id,ev.target.value)
                                     }
                                 }}
 
@@ -170,8 +170,8 @@ const mapDispathToProps = (dispath)=>{
             const action = actionCreator.getPageAction(pid,page)
             dispath(action) 
         },
-        handleOrder:(pid,id,newOrder)=>{
-            const action = actionCreator.getOrderAction(pid,id,newOrder)
+        handleUpdateOrder:(pid,id,newOrder)=>{
+            const action = actionCreator.getUpdateOrderAction(pid,id,newOrder)
             dispath(action) 
         },
         showUpdateNameModal:(updateId,updateName)=>{

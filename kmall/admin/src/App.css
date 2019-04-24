@@ -8,7 +8,7 @@
 	margin: 0;
 	padding: 0;
 }
-li{
+/*li{
 	list-style: none;
 	float: left;
 	margin-right: 10px;
@@ -17,7 +17,7 @@ li{
 	height: 40px;
 	margin-bottom: 20px;
 }
-
+*/
 .Login{
 	width: 300px;
 	margin: 100px auto;

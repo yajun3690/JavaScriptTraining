@@ -7,7 +7,7 @@ class Product extends Component{
     render(){
         return (
         	<Switch>
-        		<Route exact path='/product/save' component={ProductSave} />
+        		<Route exact path='/product/save/:productId?' component={ProductSave} />
         		<Route exact path='/product/' component={ProductList} />
         	</Switch>
         )
