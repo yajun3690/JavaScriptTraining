@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			background-color: blue;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p>段落</p>
+		<p style="background: blue">sdasdsads</p>
+		<p :style="{background: 'blue'}">sdasdsads</p>
+
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			active:'active',
+
+		}
+	});
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			background-color: blue;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p>段落</p>
+		<p class="active error">sdasdsads</p>
+		<p :class="{active:true}">sdasdsads</p>
+		<p :class="['active','error']">sdasdsssssssads</p>
+		<p :class="[isOk?active: error]">sdasdssssdss倒萨倒萨sssads</p>
+
+
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			active:'active',
+			error:'error',
+			isOk:true,
+		}
+	});
+</script>
+</html>

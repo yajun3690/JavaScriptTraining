@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<table>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>成绩</th>
+				<th>等级</th>
+			</tr>
+			<tr v-for='person in persons'>
+				<th>{{person.name}}</th>
+				<th>{{person.age}}</th>
+				<th v-if='person.score>=60' style="color: blue">{{person.score}}</th>
+				<th v-else style="color: red">{{person.score}}</th>
+				<th v-if='person.score>=60'>及格</th>
+				<th v-else>不及格</th>
+			</tr>
+		</table>
+
+
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			persons:[
+				{name:'张三',age:18,score:90},
+				{name:'李四',age:18,score:30},
+				{name:'王武',age:18,score:90},
+
+
+
+			]
+		}
+	});
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.large{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			background-color: red;
+			margin: 200px auto;
+		}
+		.big{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background-color: yellow;
+			margin: 50px auto;
+		}
+		.small{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			background-color: blue;
+			margin: 25px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="large" @click='clickLarge()'>
+			<div class="big" @click='clickLarge()'>
+				<div class="small" @click='clickSmall($event)' >
+					<a  @click.stop='goShopping($event)' href="http://www.baidu.com">去百度</a>
+					<a  @click.prevent.stop='go()' href="http://www.baidu.com">阻止</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:'#app',
+		data:{
+
+		},
+		methods:{
+			clickLarge(){
+				console.log('clickLarge')
+			},
+			clickBig(){
+				console.log('clickBig')
+			},
+			clickSmall(event){
+				event.stopPropagation()
+				console.log('clickSmall')
+			},			
+			goShopping(event){
+				event.preventDefault()
+				console.log('goShopping')
+			},
+			go(){
+				console.log('go')
+			},
+		}
+	});
+</script>
+</html>

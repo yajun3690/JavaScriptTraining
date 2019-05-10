@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<a href="http://www.baidu.com">百度</a>
+		<a v-bind:href="kuazhuUrl">跨猪</a>
+		<a :href="taobaoUrl">淘宝</a>
+
+
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			kuazhuUrl:"http://www.kuazhu.com",
+			taobaoUrl:"http://www.taobao.com",
+		}
+	});
+</script>
+</html>
