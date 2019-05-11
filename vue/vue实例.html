@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<p ref='p'>{{message}}</p>
+		<p v-once>{{message}}</p>
+		<p v-text='message'></p>
+		<p>{{message}}</p>
+		<p v-html='rawHtml'></p>
+		<input type="text" v-model.lazy.trim.number='message'>
+		<!-- v-once 只渲染一次，之后不再改变
+		v-text与直接{{message}}用法相同
+		v-html插入html标签
+		v-model 双向绑定，绑定标签，绑定message，限制在 input,select,textarea,components中使用 修饰符.lazy,onchange与oninput事件使用change即焦点移除输入框才触发修改数据
+		.trim 去除前后空格
+		.number 转换为数值类型
+		可直接改变mesage
+
+	-->
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			message:'hellow vue',
+			rawHtml:'<h1>我是大标题</h1>'
+		},
+		updated(){
+			alert('修改数据成功')
+		}
+		//el element的缩写，选中关联DOM结构，进行挂载
+	})
+	console.log(vm)
+	console.log(vm.message)
+	console.log(vm.$data.message)
+	console.log(vm.$refs.p)//一个对象，既有注册过ref特性的所有DOM元素和组件实例
+	console.log(vm.$el ==document.getElementById('app'))//vue实例使用的根dom元素
+	vm.$watch('message',function(){
+		console.log('message has been change')
+	})//监听事件变化
+
+</script>
+</html>

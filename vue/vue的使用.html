@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			message:'hellow vue'
+		}
+		//el element的缩写，选中关联DOM结构，进行挂载
+	})
+	console.log(vm.$el.baseURI)
+
+</script>
+</html>
