@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app1">
+		<nav>
+			<router-link to="/home">Go to home</router-link>
+			<router-link to="/article">Go to article</router-link>
+			<router-link to="/about">Go to about</router-link>
+			<!-- 链接标签 -->
+		</nav>
+		<div class="page">
+			<router-view></router-view>
+			<!-- 渲染标签 -->
+		</div>
+	</div>
+	<template id="home">
+		<div>
+			this is home
+		</div>
+	</template>	
+	<template id="article">
+		<div>
+			this is article
+		</div>
+	</template>	
+	<template id="about">
+		<div>
+			this is about
+		</div>
+	</template>	
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+	//1,定义模板
+	const Home = Vue.extend({
+		template:'#home'
+	})
+	const Article = Vue.extend({
+		template:'#article'
+	})
+	const About = Vue.extend({
+		template:'#about'
+	})
+	//2，定义路由
+	const routes = [
+		{path:'/home',component:Home},
+		{path:'/article',component:Article},
+		{path:'/about',component:About},
+		{path:'/',redirect:'/home'},
+	]
+	//创建实例
+	const router = new VueRouter({
+	  routes
+	})
+	//挂载组件
+	/*
+	let vm1 = new Vue({
+		el:'#app1',
+		data:{
+		},
+		router
+	})
+
+
+	*/
+	let vm1 = new Vue({
+		router
+	}).$mount('#app1')
+	//mount:挂载
+</script>
+</html>

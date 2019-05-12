@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.todo-list-wrap{
+			width: 600px;
+			margin: 100px auto;
+		}
+		li{
+			list-style: none;
+			line-height: 30px;
+			width: 100%;
+			border: 1px dashed #ccc;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="todo-list-wrap">
+			<input type="text" v-model="task" v-focus>
+			<!-- v-model 双向绑定 传入输入的值到data -->
+			<button @click="add()">增加</button>
+			<transition-group 
+			    enter-active-class="animated tada"
+			    leave-active-class="animated bounceOutRight"
+	
+			tag="ul" appear>
+				<!-- 1，transition-group自动生的标签为span 可使用tag更改为ul标签 
+					2，使用appear，可将初始渲染的dom结构加入动画效果
+					3，name定义为list 借助vue语法，与上方vue动画专用css进行匹配
+				-->
+				<li 
+					v-for="(item,index) in items" 
+					:key="''+index"
+					@click="del(index)"
+				>
+				<!-- 
+					1，遍历items数组
+					2，加key去除警告且key的值需要加上一个空字符串作为字符串拼接
+					3，绑定删除函数，传入index值
+				 -->
+				{{item}}
+			</li>
+			</transition-group>
+		</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+
+	/*
+	Vue.directive('focus',{
+		inserted:function(el){
+			el.focus()
+		}
+	})
+
+	*/
+	//自定义指令1，全局指令
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			items:[
+				"吃饭",
+				"睡觉"
+			],
+			task:''
+			// 定义初始task为空
+		},
+		methods:{
+			add(){
+				if(this.task){
+					this.items.push(this.task)
+					// this.items.unshift(this.task)
+					this.task = ''
+					//只在最后有动画效果
+					
+				}
+				//输入为空则不添加
+				//响应式布局，数据操控页面，获取input输入的task，加入items数组
+				//同时输入之后将输入框置空
+			},
+			del(index){
+				this.items.splice(index,1)
+				//根据传入的下标删除数组中的数据，驱动页面变化
+			}
+		},
+		directives:{
+			focus:{
+				inserted:function(el){
+					el.focus()
+				}
+			}
+		}
+		//局部自定义指令
+	});
+</script>
+</html>

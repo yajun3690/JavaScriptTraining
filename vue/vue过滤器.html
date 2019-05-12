@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app1">
+		<p :title="price | formatPrice">{{price | formatPrice}}</p>
+	</div>
+	<div id="app2">
+		<p :title="price">{{price}}</p>
+	</div>	
+</body>
+<script src="js/vue.js"></script>
+<script>
+	/*
+	Vue.filter('formatPrice',price=>{
+		return "$"+price.toFixed(2)
+	});
+
+
+	*/
+	//全局过滤器用法  | +自定义过滤器名称
+	let vm1 = new Vue({
+		el:'#app1',
+		data:{
+			price:10
+		},
+		filters:{
+			formatPrice(price){
+				return '$'+price.toFixed(3)
+			}	
+		}
+		//局部过滤器
+	});
+	let vm2 = new Vue({
+		el:'#app2',
+		data:{
+			price:88
+		},
+	});	
+</script>
+</html>
