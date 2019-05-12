@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app1">
+		<li>吃饭</li>
+		<todo-item 
+		v-for='item in items'
+		:task='item.task'
+		:id='item.id'
+		:key='item.id'
+		></todo-item>
+		<!-- 
+			流程
+				1，在app的data中写入传值的数组
+				2，在自定义标签中用v-for将数据遍历出来
+				
+				3，利用bind方法，拿到参数
+				4，在自定义组件props中定义参数数据类型
+				5，在模板html中插入参数。
+				6，渲染页面。
+			(遍历方式)
+				1，v-for='item in items'
+				2，v-for='(item,index)in items'
+			注意点：
+				1，需要加入key值，否则会出现警告，类似react模板
+				2，遍历的每一个参数都需要在props中定义类型
+
+
+
+		 -->
+	</div>
+	<!-- 外部数据要bind 才能拿到简写为 ： -->
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('todo-item',{
+		/*
+		data(){
+			return {
+				task:'睡觉'	
+			}
+		},
+
+		*/
+		props:{
+			task:String,
+			id:Number
+		},//接受task,插入组件,需遍历的值，均需要在props中定义类型。
+		template:'<li>{{id}}-{{task}}</li>'
+	});		
+	let vm1 = new Vue({
+		el:'#app1',
+		data:{
+			items:[
+				{
+					id:1,
+					task:'吃饭'
+				},
+				{
+					id:2,
+					task:'睡觉'
+				},
+			]
+		},
+	});
+</script>
+</html>
