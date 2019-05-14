@@ -7,14 +7,16 @@
 	>
 		<input type="checkbox" v-model='todo.done'>
 		<span>{{todo.task}}</span>
-		<button v-show = 'isShow'>删除</button>
+		<button v-show="isShow" @click="handleDel">删除</button>
 	</div>
 </template>
 <script>
 	export default {
 		name:'Item',
 		props:{
-			todo:Object
+			todo:Object,
+			delTodo:Function,
+			index:Number
 		},
 		data(){
 			return {
@@ -30,6 +32,11 @@
 				}else{
 					this.bgColor='#fff'
 					this.isShow = false
+				}
+			},
+			handleDel(){
+				if(window.confirm('您确定要删除'+this.todo.task+'吗?')){
+					this.delTodo(this.index)
 				}
 			}
 		}

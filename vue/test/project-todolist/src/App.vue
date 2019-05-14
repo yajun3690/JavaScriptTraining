@@ -1,11 +1,11 @@
 <!--1.页面 -->
 <template>
-	<div id="App">
+	<div id="App" class="App">
 		<!-- 2.3 使用组件 -->
 		<h3>To Do List</h3>
-		<Header :addTodo='addTodo'/>
-		<List :todos='todos'/>
-		<Footer/>
+		<Header/>
+		<List  :delTodo="delTodo" />
+		<!-- <Footer :todos="todos" :selectAllTodo="selectAllTodo" :delAllDoneTodo="delAllDoneTodo" /> -->
 	</div>
 </template>
 <!--2.逻辑 -->
@@ -22,6 +22,7 @@
 			List,
 			Footer
 		},
+		/*
 		data(){
 			return {
 				todos:[
@@ -32,9 +33,22 @@
 				]
 			}
 		},
+
+		*/
 		methods:{
 			addTodo(todo){
 				this.todos.unshift(todo)
+			},
+			delTodo(index){
+				this.todos.splice(index,1)
+			},
+			selectAllTodo(value){
+				this.todos.forEach(item=>{
+					item.done = value
+				})
+			},
+			delAllDoneTodo(){
+				this.todos = this.todos.filter(item=>!item.done)
 			}
 		}
 	}

@@ -33,7 +33,8 @@
 					done:false
 				}
 				//3,插入数组
-				this.addTodo(todo)
+				// this.addTodo(todo)
+				this.$store.dispatch('addTodo',todo);
 				//4.情况输入框,输入后置空
 				this.task = ''
 			}
