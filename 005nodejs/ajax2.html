@@ -17,13 +17,13 @@
 		var oAjax = new XMLHttpRequest();
 		console.log('after new::',oAjax.readyState);//0 没有初始化,还没有调用open方法
 		//2.建立连接(拨号)
-		oAjax.open('GET','http://127.0.0.1:3000/getData?name=Tom',true);
+		oAjax.open('GET','http://10.196.5.84:3000/03.json',true);
 		console.log('after open::',oAjax.readyState);//1 启动,已调用open方法但是还没有调用send方法
 		
 		//可选,设置请求头
 		oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 		//3.发送信息(说话)
-		oAjax.send();
+		oAjax.send('{"name":"Tom","age":18}');
 		//4.监听事件接收数据(听)
 		oAjax.onreadystatechange = function(){
 			console.log('in onreadystatechange::',oAjax.readyState);

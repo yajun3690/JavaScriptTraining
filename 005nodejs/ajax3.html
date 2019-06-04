@@ -17,7 +17,7 @@
 		var oAjax = new XMLHttpRequest();
 		console.log('after new::',oAjax.readyState);//0 没有初始化,还没有调用open方法
 		//2.建立连接(拨号)
-		oAjax.open('POST','http://127.0.0.1:3000/03.json',true);
+		oAjax.open('POST','http://10.196.5.84:3000/03.json',true);
 		console.log('after open::',oAjax.readyState);//1 启动,已调用open方法但是还没有调用send方法
 		
 		//可选,设置请求头
