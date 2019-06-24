@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+//data1 为原数据 ，data2为转换后数据
+	function que(obj){
+		var min=obj[0].id;
+		var data2={};
+		data2.children=[]
+		for(var j=0;j<obj.length;j++){
+			function mmm(){
+				for(var i=0;i<obj.length;i++){
+					var cur=obj[i].id;
+					cur<min?min=cur:null
+				}
+				return min
+			}
+			mmm();
+			if(obj[j].id==min){
+				data2=obj[j]
+				obj.splice(j,1)
+				data2.children=[]
+			}
+			mmm();
+
+		}
+		return data2
+	}
+	let data2=que(data1)
+
+</script>
+</html>
