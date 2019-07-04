@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+		var arr = [1,3,5,3,7,1,9,0,3,5,3]
+		function bbb(arr){
+			 var aro =[]
+			 var ccc = [] 
+			for (var i=0;i<arr.length;i++){
+				var qqq =0
+				for(var j=0;j<aro.length;j++){
+					if(arr[i] == aro[j]){
+						qqq=i;
+						break
+						console.log(arr[qqq])
+					}
+				}
+				if(!qqq){
+					aro.push(arr[i]);
+				}
+				// 在aor数组中查找arr数组的第i项，若有相同项返回下标，若无相同项返回-1
+				// if(aro.indexOf(arr[i])){
+				// 	aro.push(arr[i]);
+				// }
+			}
+			return ccc
+		}
+		console.log(bbb(arr))
+</script>
+</html>
