@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+ //1,判断字符串是否为回文 'sdsdsdsd'
+ 	var arr = 'sdsdsdsd'
+ 	var arr2 = 'mamam'
+ 	function huiwen(str){
+ 		return str == str.split('').reverse().join('')
+ 	}
+ 	console.log(huiwen(arr))
+ 	console.log(huiwen(arr2))
+ //2,判断数字是否为回文
+ 	//方法1
+ 	var no1 = 121
+ 	function nohuiwen(number){
+ 		var cc=[]
+ 		cc.push(number)
+ 		return number == cc.join('').split('').reverse().join('')
+ 	}
+ 	console.log(nohuiwen(no1))
+ 	//方法2
+ 	function nohuiwen2(number){
+ 		var cc = number+''
+ 		return number == cc.split('').reverse().join('')
+ 	}
+ 	console.log(nohuiwen2(no1))
+ //判断数组中是否有回文数字,把该数字挑选出来,且每个数字只显示一次
+ 	var arr3 = [121,123,123,213,212,212,212,212,212,121]
+ 	function noarr(str){
+ 		var cc = []
+ 		var ff = []
+ 		for(var i=0;i<str.length;i++){
+ 			var dd= str[i]+''
+ 			if(dd == dd.split('').reverse().join('')){
+				if(cc.indexOf(str[i]) == -1){
+					cc.push(str[i]);
+				}
+ 			}
+ 		}
+ 		return cc
+ 	}
+ 	console.log(noarr(arr3))
+  //判断数组中是否有回文数字,把该数字挑选出来,显示重复次数最多的数字
+   	function noarr2(str){
+ 		var cc = []
+ 		var ff = []
+ 		for(var i=0;i<str.length;i++){
+ 			var dd= str[i]+''
+ 			if(dd == dd.split('').reverse().join('')){
+				if(cc.indexOf(str[i]) == -1){
+					cc.push(str[i]);
+				}else{
+					ff.push(str[i])
+				}
+ 			}
+ 		}
+ 		return {cc,ff}
+ 	}
+ 	console.log(noarr2(arr3))
+ 	var ff=noarr2(arr3).ff
+ 	console.log(ff)
+</script>
+</html>
