@@ -8,7 +8,10 @@
 	
 </body>
 <script type="text/javascript">
-		var str = 'afjghdfraaaasdenas'
+		var str = 'abbccdddd'
+		// console.log(str.charAt(0))
+		var bb ={}
+		bb[str.charAt(0)]=1
 		function findMaxDuplicateChar(str) {  
 			if(str.length == 1) {
 				return str;
@@ -23,13 +26,15 @@
 			}
 			let maxChar = '',
 			maxValue = 1;
+			mm={}
 			for(var k in charObj) {
 				if(charObj[k] >= maxValue) {
 			 		maxChar = k;
 					maxValue = charObj[k];
 				}
 			}
-			return maxChar;
+			mm[maxChar] = maxValue
+			return mm;
 		 
 		}
 		console.log(findMaxDuplicateChar(str))

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var a = 1;
+	let b=1;
+	const c = {
+		'cc':1,
+		'bb':2
+	};
+	c.bb =1;
+	let arr = [1,2,3,4,5]
+	for(let i = 1;i<arr.length;i++){
+		if(arr[i]>3){
+			console.log(arr[i])
+		}
+	}
+	if(true){
+		var aa=1
+		console.log(aa)
+	}
+	console.log(aa)
+	//let 块级作用域
+	if(true){
+		let bb=1
+		console.log(bb)
+	}
+	// console.log(bb)
+
+	function fn1(){
+		var a =1
+		function fn2(){
+ 			a = 2;
+ 			console.log('fn2=',a)
+		}
+		console.log('fn1  up=',a)
+		fn2();
+		console.log('fn1=',a)
+	}
+	fn1();
+
+	function fn11(){
+		let aaa =1
+		function fn22(){
+ 			aaa = 2;
+ 			console.log('fn22=',aaa)
+		}
+		console.log('fn11  up=',aaa)
+		fn22();
+		console.log('fn11=',aaa)
+	}
+	fn1();
+	// let [a1,b1,c1] = [1,2,3]
+	// console.log(a1,b1,c1)
+	let [a1,[b1,c1=4],d1] = [1,[2],3]
+	console.log(a1,b1,c1,d1)
+</script>
+</html>

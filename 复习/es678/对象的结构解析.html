@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var obj = {
+		username:'tom',
+		age:18
+	}
+	// var username = obj.username;
+	// var age = obj.age;
+	// console.log(username)
+	// console.log(age)
+	let {username,age,friend={username:'piter'}} = {
+		username:'tom',
+		age:18,
+		friend:{username:'leo'}
+	}
+	console.log(username,age,friend)
+</script>
+</html>

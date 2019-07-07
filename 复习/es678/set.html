@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//set 类似数组但值唯一的数据结构
+	var arr1 = [11,22,33,44,]
+	let s = new Set(arr1);
+	s.add(22)
+	console.log(s.delete(11))
+	console.log(s.has(22))
+	//没有返回值
+	// s.clear();
+	console.log(s)
+	var arr2 = [11,22,33,44,33,22,22,]
+	console.log(arr2)
+	let s2 = new Set(arr2);
+	let arr3 = [...s2]
+	console.log(arr3)
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//map 类似于对象
+	//es5 
+	var obj = {age:18}
+	let obj1 = {id:100};
+	let obj2 = {id:101};
+	obj.name = 'tom';
+	obj[obj1]  = 'teacher'
+	obj[obj2]  = 'student'
+	// console.log(obj)
+	//对象作为属性名会被转化为字符串
+	// for (let key in obj ){
+	// 	console.log(key,typeof key)
+	// }
+	//es6
+	let map  = new Map();
+	map.set('age',18)
+	// map.set('age',18)
+	map.set(obj1,'teacher')
+	map.set(obj2,'student')
+	// console.log('map.get(age)',map.get('age'))
+	// console.log('map.get(obj1)',map.get(obj1))
+	// console.log('map.delete(age)',map.delete('age'))
+	// console.log('map.has(obj1)',map.has(obj1))
+	// console.log('map.clear()',map.clear())
+	for(let key of map.keys()){
+		console.log(key)
+	}	
+	for(let value of map.values()){
+		console.log(value)
+	}
+	for(let entry of map.entries()){
+		console.log(entry)
+	}	
+	for(let entry of map){
+		console.log(entry)
+	}
+	map.forEach(function(val,key){
+		console.log(key,val)
+	})
+	// console.log(map)
+</script>
+</html>

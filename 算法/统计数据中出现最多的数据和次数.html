@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+//
+	var data1 = 'sdsdssssdddddsdd'
+	var data2 = ['aa','cc','bb','cc','aa','bb','bb','bb','cc','dsd','aa','aa']
+	var data3 = [1,5,89,4,1,8,4,6,4,8,4,1,5,4,4,5,8,7,4,4,89,7,4,5,78,4,4,8,5,5,8,8,8,8,]
+	function maxs(data){
+		//1,如果数据中只有一个 返回数据
+		if(data.length == 1){
+			return data
+		}
+
+		//2,给数据数值添加出现次数作为键值，键名为原数据键值
+		var objNo = {}
+		for(let i=0;i<data.length;i++){
+			if(!objNo[data[i]]){
+				objNo[data[i]]=1
+			}else{
+				
+				objNo[data[i]]+=1
+			}
+		}
+		//3,maxChar最多次数的值,maxNo设置初始键值 mm为对象方便次数最多数有多个值存储,bb为书组为数据方便多值储存
+		var maxChar,maxNo=1,mm={},bb=[]
+		for(key in objNo){
+			if(objNo[key]>maxNo){
+				maxNo = objNo[key]
+				maxChar = key;
+			}else if(objNo[key]==maxNo){
+				bb.push(key)
+			}
+		}
+		bb.push(maxChar)
+		for(key in bb){
+		//4,因for in按顺序遍历 防止跳值进入if条件 产生错误数据 例4，4，6		
+			if(objNo[bb[key]]==maxNo){
+				mm[bb[key]]=maxNo
+			}
+		}
+		return mm
+	}
+
+	console.log(maxs(data1))
+	console.log(maxs(data2))
+	console.log(maxs(data3))
+
+
+
+
+</script>
+</html>

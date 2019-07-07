@@ -8,13 +8,16 @@
 	
 </body>
 <script type="text/javascript">
-//1,利用对象属性唯一
-	data4 = [1,1,2,3]
-	var sss={}
-	for(key of data4){
-		sss[key]=key
+	function sum1(...arr){
+		var todo = 0;
+		console.log(arr)
+		for(let i=0;i<arr.length;i++){
+			
+			todo+=arr[i] 
+
+		}
+		return todo
 	}
-	console.log(data4)
-	console.log('sss:',sss)
+	console.log(sum1(1,2,3,4,5))
 </script>
 </html>

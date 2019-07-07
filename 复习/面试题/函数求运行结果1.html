@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var Singleton = (function(){
+		var instance ;
+		function createInstance(){
+			var object = new Object('I am the instance');
+			return object;
+		}
+		return {
+			getInstance:function(){
+				if(!instance){
+					instance = createInstance();
+				}
+				return instance;
+			}
+		};
+	})();
+	function run(){
+		var instance1 = Singleton.getInstance();
+		var instance2 = Singleton.getInstance();
+		console.log('same instance?' +(instance1 ===instance2))
+	}
+	run();
+
+//考察闭包 数据不会销毁，instance放在内存中 same instance?true
+
+
+
+
+	var qq=(function(){
+		return {
+			 cc:function(){
+				var object = new Object('I am the instance');
+				return object
+			
+				}
+			}
+	})()
+	var c1 =qq.cc();
+	var c2 =qq.cc();
+	console.log(c1)
+	console.log(c2)
+	console.log( c1===c2 )
+
+
+
+
+
+
+
+
+</script>
+</html>

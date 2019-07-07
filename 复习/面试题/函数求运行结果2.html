@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	function Employee(name){
+		this.name = name;
+		this.say = function(){
+			log.add('Employee'+name);
+		};
+	}	
+	function EmployeeFactory(){
+		this.create = function(name){
+			return new Employee(name);
+		};
+	}
+	function Vendor(name){
+		this.name = name;
+		this.say = function(){
+			log.add('Vendor'+name);
+		};
+	}
+	function VendorFactory(){
+		this.create = function(name){
+			return new Vendor(name);
+		};
+	}	
+//	log helper
+	var log = (function(){
+		var log = '';
+		return {
+			add:function(msg){log+=msg+'\n';},
+			show:function(){alert(log);log='';},
+		}
+	})();
+
+	function run(){
+		
+		var persons =[];
+		var employeeFactory = new EmployeeFactory();
+		var vendorFactory = new VendorFactory();
+
+		persons.push(employeeFactory.create('JOHN'));
+		persons.push(vendorFactory.create('JACK'));
+		for(var i=0,len = persons.length; i<len; i++){
+			persons[i].say();
+		}
+		log.show();
+
+	}
+	run();
+
+
+
+
+
+
+
+
+
+</script>
+</html>

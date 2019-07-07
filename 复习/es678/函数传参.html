@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+
+
+	var a = 2
+	function show(i=a+1){
+		console.log(i)
+	}
+	show();
+	// var a=3
+	show(4);
+	function show2(name='Tom',age='18'){
+		console.log(name,age)
+	}
+	show2('leo',22)
+
+ 	function show3(url,{method="GET",body="name=Tom"} = {}){
+        console.log(url,method,body);
+    }
+    show3('http://kuazhu.com');//GET name=Tom
+    show3('http://kuazhu.com',{method:"post",body:"name=leo"});//GET name=Tom
+</script>
+</html>
