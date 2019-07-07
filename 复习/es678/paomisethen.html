@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//
+	// let p1 = new Promise((resolve,reject)=>{
+	// 	resolve('ccc')
+	// })
+	// let p2 = p1.then((resolved)=>{
+	// 	 console.log(resolved)
+	// 	 return resolved
+	// })
+	// p2.then((resolved)=>{
+	// 	console.log(resolved)
+	// })
+	// console.log(p1)
+	// console.log(p2)
+	// console.log(p1==p2)
+
+	let p1 = new Promise((resolve,reject)=>{
+		resolve('ccc')
+	})
+	let p3 = null
+	let p2 = p1.then((resolved)=>{
+		console.log(resolved)
+		p3= new Promise((resolve,reject)=>{
+						resolve('hellow')
+				})
+		return p3
+	})
+	p2.then((resolved)=>{
+		console.log(resolved)
+		console.log(p2==p3)
+	})
+	console.log(p1)
+	console.log(p2)
+	console.log(p1==p2)
+</script>
+</html>
