@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function * gen(x){
+		console.log('x=',x)
+		let y = yield (x+5);
+		console.log('y=',y)
+		let z = yield(y+10)
+		console.log('z=',z)
+		return (x+y+z);
+
+	}
+	let g = gen(5)
+	// console.log(g.next());//{value:10,done:false}
+	// console.log(g.next());//{value:NAN,done:false}
+	// console.log(g.next());//{value:NAN,done:true}
+
+	//value的值为当前yield后的值,传入的值为当前
+	console.log(g.next());//{value:10,done:false}
+	console.log(g.next(20));//{value:30,done:false}
+	console.log(g.next(40));//{value:65,done:true}
+
+</script>
+</html>

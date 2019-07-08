@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">1</div>
+	<div class="box">2</div>
+	<div class="box">3</div>
+	<div class="box">4</div>
+	<div class="box">5</div>
+	<div class="box">6</div>
+	<div class="box">7</div>
+	<div class="box">8</div>
+	<div class="box">9</div>
+	<div class="box">10</div>
+</body>
+<script type="text/javascript">
+	//
+	// let likeArr = {
+	// 	0:'aa',
+	// 	1:'bb',
+	// 	length:2
+	// }
+	// let arr = Array.from(likeArr)
+	// console.log('likeArr=',likeArr)
+	// console.log('arr',arr)
+	// function fn(){
+	// 	console.log(arguments)
+	// 	console.log(Array.from(arguments))
+	// }
+	// fn(11,22);
+	// let aBox = document.querySelectorAll('.box')
+	// console.log(Array.from(aBox))
+	//参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。
+	let arr1 = [11,22,4,5,12,33]
+	console.log(arr1.find(n=>n>20))//22
+	console.log(arr1.find(n=>n>40))//undefined
+	//用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。
+	console.log(arr1.findIndex(n=>n>20))//1
+	console.log(arr1.findIndex(n=>n>40))//-1
+
+	console.log(arr1.includes(11))//true
+	console.log(arr1.includes('11'))//false
+	console.log(arr1.includes(99))//false
+</script>
+</html>

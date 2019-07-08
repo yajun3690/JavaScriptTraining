@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+// let p1 = Promise.resolve();
+// console.log(p1)
+// let p2 = Promise.resolve(p1)
+// console.log(p2)
+// console.log(p1==p2)
+//true
+//传入promise 回援会原封不动的返回出来
+// let obj = {
+// 	then:function(){
+// 		console.log('then of obj ....')
+// 	}
+// }
+// let p3 = Promise.resolve(obj)
+// console.log(p3)
+//传入的对象有then方法会立即执行,返回一个promise
+//传入字符串则 resolved的值为该字符串
+	let p1 = Promise.reject('ccc')
+	console.log(p1)
+	p1.catch(err=>{
+		console.log(err)
+	})
+	
+
+</script>
+</html>

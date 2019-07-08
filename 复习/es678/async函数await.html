@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+	let promise = new Promise((reslove,reject)=>{
+		setTimeout(function(){
+			reslove('data')
+		},2000)
+	});
+	// async function fn(){
+	// 	let data1 = await 'hellow'
+	// 	console.log(data1)
+	// 	//await只能放到async函数体中
+	// 	//await表示后面的处理需要等待,通常await后面是一个 Promise 对象，返回该对象的结果。如果不是 Promise 对象，就直接返回对应的值。
+	// }
+	// let p =fn();
+	// console.log(p)
+	// p.then(data=>{
+	// 	console.log(data)
+	// })
+	// async function fn(){
+	// 	let data1 = await promise
+	// 	console.log(data1)
+	// }
+	// fn();
+	// async function fn2(){
+	// 	await Promise.reject('出错了')
+	// 	//await命令后面的 Promise 对象如果变为reject状态，程序中止,reject的参数会被catch方法的回调函数接收到。
+	// 	let data1 = await promise
+	// 	console.log(data1)
+	// }
+	// fn2()
+	// .catch(err=>{
+	// 	console.log(err)
+	// })
+	//防止出错的方法，是await语句放在try...catch代码块之中。
+	async function fn(){
+		try{
+			await Promise.reject('出错了')
+		}
+		catch(err){
+			console.log(err)
+		}
+		try{
+			let data1 = await promise
+			console.log(data1)
+		}
+		catch(err){
+			console.log(err)
+		}
+
+	}
+	fn();
+</script>
+</html>

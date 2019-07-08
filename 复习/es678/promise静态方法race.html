@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//接受一个Promise实例数组作为参数,不论成功和失败,返回执行最快的那个promise对象 
+	let getDataPromise = function(delay){
+		return new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				resolve('data'+delay)
+			},delay)
+		})
+	}
+	let aPromise = [100,300,500].map(delay=>getDataPromise(delay))
+	let p = new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				reject('errdata'+50)
+			},50)
+		})
+	aPromise.push(p)
+	Promise.race(aPromise)
+	.then(data=>{
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+	aPromise.push(p)
+	console.log(aPromise)
+	console.log(aPromise[3])
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function *gen(a){
+		let b =  yield a
+		console.log(b)
+		let c =  yield b
+		let d = yield c
+		let e = yield d
+		let f = yield e
+	}
+	let g= gen(1);
+	//返回值不同于value值    yield后的值为当前value值,上一个yield返回值由下一个next传入的参数定义
+	console.log(g.next())//1
+	console.log(g.next(10))//2
+	console.log(g.next(55))
+	console.log(g.next(33))
+	console.log(g.next(39))
+	// for(let v of g){
+	// 	console.log(v)
+	// }
+</script>
+</html>
