@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="author" content="心梦缘ocean ocl" />
+  <title>My tree demo</title>
+  <link rel="stylesheet" type="text/css" href="./tree.css">
+</head>
+
+<body>
+
+<div class="leftNav">
+    <div id="samplesToc">
+
+        <div id="tree" style="top: 35px; left: 0px;" class="treeDiv">
+
+          <div id="treeRoot" onselectstart="return false" ondragstart="return false">
+
+            <div class="treeNode">
+
+                <img src="../graphics/treenodeplus.gif" onclick="expandCollapse(this.parentNode)" class="treeLinkImage">
+
+                <span onclick="expandCollapse(this.parentNode)" class="category">目录节点一 </span>
+
+                <div class="treeSubnodesHidden">
+
+                <div class="treeNode">
+
+                        <img src="../graphics/treenodeplus.gif" onclick="expandCollapse(this.parentNode)" class="treeLinkImage">
+
+                        <span onclick="expandCollapse(this.parentNode)" class="category">目录节点一子目录 </span>
+
+                        <div class="treeSubnodesHidden">
+
+                            <div class="treeNode">
+
+                                <a href="#" class="treeUnselected" onclick="clickAnchor(this)">二级叶子结点一</a>
+
+                            </div>
+
+                            <div class="treeNode">
+
+                                <a href="#" class="treeUnselected" onclick="clickAnchor(this)">二级叶子结点二</a>
+
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="treeNode">
+
+                    <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点一</a>
+
+                </div>
+
+                <div class="treeNode">
+
+                    <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点二</a>
+
+                </div>
+
+                <div class="treeNode">
+
+                     <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点三</a>
+
+                </div>
+
+                <div class="treeNode">
+
+                     <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点四</a>
+
+                </div>
+
+                <div class="treeNode">
+
+                      <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点五</a>
+
+                </div>
+
+                <div class="treeNode">
+
+                    <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点六</a>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!--end block-->
+            <div class="treeNode">
+
+                <img src="../graphics/treenodeplus.gif" onclick="expandCollapse(this.parentNode)" class="treeLinkImage">
+
+                <span onclick="expandCollapse(this.parentNode)" class="category">目录节点二</span>
+
+                <div class="treeSubnodesHidden">
+
+                    <div class="treeNode">
+
+                      <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点一</a>
+
+                    </div>
+
+                    <div class="treeNode">
+
+                      <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点二</a>
+
+                    </div>
+
+                    <div class="treeNode">
+
+                      <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点三</a>
+
+                    </div>
+
+                    <div class="treeNode">
+
+                      <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点四</a>
+
+                    </div>
+
+                    <div class="treeNode">
+
+                      <a href="#" class="treeUnselected" onclick="clickAnchor(this)">叶子结点五</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--end block-->
+          </div>
+
+        </div>
+
+    </div>
+     <!-- end samplesToc -->
+</div> <!-- end leftNav -->
+
+<div class="right content">
+
+</div><!-- end main  content-->
+
+<div id="footer" align="center">
+
+</div><!-- end footer-->
+
+<script type="text/javascript" src="./tree.js"></script>
+
+</body>
+
+</html>

@@ -9,9 +9,21 @@
 </body>
 <script type="text/javascript">
 //
-	var data1 = 'sdsdssssdddddsdd'
-	var data2 = ['aa','cc','bb','cc','aa','bb','bb','bb','cc','dsd','aa','aa']
-	var data3 = [1,5,89,4,1,8,4,6,4,8,4,1,5,4,4,5,8,7,4,4,89,7,4,5,78,4,4,8,5,5,8,8,8,8,]
+	var data1 = 'sdsdssssdddddsssdd'
+	var data2 = ['aa','cc','bb','cc','aa','bb','bb','bb','cc','dsd','aa','aa','cc']
+	var data3 = [1,5,89,4,1,8,4,6,4,8,4,1,5,4,4,5,8,7,4,4,89,7,4,5,7,8,8,8,4,4,8,5,5,8,8,8,8,]
+	var data4={
+		0:'a',
+		1:'a',
+		2:'a',
+		3:'a',
+		4:'a',
+		5:'a',
+		6:'a',
+		7:'a',
+		length:8
+	}
+ 	data5=Array.from(data4)
 	function maxs(data){
 		//1,如果数据中只有一个 返回数据
 		if(data.length == 1){
@@ -51,7 +63,7 @@
 	console.log(maxs(data1))
 	console.log(maxs(data2))
 	console.log(maxs(data3))
-
+	console.log(maxs(data5))
 
 
 

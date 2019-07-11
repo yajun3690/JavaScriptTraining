@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//将一个一维数组两两组合为一个新数组，放置在一个大数组中。
+    var arr = [1,2,3,4,5,6];
+    var result = arr.reduce((pre,next,idx)=>{
+        if(idx%2){
+            pre[parseInt(idx/2,10)].push(next);
+        }else{
+            pre.push([next]);
+        }
+        return pre
+     },[]);
+    console.log(result)	
+/*
+	[
+	    {"fristCap":"A","id":"Anni","contact":"112123","value":"111"},
+	    {"fristCap":"A","id":"Aidai","contact":"22222","value":"11111"},
+	    {"fristCap":"B","id":"Bobo","contact":"22222","value":"25462"},
+	    {"fristCap":"B","id":"Big","contact":"2222221","value":"23131"},
+	    {"fristCap":"C","id":"Ca","contact":"322222","value":"2315432"},
+	]
+
+
+*/
+
+/*
+	[
+	    {
+	        "firstCap":"A",
+	        "data": [
+	            {"fristCap":"A","id": "Anni", "contact": "112123", "value": "111"},
+	            { "fristCap":"A","id": "Aidai", "contact": "22222", "value": "11111"}
+	        ]
+	    },
+	    {
+	        "firstCap": "B",
+	        "data": [
+	            {"fristCap":"B", "id": "Bobo",  "contact": "22222", "value": "25462" },
+	            { "fristCap":"B","id": "Big", "contact": "2222221", "value": "23131"},
+	        ]
+	    },
+	    {
+	        "firstCap": "C",
+	        "data": [
+	            {"fristCap":"C","id": "Ca", "contact": "322222", "value": "333333" }
+	        ]
+	    }
+
+	]
+
+*/
+/*
+观察上面需要转换的数据格式，我们的思路是这样子的，
+1、创建一个新的数组，用来返回归类好的数据；
+2，创建一个对象，用来标记首字母，该对象要有一个标记首字母的字段firstCap，还要有一个data字段用来接纳相同首字母的数据。
+3，将新建的数组用字母升序的方式重新排列
+*/
+let tempArray = [];//创建一个新数组
+let hash = {};
+for (let contact of this.contacts) {
+	if(!hash[contact.firstCap]) {
+		tempArray.push({firstCap:contact.firstCap,data:[contact]});
+		hash[contact.firstCap] = contact;
+	} else {
+			for(let newContact of tempArray) {
+				if (newContact.firstCap === contact.firstCap) {
+					newContact.data.push(contact);
+					break;
+				}
+			}
+		}
+}
+</script>
+</html>

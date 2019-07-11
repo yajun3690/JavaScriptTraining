@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+//	
+	var arr = [
+	    [0,1,2,3],
+	    [4,5,6,7],
+	    [8,9,0,1],
+	    [2,3,4,5]
+	];
+	var arr=[[1,2],[3,4]]
+	//1,两层循环
+	var result = [];
+	for(var i=0;i<arr.length;i++){
+	    for(var j=0;j<arr[i].length;j++){
+	        result.push(arr[i][j]);
+	    }
+	}
+	console.log(arr)
+	console.log(result)
+	//2,用concat代替内层循环
+	var result2 = [];
+	for(var i=0;i<arr.length;i++){
+	    result2 = result2.concat(arr[i]);
+	}
+	console.log(result2)
+	//3,用apply代替外层遍历
+	var result3 = [].concat.apply([],arr);
+	console.log(result3)
+/*
+//1,使用数组的join()
+let arr = [1, 2, 3, 4, 5, [6, 7, 8, [9, 10, 11, 12, [13, 14, 15, 16]]]]
+console.log(arr.join())   // 输出为：1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+let newArr = arr.join().split(',')
+console.log(newArr)
+//2,使用toString()方法
+let arr = [1, 2, 3, 4, 5, [6, 7, 8, [9, 10, 11, 12, [13, 14, 15, 16]]]]
+console.log(arr.toString())   // 输出为：1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+let newArr = arr.toString().split(',')
+console.log(newArr) 
+//3,使用空字符串的方法
+let arr = [1, 2, 3, 4, 5, [6, 7, 8, [9, 10, 11, 12, [13, 14, 15, 16]]]]
+console.log(arr + '')    // 输出为：1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+let newArr = (arr + '').split(',')
+console.log(newArr) 
+//4,优化 数组中每项为字符串将其转换成nunber类型
+let arr = [1, 2, 3, 4, 5, [6, 7, 8, [9, 10, 11, 12, [13, 14, 15, 16]]]]
+console.log(arr + '')    // 输出为：1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+let newArr = (arr + '').split(',')
+console.log(newArr)   // 输出为：["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
+let numberArr = [] // 用于存放新的number类型的数组
+newArr.forEach(function (data, index, arr) {
+  numberArr.push(+data)
+})
+console.log(numberArr)
+//5,递归调用
+let arr = [1, 2, 3, 4, 5, [6, 7, 8, [9, 10, 11, 12, [13, 14, 15, 16]]]]
+let newArr = [] // 存放转化后的一维数组
+function arrConversion (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      arrConversion(arr[i])
+    } else {
+      newArr.push(arr[i])
+    }
+  }
+}
+arrConversion(arr)
+console.log(newArr)
+//6,flat()
+console.log([1 ,[2, 3]].flat()); // [1, 2, 3]
+ 
+// 指定转换的嵌套层数
+console.log([1, [2, [3, [4, 5]]]].flat(2)); // [1, 2, 3, [4, 5]]
+ 
+// 不管嵌套多少层
+console.log([1, [2, [3, [4, 5]]]].flat(Infinity)); // [1, 2, 3, 4, 5]
+ 
+// 自动跳过空位
+console.log([1, [2, , 3]].flat());<p> // [1, 2, 3]
+//7,flatMap()先对数组中每个元素进行了的处理，再对数组执行 flat() 方法。
+// 参数1：遍历函数，该遍历函数可接受3个参数：当前元素、当前元素索引、原数组
+// 参数2：指定遍历函数中 this 的指向
+console.log([1, 2, 3].flatMap(n => [n * 2])); // [2, 4, 6]
+*/
+</script>
+</html>
