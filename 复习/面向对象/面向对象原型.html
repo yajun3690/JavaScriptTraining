@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+		__proto__.showAge=function(){
+
+		}
+	}
+	Person.prototype.showName = function(){
+
+	}
+	console.log("1",Person.prototype)
+	console.log("1",Person.prototype.constructor===Person)
+	console.log("1",Person.prototype.__proto__)
+	//指向
+	console.log(Person.prototype.__proto__===Object.prototype)
+
+	console.log("2",Object.prototype)
+	console.log("2",Object.prototype.constructor==Object)
+	console.log("2",Object.prototype.__proto__)
+	//指向
+	console.log(Object.prototype.__proto__===null)
+</script>
+</html>

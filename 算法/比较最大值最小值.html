@@ -7,4 +7,35 @@
 <body>
 	
 </body>
+<script type="text/javascript">
+	//1,调用Math方法比较
+	var arr = [4,1,2,3,4,5,44,444,-1,25,8,7,45]
+	var sole = Math.max(...arr)
+	var sole2 = Math.min(...arr)
+	console.log(sole)
+	console.log(sole2)
+	//2循环
+	var max=0;
+		for(let q=0;q<arr.length;q++){
+			if(arr[q]>=max){
+				max = arr[q]
+			}
+		}
+	console.log(max)
+	var min=999999;
+		for(let q=0;q<arr.length;q++){
+			if(arr[q]<=min){
+				min = arr[q]
+			}
+		}
+	console.log(min)
+	var obj={}
+	for(let i = 0;i<arr.length;i++){
+		if(!obj[arr[i]]){
+			obj[arr[i]]=arr[i];
+		}
+	}
+	console.log(obj)
+
+</script>
 </html>

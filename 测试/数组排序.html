@@ -13,23 +13,24 @@
 		function bbb(arr){
 			 var aro =[] 
 			for (var i=0;i<arr.length;i++){
-				// var qqq =0
-				// for(var j=0;j<aro.length;j++){
-				// 	if(arr[i] == aro[j]){
-				// 		qqq=1;
-				// 		break
-				// 	}
-				// }
-				// if(!qqq){
-				// 	aro.push(arr[i]);
-				// }
-				// 在aor数组中查找arr数组的第i项，若有相同项返回下标，若无相同项返回-1
-				if(aro.indexOf(arr[i]) == -1){
+				var qqq =0
+				for(var j=0;j<aro.length;j++){
+					if(arr[i] == aro[j]){
+						qqq=1;
+						break
+					}
+				}
+				if(!qqq){
 					aro.push(arr[i]);
 				}
+				// 在aor数组中查找arr数组的第i项，若有相同项返回下标，若无相同项返回-1
+				// if(aro.indexOf(arr[i]) == -1){
+				// 	aro.push(arr[i]);
+				// }
 			}
 			return aro
 		}
+		console.log(bbb(arr))
 		console.log(
 			$.each(arr,function(index,value){})
 
