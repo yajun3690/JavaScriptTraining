@@ -11,19 +11,30 @@
 	function Person(name,age){
 		this.name = name;
 		this.age = age;
-		__proto__.showAge=function(){
-
-		}
 	}
-	Person.prototype.showName = function(){
-
+	var __proto__ = Person.prototype
+	__proto__.showName = function(){
+		console.log('I am'+this.name)
 	}
+	__proto__.showAge=function(){
+		console.log("I am"+this.age+'years old')
+	}
+	__proto__.LEGS=2;
+	// var p1 = Person('leo',18)
+	// console.log(p1)
+	// console.log(window)
+	var p1 = new Person('Tom',18)
+	console.log(p1)
+	p1.showAge()
+	p1.showName()
+	console.log(Person)
 	console.log("1",Person.prototype)
 	console.log("1",Person.prototype.constructor===Person)
 	console.log("1",Person.prototype.__proto__)
 	//指向
 	console.log(Person.prototype.__proto__===Object.prototype)
 
+	console.log(Object)
 	console.log("2",Object.prototype)
 	console.log("2",Object.prototype.constructor==Object)
 	console.log("2",Object.prototype.__proto__)

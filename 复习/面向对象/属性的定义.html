@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function Person(name,age){
+		this.name = name;
+		this.age = age
+	}
+	var __proto__ =Person.prototype
+	__proto__.showName = function(){
+		console.log('I am'+this.name)
+	}
+	__proto__.showAge=function(){
+		console.log("I am"+this.age+'years old')
+	}
+	var p1 = new Person('Tom',18)
+	// p1.leg=2
+	// for(attr in p1){
+	// 	console.log(attr,p1[attr])
+	// }
+	//定义后的实例方法默认不可枚举，不可更改，不可删除
+	// Object.defineProperty(p1,'leg',{
+	// 	value:2
+	// })
+	Object.defineProperty(p1,'leg',{
+		value:2,
+		enumerable:false, //可枚举
+		writable:true, //可修改
+		configurable:true //可删除
+	})
+	Object.defineProperties(p1,{
+		leg3:{
+			value:2,
+			enumerable:true, //可枚举
+			writable:true, //可修改
+			configurable:true //可删除}
+		},
+		leg2:{
+			value:2,
+			enumerable:true, //可枚举
+			writable:true, //可修改
+			configurable:true //可删除}
+		},
+	})
+	console.log(Object.getOwnPropertyDescriptor(p1,'leg') )
+	p1.leg=4
+	// delete p1.leg
+	console.log(p1)
+	console.log(p1.leg)
+	console.log(delete p1.leg)
+	for(attr in p1){
+		console.log(attr,p1[attr])
+	}
+</script>
+</html>
