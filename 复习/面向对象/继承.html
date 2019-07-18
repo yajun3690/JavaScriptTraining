@@ -8,11 +8,11 @@
 	
 </body>
 <script type="text/javascript">
-	function Teacher(name,gae){
+	function Teacher(name,age){
 		this.name = name;
 		this.age = age;
 	}
-	var __proto__ = Person.prototype
+	var __proto__ = Teacher.prototype
 	__proto__.showName = function(){
 		console.log('I am'+this.name)
 	}

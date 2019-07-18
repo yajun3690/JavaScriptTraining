@@ -8,11 +8,17 @@
 	
 </body>
 <script type="text/javascript">
-	function show(){
-		console.log(this)
+	function show(n1,n2){
+		console.log(this,n1,n2)
 	}
-	// show();//window
+	show(1,2);//window
 	// new show();//show的实例
-	show.call();
+	//传入null，表示什么都不传，this指向还是window
+	show.call({name:'tome'},2,3);
+	show.apply({name:"tome"},[1,23]);//第二个参数接收一个数组
+	show.bind({name:'tom'})(1,2);//bind会返回一个函数，不会立即执行
+	show.call(null,2,3);
+	show.apply(null,[1,23]);//第二个参数接收一个数组
+	show.bind(null)(1,2);//bind会返回一个函数，不会立即执行
 </script>
 </html>

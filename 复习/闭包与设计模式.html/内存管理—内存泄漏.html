@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box1{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+</body>
+<script type="text/javascript">
+	function fn(){
+			var n = 1;
+			console.log(n);
+	}
+	fn();
+	//闭包的缺点 1:始终占据在内存中
+	//			2：容易导致内存泄漏
+
+	var obj = {
+		name:'tom'
+	}
+	console.log(obj)//读
+	obj.name = 'leo'//写
+	var obj1 = {
+		name:'tom'
+	}
+	var obj2 = {
+		name:'leo'
+	}
+	obj1.p1 = obj2
+	obj2.p1 = obj1
+	console.log(obj1)
+	//垃圾回收策略 1:标记清除 每隔一段时间自动搜索未使用的对象自动清除 
+	//2：引用计数 未被引用，则被清除 循环引用时，清除不了。
+
+	//内存泄漏举例
+	bindEvent();
+	function bindEvent(){
+		var oBox = document.getElementById('box1')
+		var id = oBox.id
+		oBox.onclick = function(){
+			alert(id)
+		}
+		oBox = null
+	}
+</script>
+</html>

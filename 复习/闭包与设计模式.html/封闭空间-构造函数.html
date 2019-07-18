@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	;(function(w){
+		function Teacher(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Teacher.prototype = {
+			constructor:Teacher,
+			showName:function(){
+				console.log('I am '+this.name)
+			},
+			showAge:function(){
+			console.log("I am "+this.age+' years old')
+			}
+		}
+		console.log(Teacher.prototype)
+		w.Teacher = Teacher
+	})(window);
+	;(function(w){
+		function Student(name,age,major){
+			Teacher.call(this,name,age)
+			this.major = major;
+		}
+		var __proto__ = Student.prototype = Object.create(Teacher.prototype);
+		Object.defineProperty(Student.prototype,'constructor',{
+			value:Student,
+		})
+		__proto__.showMajor=function(){
+			console.log("I am from "+this.major)
+		}	
+		console.log(Student.prototype)
+		console.log(Student.prototype.__proto__)
+		w.Student = Student
+	})(window);
+	var t1 = new Teacher('tom',18)
+	var s1 = new Student('leo',18,'computer')
+	s1.showName()
+	console.log(t1)
+	console.log(s1)
+</script>
+</html>

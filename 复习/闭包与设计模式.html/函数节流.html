@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var i = 0
+	function throlite(fn,wait){
+		var lastTime = Date.now();
+		return function(){
+			var currentTime = Date.now()
+			if(currentTime-lastTime>wait){
+				fn();
+				lastTime = Date.now();
+			}
+		}
+	}
+	window.onscroll = throlite(function(){
+		console.log(i++)
+	},1000)
+</script>
+</html>

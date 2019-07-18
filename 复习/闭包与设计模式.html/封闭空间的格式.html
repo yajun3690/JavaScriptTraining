@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		li{
+			float: left;
+			width: 100px;
+			height: 50px;
+			background: red;
+			margin-right: 20px;
+		}
+		.active{
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script type="text/javascript">
+	var oli = document.getElementsByTagName('li')
+//1,遍历
+	// for(var i = 0;i<oli.length;i++){
+	// 	oli[i].onmouseover = function(){
+	// 		for(var j = 0;j<oli.length;j++){
+	// 			oli[j].className = ''
+	// 		}
+	// 		this.className = 'active'
+	// 	}
+		
+	// }
+//2，存值 绑定index
+	// lastIndex = 0;
+	// for(var i = 0;i<oli.length;i++){
+	// 	oli[i].index=i
+	// 	oli[i].onmouseover = function(){
+	// 		oli[lastIndex].className = ''
+	// 		this.className = 'active'
+	// 		lastIndex = this.index;
+	// 	}
+		
+	// }
+//3,存值 let块级作用域
+	// lastIndex = 0;
+	// for(let i = 0;i<oli.length;i++){
+	// 	oli[i].onmouseover = function(){
+	// 		oli[lastIndex].className = ''
+	// 		this.className = 'active'
+	// 		lastIndex = i;
+	// 	}
+	// }
+//4,存值 闭包
+	lastIndex = 0;
+	for(var i = 0;i<oli.length;i++){
+		;(function(i){
+			oli[i].onmouseover = function(){
+				oli[lastIndex].className = ''
+				this.className = 'active'
+				lastIndex = i;
+			}
+		})(i);
+	}
+</script>
+</html>

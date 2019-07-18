@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function Teacher(name,age){
+		this.name = name;
+		this.age = age;
+		console.log('p:::')
+	}
+	var __proto__ = Teacher.prototype
+	__proto__.showName = function(){
+		console.log('I am '+this.name)
+	}
+	__proto__.showAge=function(){
+		console.log("I am "+this.age+'years old')
+	}
+
+	function Student(name,age,major){
+		// this.name = name;
+		// this.age = age;		
+		Teacher.call(this,name,age)
+		this.major = major;
+	}
+	var __proto__ = Student.prototype = Teacher.prototype
+	//地址的继承，浅拷贝
+	//通过call方法改变子类this指向，改变子类原型链指向，父类也拥有子类属性，同时子类可修改父类属性和方法
+	// __proto__.showName = function(){
+	// 	console.log('I am'+this.name)
+	// }
+	// __proto__.showAge=function(){
+	// 	console.log("I am"+this.age+'years old')
+	// }
+	__proto__.showMajor=function(){
+		console.log("I am from "+this.major)
+	}		
+	var s1 = new Student('tome',18,'computer')
+	var t1 = new Teacher('Teacher',18,'computer')
+	console.log(s1.__proto__)
+	console.log(Teacher.prototype)
+	console.log(Student.prototype)
+	s1.showName();
+	t1.showMajor();
+</script>
+</html>

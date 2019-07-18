@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//
+	// function fn(){
+	// 	var n =1
+	// 	function fn1(){
+	// 		console.log(n)
+	// 	}
+	// 	fn1();
+	// }
+	// fn();
+	function fn(){
+		var n =1
+		add = function(){
+			n++;
+		}
+		return function(){
+			return n
+		}
+	}
+	// console.log(fn()())
+	var result = fn();
+	console.log(result())
+	add();
+	console.log(result())
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function Teacher(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	var __proto__ = Teacher.prototype
+	__proto__.showName = function(){
+		console.log('I am '+this.name)
+	}
+	// __proto__.showAge=function(){
+	// 	console.log("I am "+this.age+'years old')
+	// }
+	//默认不可枚举，不可遍历，不可修改
+	Object.defineProperty(Teacher.prototype,'showAge',{
+		value:function(){
+			console.log("I am "+this.age+' years old')
+		},
+		enumerable:true, //可枚举
+		writable:true, //可修改
+		configurable:true //可删除}
+	})
+	function Student(name,age,major){
+		// this.name = name;
+		// this.age = age;		
+		Teacher.call(this,name,age)
+		this.major = major;
+	}
+	var __proto__ = Student.prototype
+	//不可枚举的父类属性，子类拿不到
+	for(var attr in Teacher.prototype){
+		__proto__[attr]=Teacher.prototype[attr]		
+	}
+	__proto__.showMajor=function(){
+		console.log("I am from "+this.major)
+	}		
+	var s1 = new Student('tome',18,'computer')
+	var t1 = new Teacher('Teacher',18,'computer')
+	console.log(s1.__proto__)
+	console.log(Teacher.prototype)
+	console.log(Student.prototype)
+	s1.showAge();
+	t1.showMajor();
+</script>
+</html>
