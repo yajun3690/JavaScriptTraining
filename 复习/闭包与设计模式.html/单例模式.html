@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	;(function(w){
+		var king2 = null;
+		function King(name){
+			//1，罗列
+			if(!king2){
+				this.name = name;
+				this.id = Math.random();	
+				king2 = this
+				
+			}
+			return king2;
+			//2,初始化
+
+			//3,绑定事件
+		}
+		King.prototype = {
+			constructor:King,
+			work:function(){
+				console.log(this.name+this.id+'有本早奏，无事退朝......')
+			}
+		}
+		w.King =King
+	})(window);
+	for(var i=0;i<=5;i++){
+		new King('康熙').work();
+
+	}
+</script>
+</html>
