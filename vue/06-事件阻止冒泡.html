@@ -34,7 +34,7 @@
 <body>
 	<div id="app">
 		<div class="large" @click='clickLarge()'>
-			<div class="big" @click='clickLarge()'>
+			<div class="big" @click='clickBig($event)'>
 				<div class="small" @click='clickSmall($event)' >
 					<a  @click.stop='goShopping($event)' href="http://www.baidu.com">去百度</a>
 					<a  @click.prevent.stop='go()' href="http://www.baidu.com">阻止</a>
@@ -54,7 +54,8 @@
 			clickLarge(){
 				console.log('clickLarge')
 			},
-			clickBig(){
+			clickBig(event){
+				event.stopPropagation()
 				console.log('clickBig')
 			},
 			clickSmall(event){
