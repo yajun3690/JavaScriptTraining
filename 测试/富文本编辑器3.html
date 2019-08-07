@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor demo</title>
+</head>
+<body>
+    <div id="editor">
+        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+    </div>
+
+    <!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="./wangEditor.min.js"></script>
+    <script type="text/javascript">
+        function loadEditor(){ 
+            var E = window.wangEditor; var editor = new E('#editor'); //上传视频 
+            editor.customConfig.uploadImgShowBase64 = true 
+            editor.customConfig.customUploadVideo = function (files, obj) { 
+                var date = new FormData(); 
+                date.append("file", files[0]); 
+                $.ajax({ 
+                    type: "POST",
+                    url: "../../import/upload", 
+                    data: date, 
+                    dataType: 'json',
+                    async: false, 
+                    cache: false,
+                    contentType: false,
+                    processData: false, 
+                    success: function (result) { 
+                        obj.callback(result.data); 
+                    } 
+                });
+            }; 
+            editor.create();//创建富文本
+        }
+        loadEditor();
+    </script>
+</body>
+</html>

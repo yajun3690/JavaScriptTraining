@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wangEditor demo</title>
+</head>
+<body>
+    <div id="editor">
+        
+    </div>
+
+    <!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+    <script type="text/javascript" src="./wangEditor.js"></script>
+    <script type="text/javascript">
+            var E = window.wangEditor; var editor = new E('#editor'); //上传视频 
+            // console.log(editor.customConfig)
+            editor.customConfig.uploadImgShowBase64 = true 
+            editor.customConfig.showLinkImg = false//网络图片的显示隐藏
+            editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024//限制图片大小，默认5M，目前3M
+            editor.customConfig.uploadImgMaxLength = 5 //限制一次传的图片数，默认10000，目前为5
+            // editor.customConfig.uploadImgServer = '/upload'
+            editor.create();//创建富文本
+            // console.log(editor)
+            console.log(E)
+    </script>
+</body>
+</html>
