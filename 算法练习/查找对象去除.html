@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>查找对象去除</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	let data1 = {
+		'a':'cc'
+	}
+	let dataList = [
+		{
+			'b':'ssq'
+		},
+		{
+			'a':'cc'
+		}
+	]
+	for(let attr in dataList){
+		if(JSON.stringify(dataList[attr])==JSON.stringify(data1)){
+			dataList.splice(attr,1)
+		}
+	}	
+	console.log(dataList)
+</script>
+</html>
