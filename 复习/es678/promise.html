@@ -10,14 +10,14 @@
 <script type="text/javascript">
 	let promise = new Promise((resolve,reject)=>{
 		//模拟异步请求成功
-		resolve('hello');
+		// resolve('hello');
 		//模拟异步请求失败
 		reject('出错了');		
 	})
-	.then((resolved)=>{
-		console.log(resolved)
-	},(rejected)=>{
-		console.log(rejected)
+	.then((result)=>{
+		console.log(result)
+	},(ccc)=>{
+		console.log('!!',ccc)
 
 	})
 	console.log(promise)
